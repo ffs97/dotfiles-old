@@ -1,0 +1,237 @@
+[colors]
+sixty = #aa000000
+thirty = #333333
+ten = #222222
+
+foreground = #ffffff
+foreground-alt = #ffffff
+alert = #d68787
+
+##############################
+##############################
+
+[bar/bot]
+bottom = true
+width = 100%
+height = 25
+offset-x = 0
+offset-y = 0
+
+border-top = 3
+border-top-color = ${colors.thirty}
+background = ${colors.sixty}
+foreground = ${colors.foreground}
+
+spacing = 0
+padding-left = 0
+padding-right = 1
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = DejaVuSansMonoNerdFont:size=9;1
+
+modules-left = menu0 i3
+modules-right = xkeyboard volume wlan battery date
+
+tray-position = right
+tray-padding = 0
+tray-background = #60000000
+
+line-size = 0
+
+##############################
+##############################
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+
+# Mode Label
+label-mode-foreground = #ffffff
+label-mode-background = #707a5a
+label-mode-padding = 2
+
+# Workspace Label
+strip-wsnumbers = true
+
+ws-icon-0 = 1: Work;
+ws-icon-1 = 2: LaTeX;
+ws-icon-2 = 3: Code;{}
+ws-icon-3 = 4: Terminal;
+ws-icon-4 = 5: Nautilus;
+ws-icon-5 = 6: Music;♫
+ws-icon-6 = 7: Chill;☕
+ws-icon-7 = 8: Extra;★
+ws-icon-default = 
+
+label-focused-font = 1
+label-unfocused-font = 1
+label-urgent-font = 1
+label-visible-font = 1
+
+label-focused-padding = 3
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.thirty}
+
+label-unfocused-padding = 3
+
+label-urgent = 
+label-urgent-padding = 3
+label-urgent-foreground = ${colors.alert}
+
+label-visible = 
+label-visible-foreground = ${colors.thirty}
+label-visible-padding = 3
+
+##############################
+##############################
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = %B %d
+
+time = %l:%M %p
+
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.ten}
+
+label = %date%, %time%
+
+margin-right = 5
+
+format-padding = 3
+format-background = ${colors.thirty}
+format-foreground = ${colors.foreground-alt}
+
+##############################
+##############################
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = AC
+full-at = 100
+
+format-charging = "<animation-charging> <label-charging>% "
+format-discharging = "<ramp-capacity> <label-discharging>% "
+
+format-charging-padding = 1
+format-discharging-padding = 1
+
+label-full =
+label-charging = %percentage%
+label-discharging = %percentage%
+
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.alert}
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${colors.alert}
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+##############################
+##############################
+
+[module/volume]
+type = internal/volume
+master-mixer = Master
+
+format-volume = <label-volume>
+; or <bar-volume>
+format-volume-padding = 1
+
+label-volume =  %percentage%
+label-volume-foreground = ${root.foreground}
+label-muted =  0%
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator-font = 2
+bar-volume-indicator-foreground = #ff
+bar-volume-fill = =
+bar-volume-indicator = ]
+bar-volume-empty = 
+bar-volume-fill-font = 2
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = 
+
+##############################
+##############################
+
+[module/wlan]
+type = internal/network
+interface = wlp8s0
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = #9f78e1
+label-connected = %essid%
+format-connected-padding = 1
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 =  
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+##############################
+##############################
+
+[module/xkeyboard]
+type = internal/xkeyboard
+
+label-layout = 
+
+label-indicator-foreground = #ffffff
+label-indicator-background = #707a5a
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+
+##############################
+##############################
+
+[module/menu0]
+type = custom/menu
+
+format = <label-toggle> <menu>
+format-underline = ${colors.ten}
+format-padding = 2
+expand-right = true
+
+menu-background = #ffffff
+menu-0-0 = Shutdown
+menu-0-0-exec = shutdown now
+menu-0-1 = Restart
+menu-0-1-exec = shutdown -r now
+ 
+label-open =  
+label-close = 
+label-separator = " | "

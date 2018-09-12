@@ -1,0 +1,303 @@
+set shell=/bin/bash
+set nocompatible
+filetype off
+
+" Vundle Plugins ###################################################
+
+set rtp+=~/.vim/bundle/Vundle.vim
+
+let g:Tex_PackagesMenu = 0
+
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-latex/vim-latex'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'Yggdroot/indentLine'
+Plugin 'godlygeek/tabular'
+"Plugin 'junegunn/goyo.vim'
+"Plugin 'plasticboy/vim-markdown'
+Plugin 'gabrielelana/vim-markdown'
+
+call vundle#end()
+
+" Indent Settings ##################################################
+
+filetype plugin indent on
+syntax on
+
+set autoindent
+
+set tabstop=4
+set shiftwidth=4
+
+set smarttab
+set noexpandtab
+
+%retab!
+
+set clipboard=unnamedplus
+
+" Vim History ######################################################
+
+set viminfo+=:500
+
+" Word Wrap Settings ###############################################
+
+set wrap linebreak nolist breakindent
+
+" Change colorscheme ###############################################
+
+if has("gui_running")
+	colorscheme fatdark
+else
+	colorscheme desert
+endif
+set guioptions-=r
+set guioptions-=m
+set guioptions-=L
+set guioptions-=T
+
+set linespace=3
+
+set cursorline
+
+" Change directory on reading a buffer #############################
+
+autocmd BufReadPost * :lchdir %:p:h
+autocmd BufReadPost tex,latex,plaintex,markdown,text  :set spell spelllang=en_us
+autocmd BufEnter * :lchdir %:p:h
+
+" Show relative line numbers #######################################
+
+set number
+
+" Custom Keymappings ###############################################
+
+" Tabs handling
+nmap <C-t> :tabnew<CR>
+nmap <A-Left> :tabprevious<CR>
+nmap <A-Right> :tabnext<CR>
+imap <A-Left> <ESC>:tabprev<CR>a<right>
+imap <A-Right> <ESC>:tabnext<CR>a<right>
+
+" Closing Buffers
+nmap <C-w> :bd<CR>
+nmap <A-w> :bd!<CR>
+
+" Saving Buffers
+nmap <C-s> :w!<CR>
+imap <C-s> <C-o>:w!<CR>
+
+" Word deletion
+imap <C-BS> <C-w>
+imap <C-Del> <C-o>dw
+
+" Restore Buffers
+nmap <F5> :tab ball<CR>
+
+" Selection
+nmap <S-Up> v<Up>
+nmap <S-Down> v<Down>
+nmap <S-Left> v<Left>
+nmap <S-Right> v<Right>
+vmap <S-Up> <Up>
+vmap <S-Down> <Down>
+vmap <S-Left> <Left>
+vmap <S-Right> <Right>
+nmap <C-a> ggVG
+imap <S-Right> <C-o>v<Right>
+imap <S-Left> <ESC>v<Left>
+imap <S-Up> <ESC>v<Up>
+imap <S-Down> <C-o>v<Down>
+imap <S-kHome> <C-o>v^
+imap <S-kEnd> <C-o>v$<Left>
+nmap <S-kHome> v^
+nmap <S-kEnd> v$
+inoremap <kHome> <C-o>^
+nnoremap <kHome> ^
+
+" Copy, paste and cut
+imap <C-v> <ESC>pi<Right>
+nmap <C-d> "ayy"ap$
+imap <C-d> <ESC>"ayy<ESC>"ap`^i
+imap <C-x> <C-o>dd
+imap <C-c> <C-o>yy
+vmap <C-d> "ay`>"ap
+
+" Comments
+imap <C-q> <ESC>V\cii<End>
+nmap <C-q> V\ci
+vmap <C-q> \ci
+
+" Search and Replace
+vmap <C-k> y:%s/<c-r>"//g<left><left>
+vmap <C-s> y/<c-r>"
+nnoremap <F3> :set hlsearch!<CR>
+
+" Undo/Redo
+imap <C-z> <C-o>u
+imap <A-z> <C-o><C-r>
+
+" Moving Lines
+imap <A-Up> <ESC>dd<Up><Up>pi
+imap <A-Down> <ESC>ddpi
+nmap <A-Up> dd<Up><Up>pi
+nmap <A-Down> ddpi
+
+" Scrolling
+imap <C-Up> <C-o><C-y>
+imap <C-Down> <C-o><C-e>
+nmap <C-Up> <C-y>
+nmap <C-Down> <C-e>
+
+" Justify
+ru macros/justify.vim
+vmap <C-j> _j
+
+" Source files
+nmap <A-s> :w<CR>:source %<CR>
+imap <A-s> <C-o>:w<CR><C-o>:source %<CR>
+
+" Center
+"With Dashes
+nnoremap \ccd :set expandtab<CR>:set textwidth=1000<CR>:center 80<CR>hhv0r-A<space><esc>40A-<esc>d80<bar>:set textwidth=80<cr>:set noexpandtab<cr>
+"With Hashes
+nnoremap \cch :set expandtab<CR>:set textwidth=1000<CR>:center 80<CR>hhv0r#A<space><esc>40A#<esc>d80<bar>:set textwidth=80<cr>:set noexpandtab<cr>
+"With Spaces
+nnoremap \ccs :set expandtab<CR>:set textwidth=1000<CR>:center 80<CR>hhv0r<space>:set textwidth=80<cr>:set noexpandtab<cr>
+"With Underscores
+nnoremap \ccu :set expandtab<CR>:set textwidth=1000<CR>:center 80<CR>hhv0r_A<space><esc>40A_<esc>d80<bar>:set textwidth=80<cr>:set noexpandtab<cr>
+
+" Separation Lines
+imap <A-s> <esc>o<esc>80A-<esc>o
+imap <A-d> <esc>o<esc>80A–<esc>o
+
+" NERD Tree
+nnoremap \nd :NERDTree<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
+
+" Jumping
+imap <C-kend> <esc>G$A
+imap <C-khome> <esc>gg0A
+
+" vim-latex settings ###############################################
+
+let g:tex_flavor='latex:'
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_FoldedEnvironments="verbatim,comment,eq,gather,align,figure,table,thebibliography,keywords,abstract,titlepage,question},qsection},qsubsection},qpart},qproof},qcase},algo},ssection},ssubsection},sssubsection},spart},sproof},scase},algorithm},rsection},rsubsection},longtable},heading},subheading},subsubheading},psection},psubsection},pssubsection}"
+let g:Tex_CompileRule_pdf='pdflatex -interaction=batchmode -file-line-error-style $*'
+
+let g:Tex_Env_question="\\begin{question}\<CR>\<CR><++>\<CR>\<CR>\\end{question}<++>"
+let g:Tex_Env_qsection="\\begin{qsection}{<++>}\<CR>\<CR><++>\<CR>\<CR>\\end{qsection}<++>"
+let g:Tex_Env_qpart="\\begin{qpart}{<++>}\<CR>\<CR><++>\<CR>\<CR>\\end{qpart}<++>"
+let g:Tex_Env_qsubsection="\\begin{qsubsection}{<++>}\<CR>\<CR><++>\<CR>\<CR>\\end{qsubsection}<++>"
+let g:Tex_Env_qcase="\\begin{qcase}{<++>}{<++>}\<CR><++>\<CR>\\end{qcase}<++>"
+let g:Tex_Env_qproof="\\begin{qproof}{<++>}\<CR><++>\<CR>\\end{qproof}<++>"
+let g:Tex_Env_addmargin="\\begin{addmargin}{1.5em}\<CR><++>\<CR>\\end{addmargin}<++>"
+let g:Tex_Env_algo="\\begin{algo}[0.9\\textwidth]{<++>}\<CR>\<CR><++>\<CR>\<CR>\\end{algo}<++>"
+let g:Tex_Env_heading="\\begin{heading}{<++>}{<++>}{<++>}\<CR>\<CR><++>\<CR>\<CR>\\end{heading}<++>"
+let g:Tex_Env_subheading="\\begin{subheading}{<++>}{<++>}{<++>}\<CR>\<CR><++>\<CR>\<CR>\\end{subheading}<++>"
+let g:Tex_Env_subsubheading="\\begin{subsubheading}{<++>}{<++>}{<++>}\<CR><++>\<CR>\\end{subsubheading}<++>"
+
+let g:Tex_Env_ssection="\\begin{ssection}{<++>}\<CR>\<CR><++>\<CR>\<CR>\\end{ssection}<++>"
+let g:Tex_Env_ssubsection="\\begin{ssubsection}{<++>}\<CR>\<CR><++>\<CR>\<CR>\\end{ssubsection}<++>"
+let g:Tex_Env_sssubsection="\\begin{sssubsection}{<++>}\<CR>\<CR><++>\<CR>\<CR>\\end{sssubsection}<++>"
+
+let g:Tex_Env_psection="\\begin{psection}{<++>}\<CR>\<CR><++>\<CR>\<CR>\\end{psection}<++>"
+let g:Tex_Env_psubsection="\\begin{psubsection}{<++>}\<CR>\<CR><++>\<CR>\<CR>\\end{psubsection}<++>"
+let g:Tex_Env_pssubsection="\\begin{pssubsection}{<++>}\<CR>\<CR><++>\<CR>\<CR>\\end{pssubsection}<++>"
+
+set grepprg=grep\ -nH\ $*
+
+let g:tex_conceal = ""
+
+imap <A-r> <C-o>:w<CR><C-o>:!xelatex -interaction=batchmode -file-line-error-style %<CR><CR>
+nmap <A-r> :w<CR>:!xelatex -interaction=batchmode -file-line-error-style %<CR><CR>
+imap <A-j> <C-j>
+
+" Text and markdown settings #######################################
+
+autocmd FileType text set textwidth=80
+autocmd FileType markdown set textwidth=80
+
+" Set font and size ################################################
+
+set guifont=DejaVuSansMono\ Nerd\ Font\ Mono\ 9
+set encoding=utf8
+
+" Set airline theme and settings ###################################
+
+let g:airline#extensions#tabline#enabled = 1
+
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+
+set laststatus=2
+set ttimeoutlen=51
+
+let g:airline_theme = 'fatair'
+
+let g:airline_right_alt_sep = ' '
+let g:airline_right_sep = ' '
+let g:airline_left_alt_sep= ' '
+let g:airline_left_sep = ' '
+
+" DevIcons Settings ################################################
+
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+	exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+	exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+autocmd FileType * set conceallevel=0
+nmap <F6> :set conceallevel=0<CR>
+
+set numberwidth=5
+set lsp=4
+
+" Markdown #########################################################
+
+let g:markdown_enable_conceal = 1
+
+" Zooming ##########################################################
+
+let s:pattern = '^\(.* \)\([1-9][0-9]*\)$'
+let s:minfontsize = 6
+let s:maxfontsize = 16
+function! AdjustFontSize(amount)
+	if has("gui_gtk2") && has("gui_running")
+		let fontname = substitute(&guifont, s:pattern, '\1', '')
+		let cursize = substitute(&guifont, s:pattern, '\2', '')
+		let newsize = cursize + a:amount
+		if (newsize >= s:minfontsize) && (newsize <= s:maxfontsize)
+			let newfont = fontname . newsize
+			let &guifont = newfont
+		endif
+	else
+		echoerr "You need to run the GTK2 version of Vim to use this function."
+	endif
+endfunction
+
+function! LargerFont()
+	call AdjustFontSize(1)
+endfunction
+command! LargerFont call LargerFont()
+
+function! SmallerFont()
+	call AdjustFontSize(-1)
+endfunction
+command! SmallerFont call SmallerFont()

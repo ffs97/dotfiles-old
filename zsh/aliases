@@ -1,0 +1,25 @@
+# Pacman controls
+alias pi="sudo pacman -S --noconfirm"
+alias pd="sudo pacman -R --noconfirm"
+
+# Ranger
+alias r="ranger"
+
+# Listing
+alias l="$UTILS/dls"
+
+alias lt="exa -aT --git --level 3"
+alias ltl="exa -lhT --git --level 3"
+
+# Moving accross Directories
+alias iitk="cd $HOME/iitk"
+alias projects="cd $HOME/projects"
+alias ml="cd $HOME/projects/machine-learning"
+
+alias dots="cd $DOTFILES"
+alias utils="cd $UTILS"
+
+# Terminology
+alias tp="typop"
+alias tc="tycat"
+alias tq="tyq"

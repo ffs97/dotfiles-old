@@ -1,0 +1,9 @@
+{
+    "workbench.colorTheme": "Github",
+    "window.zoomLevel": 0,
+    "terminal.integrated.fontSize": 15,
+    "terminal.integrated.fontFamily": "Ubuntu Mono Powerline",
+    "editor.fontSize": 13,
+    "editor.fontFamily": "'IBM Plex Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.formatOnSave": true
+}

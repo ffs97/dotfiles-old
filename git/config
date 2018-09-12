@@ -1,0 +1,7 @@
+[user]
+	email = g.singh6343@gmail.com
+	name = Gurpreet Singh
+[credential]
+	helper = cache --timeout=3600
+[push]
+	default = matching

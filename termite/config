@@ -1,0 +1,67 @@
+[options]
+font = Ubuntu Mono Powerline 12
+font = IBM Plex Mono Medium 10
+allow_bold = true
+allow_bold = false
+
+browser = xdg-open
+clickable_url = true
+
+dynamic_title = true
+
+search_wrap = true
+
+scroll_on_keystroke = true
+scroll_on_output = false
+
+urgent_on_bell = true
+
+scrollback_lines = -1
+
+cursor_blink = false
+
+[colors]
+
+background = #252c31
+ 
+cursor = #d8dee9
+cursor_foreground = #2e3440
+
+foreground = #d8dee9
+foreground_bold = #d8dee9
+
+highlight = #4c566a
+
+color0  = #3b4252
+color1  = #bf616a
+color2  = #a3be8c
+color3  = #ebcb8b
+color4  = #81a1c1
+color5  = #b48ead
+color6  = #88c0d0
+color7  = #e5e9f0
+color8  = #4c566a
+color9  = #bf616a
+color10 = #a3be8c
+color12 = #aaaadb
+color12 = #81a1c1
+color13 = #b48ead
+color14 = #8fbcbb
+color15 = #eceff4
+
+color0  = rgb(000, 000, 000)
+color1  = rgb(195, 115, 114)
+color2  = rgb(114, 195, 115)
+color3  = rgb(194, 195, 114)
+color4  = rgb(115, 114, 195)
+color5  = rgb(195, 114, 194)
+color6  = rgb(114, 194, 195)
+color7  = rgb(217, 217, 217)
+color8  = rgb(120, 170, 180)
+color9  = rgb(219, 170, 170)
+color10 = rgb(170, 219, 170)
+color11 = rgb(218, 219, 170)
+color12 = rgb(170, 170, 219)
+color13 = rgb(219, 170, 218)
+color14 = rgb(170, 218, 219)
+color15 = rgb(255, 255, 255)
