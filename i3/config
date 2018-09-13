@@ -12,7 +12,7 @@ floating_modifier $mod
 set $term terminology
 
 # start a terminal
- bindsym $mod+t exec $nsi $term
+bindsym $mod+t exec $nsi $term
 
 # kill focused window
 bindsym $mod+q kill
@@ -189,17 +189,6 @@ bindsym $mod+shift+g exec "google-chrome-stable --incognito"
 # Assigning Workspaces to Classes
 assign [class="Code"] $w8
 
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 0 +1% +2%"
-bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 0 -1% -2%"
-
-# Show pavucontrol
-bindsym $mod+x exec $nsi pavucontrol
-
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 5
-bindsym XF86MonBrightnessDown exec light -U 5
-
 # Power Settings
 mode "System" {
     bindsym l exec --no-startup-id i3lock, mode "default"
@@ -224,6 +213,17 @@ smart_gaps on
 # Switching Windows
 bindsym Mod1+Tab focus right
 bindsym Mod1+shift+Tab focus left
+
+# Show pavucontrol
+bindsym $mod+x exec $nsi pavucontrol
+
+# Audio Controls
+bindsym XF86AudioRaiseVolume exec "volume set +1 +2"
+bindsym XF86AudioLowerVolume exec "volume set -1 -2"
+
+# Brightness controls
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
 
 # Monitors
 bindsym $mod+Shift+n exec $utils/general/screen/monitor.sh
