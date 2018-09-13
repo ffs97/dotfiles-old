@@ -218,8 +218,8 @@ bindsym Mod1+shift+Tab focus left
 bindsym $mod+x exec $nsi pavucontrol
 
 # Audio Controls
-bindsym XF86AudioRaiseVolume exec "volume set +1 +2"
-bindsym XF86AudioLowerVolume exec "volume set -1 -2"
+bindsym XF86AudioRaiseVolume exec "volume set +1 +1"
+bindsym XF86AudioLowerVolume exec "volume set -1 -1"
 
 # Brightness controls
 bindsym XF86MonBrightnessUp exec light -A 5
