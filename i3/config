@@ -2,7 +2,7 @@ set $mod Mod4
 set $nsi --no-startup-id
 set $utils ~/utilities
 
-font pango:Ubuntu Mono Powerline 11
+font pango:IBM Plex Mono 10
 for_window [class=".*"] title_format "  <span size='smaller' rise='1000'>%title</span>"
 new_float normal 0
 
