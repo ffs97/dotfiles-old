@@ -219,8 +219,8 @@ set grepprg=grep\ -nH\ $*
 
 let g:tex_conceal = ""
 
-imap <A-r> <C-o>:w<CR><C-o>:!xelatex -interaction=batchmode -file-line-error-style %<CR><CR>
-nmap <A-r> :w<CR>:!xelatex -interaction=batchmode -file-line-error-style %<CR><CR>
+imap <A-r> <C-o>:w<CR><C-o>:!lualatex -interaction=batchmode -file-line-error-style %<CR><CR>
+nmap <A-r> :w<CR>:!lualatex -interaction=batchmode -file-line-error-style %<CR><CR>
 imap <A-j> <C-j>
 
 " Text and markdown settings #######################################
@@ -230,7 +230,7 @@ autocmd FileType markdown set textwidth=80
 
 " Set font and size ################################################
 
-set guifont=DejaVuSansMono\ Nerd\ Font\ Mono\ 9
+set guifont=DejaVuSansMono\ Nerd\ Font\ 9
 set encoding=utf8
 
 " Set airline theme and settings ###################################
