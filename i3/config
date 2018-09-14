@@ -232,3 +232,6 @@ bindsym $mod+Shift+j exec i3-msg move workspace to output right
 
 # Launch components
 exec_always "$utils/i3/launch.sh"
+
+bindsym $mod+Shift+Control+Right exec i3-msg "move container to workspace next"
+bindsym $mod+Shift+Control+Left exec i3-msg "move container to workspace prev"
