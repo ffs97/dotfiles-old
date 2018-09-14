@@ -1,0 +1,31 @@
+terminal					=	terminology
+terminal-wmclass			=	terminology
+
+path-iitk					=	~/iitk
+path-books					=	~/books
+path-dropbox				=	~/dropbox
+path-projects				=	~/projects
+path-dotfiles				=	~/dotfiles
+path-documents				=	~/documents
+path-utilities				=	~/utilities
+
+mod							=	Mod4
+
+browser-command				=	google-chrome-stable
+browser-wmclass				=	Google-chrome
+browser-command-incognito	=	google-chrome-stable-incognito
+
+volume-read-command			=	volume get
+volume-increase-command		=	volume set +1
+volume-decrease-command		=	volume set -1
+
+switch-monitor-command		=	switch-monitor
+
+i3-launch-script			=	~/.config/i3/launch.sh
+
+font						=	IBMPlexMono Nerd Font Mono
+font-size					=	10
+
+message-font				=	IBMPlexMono Nerd Font Mono
+
+application-launcher		=	dmenu_extended_run
