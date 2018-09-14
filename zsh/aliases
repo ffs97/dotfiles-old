@@ -5,6 +5,9 @@ alias pd="sudo pacman -R --noconfirm"
 # Ranger
 alias r="ranger"
 
+# LazyGit
+alias lg="lazygit"
+
 # Listing
 alias l="$UTILS/dls"
 
@@ -23,3 +26,10 @@ alias utils="cd $UTILS"
 alias tp="typop"
 alias tc="tycat"
 alias tq="tyq"
+
+# Conda
+alias conda="$SOFTWARES/conda/bin/conda"
+
+# Proxy
+alias proxy=". $UTILITIES/general/proxy/global-proxy"
+alias pipp="$UTILITIES/general/proxy/pip-proxy"
