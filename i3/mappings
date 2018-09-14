@@ -21,7 +21,7 @@ volume-decrease-command		=	volume set -1
 
 switch-monitor-command		=	switch-monitor
 
-i3-launch-script			=	~/.config/i3/launch.sh
+i3-launch-script			=	~/.config/i3/launch
 
 font						=	IBMPlexMono Nerd Font Mono
 font-size					=	10
