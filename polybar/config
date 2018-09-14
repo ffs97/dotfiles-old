@@ -55,14 +55,6 @@ label-mode-padding = 2
 # Workspace Label
 strip-wsnumbers = true
 
-ws-icon-0 = 1: Work;
-ws-icon-1 = 2: LaTeX;
-ws-icon-2 = 3: Code;{}
-ws-icon-3 = 4: Terminal;
-ws-icon-4 = 5: Nautilus;
-ws-icon-5 = 6: Music;♫
-ws-icon-6 = 7: Chill;☕
-ws-icon-7 = 8: Extra;★
 ws-icon-default = 
 
 label-focused-font = 1
@@ -146,34 +138,16 @@ animation-charging-framerate = 750
 ##############################
 
 [module/volume]
-type = internal/volume
-master-mixer = Master
+type = custom/script
 
-format-volume = <label-volume>
-; or <bar-volume>
-format-volume-padding = 1
+exec = volume get
 
-label-volume =  %percentage%
-label-volume-foreground = ${root.foreground}
-label-muted =  0%
+label =  %output%
+tail = true
+interval = 0
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator-font = 2
-bar-volume-indicator-foreground = #ff
-bar-volume-fill = =
-bar-volume-indicator = ]
-bar-volume-empty = 
-bar-volume-fill-font = 2
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = 
+#label-volume =  %percentage%
+#label-muted =  0%
 
 ##############################
 ##############################
