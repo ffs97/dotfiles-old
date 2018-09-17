@@ -1,7 +1,10 @@
-theme			=	Arc-Darker
-icon-theme		=	windows10
-cursor-theme	=	Adwaita
+theme					=	Arc-Darker
+icon-theme				=	windows10
+cursor-theme			=	Adwaita
 
+font					=	IBM Plex Mono Medium
+font-size				=	10
 
-font			=	IBM Plex Mono Medium
-font-size		=	10
+vim-background-color	=	#252c31
+
+termite-padding			=	30px
