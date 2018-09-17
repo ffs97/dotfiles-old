@@ -9,6 +9,7 @@ plugins=(git python pip virtualenv screen)
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan"
 
 export TERM="xterm-256color"
+export LC_ALL="en_US.UTF-8"
 
 # Defining standard paths
 export UTILITIES="$HOME/{{utilities-path}}"
