@@ -1,5 +1,6 @@
 ASSETS_DIR=assets
 SOURCE_DIR=themes
+DESTNN_DIR=$(HOME)/.config/terminology/themes
 
 SRC_EXT=edc
 OBJ_EXT=edj
@@ -25,5 +26,5 @@ clean:
 	rm $(SOURCE_DIR)/*.$(OBJ_EXT)
 
 install: $(OBJS)
-	mkdir -p "$(DESTDIR)/usr/share/terminology/themes"
-	install -Dm644 $^ "$(DESTDIR)/usr/share/terminology/themes"
+	mkdir -p "$(DESTNN_DIR)"
+	install -Dm644 $^ "$(DESTNN_DIR)"
