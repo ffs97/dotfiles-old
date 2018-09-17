@@ -1,5 +1,5 @@
 #vim-main-window {
-    background-color: {{background-color}};
+    background-color: {{vim-background-color}};
 }
 
 VteTerminal, vte-terminal {
