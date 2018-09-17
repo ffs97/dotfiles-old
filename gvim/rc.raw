@@ -56,9 +56,9 @@ set wrap linebreak nolist breakindent
 " Change colorscheme ###############################################
 
 if has("gui_running")
-	colorscheme fatdark
+	colorscheme {{gvim-theme}}
 else
-	colorscheme desert
+	colorscheme {{vim-theme}}
 endif
 set guioptions-=r
 set guioptions-=m
@@ -219,8 +219,8 @@ set grepprg=grep\ -nH\ $*
 
 let g:tex_conceal = ""
 
-imap <A-r> <C-o>:w<CR><C-o>:!lualatex -interaction=batchmode -file-line-error-style %<CR><CR>
-nmap <A-r> :w<CR>:!lualatex -interaction=batchmode -file-line-error-style %<CR><CR>
+imap <A-r> <C-o>:w<CR><C-o>:!{{latex-compiler}} -interaction=batchmode -file-line-error-style %<CR><CR>
+nmap <A-r> :w<CR>:!{{latex-compiler}} -interaction=batchmode -file-line-error-style %<CR><CR>
 imap <A-j> <C-j>
 
 " Text and markdown settings #######################################
@@ -230,7 +230,7 @@ autocmd FileType markdown set textwidth=80
 
 " Set font and size ################################################
 
-set guifont=DejaVuSansMono\ Nerd\ Font\ 9
+set guifont={{font}}\ {{font-size}}
 set encoding=utf8
 
 " Set airline theme and settings ###################################
@@ -246,7 +246,7 @@ let g:airline_symbols.space = "\ua0"
 set laststatus=2
 set ttimeoutlen=51
 
-let g:airline_theme = 'fatair'
+let g:airline_theme = '{{airline-theme}}'
 
 let g:airline_right_alt_sep = ' '
 let g:airline_right_sep = ' '

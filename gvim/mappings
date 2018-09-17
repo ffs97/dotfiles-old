@@ -1,0 +1,8 @@
+load		=	../software.map
+
+font		=	DejaVuSansMono\ Nerd\ Font
+font-size	=	9
+
+gvim-theme	=	fatdark
+vim-theme	=	desert
+airline-theme	=	fatair
