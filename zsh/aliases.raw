@@ -1,0 +1,35 @@
+# Pacman controls
+alias pi="sudo pacman -S --noconfirm"
+alias pd="sudo pacman -R --noconfirm"
+
+# Ranger
+alias r="ranger"
+
+# LazyGit
+alias lg="lazygit"
+
+# Listing
+alias l="$UTILS/dls"
+
+alias lt="exa -aT --git --level 3"
+alias ltl="exa -lhT --git --level 3"
+
+# Moving accross Directories
+alias iitk="cd $HOME/{{iitk-path}}"
+alias projects="cd $HOME/{{projects-path}}"
+alias ml="cd $HOME/{{projects-path}}/machine-learning"
+
+alias dots="cd $DOTFILES"
+alias utils="cd $UTILITIES"
+
+# Terminology
+alias tp="typop"
+alias tc="tycat"
+alias tq="tyq"
+
+# Conda
+alias conda="$SOFTWARE/conda/bin/conda"
+
+# Proxy
+alias proxy=". $UTILITIES/general/proxy/global-proxy"
+alias pipp="$UTILITIES/general/proxy/pip-proxy"

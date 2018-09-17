@@ -1,0 +1,120 @@
+export ZSH=/home/fat-fighter/.oh-my-zsh
+
+ZSH_THEME="bira"
+
+COMPLETION_WAITING_DOTS="true"
+
+plugins=(git python pip virtualenv screen)
+
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan"
+
+export TERM="xterm-256color"
+
+# Defining standard paths
+export UTILITIES="{{utilities-path}}"
+export SOFTWARE="{{software-path}}"
+export DOTFILES="{{dotfiles-path}}"
+
+# Sourcing zsh plugins
+[ -f $HOME/{{fzf-path}} ] && source $HOME/{{fzf-path}}
+[ -f $HOME/{{omz-path}} ] && source $HOME/{{omz-path}}
+[ -f $HOME/{{aliases-path}} ] && source $HOME/{{aliases-path}}
+[ -f $HOME/{{autosuggestions-path}} ] && source $HOME/{{autosuggestions-path}}
+[ -f $HOME/{{syntax-highlighting-path}} ] && source $HOME/{{syntax-highlighting-path}}
+
+# Setting PATH Variable
+export PATH=$(getconf PATH)
+export PATH="$HOME/.local/bin:$PATH"
+## export PATH="/usr/local/cuda-9.0/bin:$PATH"
+
+## export LD_LIBRARY_PATH="/usr/local/cuda-9.1/lib64:/usr/lib/nvidia-384:$LD_LIBRARY_PATH"
+
+if [[ $TERM == xterm-termite ]]; then
+    . /etc/profile.d/vte.sh
+    __vte_osc7
+fi
+
+# Clean file names
+function fr {
+	for file in *; do
+		mv $file `echo $file | sed 's/[ _]/-/g' | tr A-Z a-z`
+	done
+}
+
+# Open local file in chrome app version
+function chromeappf {
+	if ! [[ $1 =~ ^\s*$ ]]; then
+		google-chrome-stable --app=file://` realpath $1 `
+	fi
+}
+
+# Open link in chrome app version
+function chromeapp {
+	if ! [[ $1 =~ ^\s*$ ]]; then
+		google-chrome-stable --app=$1
+	fi
+}
+
+# Compile a latex file
+function ctex {
+	if ! [[ $1 =~ ^\s*$ ]]; then
+		{{latex-compiler}} -interaction=errorstop $1.tex
+		bibtex $1
+		{{latex-compiler}} -interaction=batchmode $1.tex
+		{{latex-compiler}} -interaction=batchmode $1.tex
+	fi
+}
+
+# Initialize a git repo and link with online repo
+function ginit {
+	ln ~/.gitignore ./
+	git init
+	if ! [[ $1 =~ ^\s*$ ]]; then
+		git remote add origin $1
+	fi
+}
+
+# Count number of lines in a file
+function count {
+	if [[ -f $1 ]]; then
+		cat $1 | wc -l
+	else
+		echo "File not found"
+	fi
+}
+
+# Install an AUR repo using pacman
+function pg {
+	git clone https://aur.archlinux.org/$1.git
+	cd $1
+	makepkg -Acs --noconfirm
+	if ls $1*.tar.xz 1> /dev/null 2>&1; then
+		sudo pacman -U --noconfirm $1*.tar.xz
+		cd ../
+		rm -rf $1
+	else
+    	echo "There was some error in downloading the package"
+	fi
+}
+
+# Quick find a folder
+function qcd () {
+	folders=(
+		$HOME/
+		$HOME/{{iitk-path}}
+		$HOME/{{iitk-path}}/sem7
+		$HOME/{{scribes-path}}
+		$HOME/{{projects-path}}
+		$HOME/{{projects-path}}/machine-learning
+		$HOME/{{books-path}}
+		$HOME/{{dropbox-path}}
+		$HOME/{{utilities-path}}
+		$HOME/{{dotfiles-path}}
+	)
+    dir=$(find $folders -type d -not -path '*/\.*' -maxdepth 1 | fzf)
+    cd $dir
+    zle reset-prompt
+}
+
+zle -N qcd_widget qcd
+bindkey "^q" qcd_widget
