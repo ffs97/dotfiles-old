@@ -1,0 +1,7 @@
+#vim-main-window {
+    background-color: {{background-color}};
+}
+
+VteTerminal, vte-terminal {
+	padding: {{termite-padding}};
+}
