@@ -5,35 +5,32 @@
  * Copyright: Dave Davenport
  */
 * {
-    blue:  #0000FF;
-    white: #FFFFFF;
-    black: #000000;
-    grey:  #eeeeee;
-
     spacing: 2;
     background-color: #00000000;
     border-color: #444444FF;
     anchor: north;
     location: center;
-	font: "IBM Plex Mono";
+	background-color: transparent;
+	font: "IBM Plex Mono 10";
 }
 #window {
-    transparency: "screenshot";
-    background-color: #00000000;
+    background-color: #00000033;
     border: 0;
-    padding: 0% 0% 1em 0%;
+    padding: 35% 0 25% 0;
     x-offset: 0;
-    y-offset: -10%;
+    y-offset: -50%;
+	width: 100%;
+	height: 100%;
 }
 #mainbox {
-    padding: 0px;
+    padding: 30px 210px;
     border: 0;
     spacing: 1%;
+	background-color: #252c39dd;
 }
 #message {
-    border: 2px; 
-    padding: 1em; 
-    background-color: @white; 
+    border: 0;
+    padding: 1em;
     text-color: @back;
 }
 #textbox normal {
@@ -43,27 +40,26 @@
 }
 #listview {
     fixed-height: 1;
-    border: 2px;
+    border: 0;
     padding: 1em;
     reverse: false;
 
     columns: 1;
-    background-color: @white; 
 }
 #element {
     border: 0;
-    padding: 2px;
-    highlight: bold ;
+    padding: 7px 10px;
+    highlight: bold;
 }
-#element normal.normal {
-    text-color: #002B36FF;
+#element normal.normal, element alternate.normal {
+    text-color: #A5AAA5FF;
     background-color: #F5F5F500;
 }
-#element normal.urgent {
+#element normal.urgent, element alternate.urgent {
     text-color: #D75F00FF;
     background-color: #F5F5F5FF;
 }
-#element normal.active {
+#element normal.active, element alternate.active {
     text-color: #005F87FF;
     background-color: #F5F5F5FF;
 }
@@ -79,31 +75,19 @@
     text-color: #F5F5F5FF;
     background-color: #005F87FF;
 }
-#element alternate.normal {
-    text-color: #002B36FF;
-    background-color: #D0D0D0FF;
-}
-#element alternate.urgent {
-    text-color: #D75F00FF;
-    background-color: #D0D0D0FF;
-}
-#element alternate.active {
-    text-color: #005F87FF;
-    background-color: #D0D0D0FF;
-}
+
 #scrollbar {
     border: 0;
     padding: 0;
 }
 #inputbar {
     spacing: 0;
-    border: 2px;
+    border: 0;
     padding: 0.5em 1em;
     background-color: @grey;
     index: 0;
 }
 #inputbar normal {
-    foreground-color: #002B36FF;
     background-color: #F5F5F500;
 }
 
@@ -118,10 +102,15 @@
 }
 #inputbar {
     children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+	foreground-color: white;
 }
+
 #textbox-prompt-colon {
     expand:     false;
     str:        ":";
     margin:     0px 0.3em 0em 0em ;
-    text-color: @normal-foreground;
+}
+#prompt, textbox-prompt-colon, entry, case-indicator {
+	font: "IBM Plex Mono 10";
+	text-color: white;
 }
