@@ -17,10 +17,6 @@
         [
             "View Running Processes",
             "htop;"
-        ],
-        [
-            "gVim (root)",
-            "sudo gvim;"
         ]
     ],
     "indicator_alias": "#",
@@ -72,10 +68,10 @@
         "sublime-project"
     ],
     "watch_folders": [
-        "~/iitk",
-        "~/books",
-        "~/pictures",
-        "~/projects"
+        "~/{{iitk-path}}",
+        "~/{{books-path}}",
+        "~/{{pictures-path}}",
+        "~/{{projects-path}}"
     ],
     "webbrowser": "xdg-open"
 }

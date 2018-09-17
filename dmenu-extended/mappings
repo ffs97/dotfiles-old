@@ -1,0 +1,3 @@
+load		=	../paths.map
+
+rofi-theme	=	fatmenu
