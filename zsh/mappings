@@ -1,6 +1,6 @@
 load				=	../paths.map
 
-omz-path			=	.oh-my-zsh
+omz-path			=	.oh-my-zsh/oh-my-zsh.sh
 fzf-path			=	.fzf
 autosuggestions-path		=	.zsh/zsh-autosuggestions
 syntax-highlighting-path	=	.zsh/zsh-syntax-highlighting
