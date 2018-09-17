@@ -5,6 +5,6 @@ fzf-path			=	.fzf
 autosuggestions-path		=	.zsh/zsh-autosuggestions
 syntax-highlighting-path	=	.zsh/zsh-syntax-highlighting
 
-aliases-path			=	~/.zsh_aliases
+aliases-path			=	.zsh_aliases
 
 latex-compiler			=	lualatex

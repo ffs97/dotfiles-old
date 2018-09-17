@@ -9,7 +9,7 @@ alias r="ranger"
 alias lg="lazygit"
 
 # Listing
-alias l="$UTILS/dls"
+alias l="$UTILITIES/dls"
 
 alias lt="exa -aT --git --level 3"
 alias ltl="exa -lhT --git --level 3"

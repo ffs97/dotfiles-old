@@ -11,9 +11,9 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan"
 export TERM="xterm-256color"
 
 # Defining standard paths
-export UTILITIES="{{utilities-path}}"
-export SOFTWARE="{{software-path}}"
-export DOTFILES="{{dotfiles-path}}"
+export UTILITIES="$HOME/{{utilities-path}}"
+export SOFTWARE="$HOME/{{software-path}}"
+export DOTFILES="$HOME/{{dotfiles-path}}"
 
 # Sourcing zsh plugins
 [ -f $HOME/{{fzf-path}} ] && source $HOME/{{fzf-path}}
