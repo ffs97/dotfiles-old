@@ -22,7 +22,7 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'Yggdroot/indentLine'
 Plugin 'godlygeek/tabular'
-"Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/goyo.vim'
 "Plugin 'plasticboy/vim-markdown'
 Plugin 'gabrielelana/vim-markdown'
 

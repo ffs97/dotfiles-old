@@ -57,13 +57,13 @@ function compr {
 
 function lcr {
 	if ! [[ $1 =~ ^\s*$ ]]; then
-		google-chrome --app=file://` realpath $1 `
+		google-chrome-stable --app=file://` realpath $1 `
 	fi
 }
 
 function chromeapp {
 	if ! [[ $1 =~ ^\s*$ ]]; then
-		google-chrome --app=$1
+		google-chrome-stable --app=$1
 	fi
 }
 
@@ -96,9 +96,13 @@ function pg {
 	git clone https://aur.archlinux.org/$1.git
 	cd $1
 	makepkg -Acs --noconfirm
-	sudo pacman -U --noconfirm $1*.tar.xz
-	cd ../
-	rm -rf $1
+	if ls $1*.tar.xz 1> /dev/null 2>&1; then
+		sudo pacman -U --noconfirm $1*.tar.xz
+		cd ../
+		rm -rf $1
+	else
+    	echo "There was some error in downloading the package"
+	fi
 }
 
 function qcd () {

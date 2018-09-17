@@ -1,5 +1,5 @@
 [colors]
-sixty = #aa000000
+sixty = #000000
 thirty = #333333
 ten = #222222
 
@@ -17,7 +17,7 @@ height = 25
 offset-x = 0
 offset-y = 0
 
-border-top = 3
+border-top-size = 3
 border-top-color = ${colors.thirty}
 background = ${colors.sixty}
 foreground = ${colors.foreground}
@@ -145,6 +145,8 @@ exec = volume get
 label =  %output%
 tail = true
 interval = 0
+
+format-padding = 1
 
 #label-volume =  %percentage%
 #label-muted =  0%
