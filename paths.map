@@ -1,5 +1,8 @@
 iitk-path		=	iitk
+books-path		=	books
+dropbox-path		=	dropbox
+scribes-path		=	scribes
 dotfiles-path		=	dotfiles
 projects-path		=	projects
+software-path		=	software
 utilities-path		=	utilities
-dropbox-path		=	dropbox

@@ -1,1 +1,10 @@
-load	=	../paths.map
+load				=	../paths.map
+
+omz-path			=	.oh-my-zsh
+fzf-path			=	.fzf
+autosuggestions-path		=	.zsh/zsh-autosuggestions
+syntax-highlighting-path	=	.zsh/zsh-syntax-highlighting
+
+aliases-path			=	~/.zsh_aliases
+
+latex-compiler			=	lualatex
