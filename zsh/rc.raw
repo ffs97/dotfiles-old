@@ -1,6 +1,6 @@
 export ZSH=/home/fat-fighter/.oh-my-zsh
 
-ZSH_THEME="bira"
+ZSH_THEME="fatbira"
 
 COMPLETION_WAITING_DOTS="true"
 
