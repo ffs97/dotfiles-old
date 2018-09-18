@@ -5,6 +5,6 @@ cursor-theme			=	Adwaita
 font					=	IBM Plex Mono Medium
 font-size				=	10
 
-vim-background-color	=	#252c31
+vim-background-color	=	#252c36
 
 termite-padding			=	30px
