@@ -1,4 +1,5 @@
 set $mod {{mod}}
+set $amod {{alt-mod}}
 set $nsi --no-startup-id
 
 font pango:{{font}} {{font-size}}
@@ -105,10 +106,10 @@ bindsym $mod+8 workspace $w8
 bindsym $mod+b workspace $w9
 
 # Additional commands to help switching to further workspaces
-bindsym $mod+Mod1+1 workspace $w5
-bindsym $mod+Mod1+2 workspace $w6
-bindsym $mod+Mod1+3 workspace $w7
-bindsym $mod+Mod1+4 workspace $w8
+bindsym $mod+$amod+1 workspace $w5
+bindsym $mod+$amod+2 workspace $w6
+bindsym $mod+$amod+3 workspace $w7
+bindsym $mod+$amod+4 workspace $w8
 
 # Moving windows accross workspaces
 bindsym $mod+Shift+1 move container to workspace $w1
@@ -123,10 +124,10 @@ bindsym $mod+Shift+8 move container to workspace $w8
 bindsym $mod+Shift+b move container to workspace $w9
 
 # Additional commands to help moving windows to further workspaces
-bindsym $mod+Mod1+Shift+1 move container to workspace $w5
-bindsym $mod+Mod1+Shift+2 move container to workspace $w6
-bindsym $mod+Mod1+Shift+3 move container to workspace $w7
-bindsym $mod+Mod1+Shift+4 move container to workspace $w8
+bindsym $mod+$amod+Shift+1 move container to workspace $w5
+bindsym $mod+$amod+Shift+2 move container to workspace $w6
+bindsym $mod+$amod+Shift+3 move container to workspace $w7
+bindsym $mod+$amod+Shift+4 move container to workspace $w8
 
 # Moving windows accross open workspaces
 bindsym $mod+Shift+Control+Left exec "i3-msg "move container to workspace prev"
@@ -151,12 +152,12 @@ client.placeholder      #0c0c0c	#0c0c0c	#ffffff	#000000	#0c0c0c
 mode "Nautilus" {
 	bindsym e exec "nautilus ~/"; mode "default"
 
-	bindsym i exec "nautilus {{path-iitk}}/sem7"; mode "default"
-	bindsym d exec "nautilus {{path-dropbox}}"; mode "default"
-	bindsym u exec "nautilus {{path-utilities}}"; mode "default"
-	bindsym p exec "nautilus {{path-projects}}"; mode "default"
-	bindsym m exec "nautilus {{path-projects}}/machine-learning"; mode "default"
-	bindsym b exec "nautilus {{path-books}}"; mode "default"
+	bindsym i exec "nautilus ~/{{iitk-path}}/sem7"; mode "default"
+	bindsym d exec "nautilus {{dropbox-path}}"; mode "default"
+	bindsym u exec "nautilus {{utilities-path}}"; mode "default"
+	bindsym p exec "nautilus {{projects-path}}"; mode "default"
+	bindsym m exec "nautilus {{projects-path}}/machine-learning"; mode "default"
+	bindsym b exec "nautilus {{books-path}}"; mode "default"
 
     bindsym Return mode "default"
 	bindsym Escape mode "default"
@@ -189,8 +190,8 @@ gaps inner 10
 smart_gaps on
 
 # Switching Windows
-bindsym Mod1+Tab focus right
-bindsym Mod1+shift+Tab focus left
+bindsym $amod+Tab focus right
+bindsym $amod+shift+Tab focus left
 
 # Show pavucontrol
 bindsym $mod+x exec $nsi pavucontrol
@@ -202,6 +203,11 @@ bindsym XF86AudioLowerVolume exec "{{volume-decrease-command}}"
 # Brightness controls
 bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
+
+# Screenshot controls
+set $ssp {{screenshot-path}}
+bindsym Print exec "{{screenshot-command-area}} $ssp; {{image-viewer}} $ssp"
+bindsym $mod+Print exec "{{screenshot-command-window}} $ssp; {{image-viewer}} $ssp"
 
 # Monitors
 bindsym $mod+Shift+n exec {{switch-monitor-command}}

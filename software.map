@@ -1,1 +1,2 @@
 latex-compiler			=	lualatex
+image-viewer			=	feh

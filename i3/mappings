@@ -1,15 +1,11 @@
+load						=	../paths.map
+load						=	../software.map
+
 terminal					=	terminology
 terminal-wmclass			=	terminology
 
-path-iitk					=	~/iitk
-path-books					=	~/books
-path-dropbox				=	~/dropbox
-path-projects				=	~/projects
-path-dotfiles				=	~/dotfiles
-path-documents				=	~/documents
-path-utilities				=	~/utilities
-
 mod							=	Mod4
+alt-mod						=	Mod1
 
 browser-command				=	google-chrome-stable
 browser-wmclass				=	Google-chrome
@@ -29,3 +25,7 @@ font-size					=	10
 message-font				=	IBMPlexMono Nerd Font Mono
 
 application-launcher		=	dmenu_extended_run
+
+screenshot-path				=	~/screenshot.png
+screenshot-command-area		=	gnome-screenshot -a -f
+screenshot-command-window	=	gnome-screenshot -w -f
