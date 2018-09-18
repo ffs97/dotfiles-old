@@ -27,9 +27,6 @@ alias tp="typop"
 alias tc="tycat"
 alias tq="tyq"
 
-# Conda
-alias conda="$SOFTWARE/conda/bin/conda"
-
 # Proxy
 alias proxy=". $UTILITIES/general/proxy/global-proxy"
 alias pipp="$UTILITIES/general/proxy/pip-proxy"

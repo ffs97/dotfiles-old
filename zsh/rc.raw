@@ -24,6 +24,8 @@ export DOTFILES="$HOME/{{dotfiles-path}}"
 [ -f $HOME/{{autosuggestions-path}} ] && source $HOME/{{autosuggestions-path}}
 [ -f $HOME/{{syntax-highlighting-path}} ] && source $HOME/{{syntax-highlighting-path}}
 
+[ -f /etc/profile.d/conda.sh ] && source /etc/profile.d/conda.sh
+
 # Setting PATH Variable
 export PATH=$(getconf PATH)
 export PATH="$HOME/.local/bin:$PATH"
