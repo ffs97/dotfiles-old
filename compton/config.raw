@@ -117,7 +117,6 @@ inactive-opacity-override = false;
 alpha-step = 0.06;
 
 opacity-rule = [
-	"70:class_g = 'polybar'",
 	"95:class_g = 'Gvim'",
 	"95:class_g = 'terminology'",
 	"95:class_g = 'Termite'"

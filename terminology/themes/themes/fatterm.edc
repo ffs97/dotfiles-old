@@ -18,7 +18,7 @@
 #define ANSI14 170 218 219 255
 #define ANSI15 255 255 255 255
 
-#define BG_COLOR 37 44 49 255
+#define BG_COLOR 37 44 54 255
 
 #define BELL ANSI1 // Color of the bell
 

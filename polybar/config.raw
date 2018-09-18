@@ -1,6 +1,6 @@
 [colors]
-sixty = #000000
-thirty = #333333
+sixty = #aa000000
+thirty = #aa333333
 ten = #222222
 
 foreground = #ffffff

@@ -8,7 +8,7 @@ endif
 let g:colors_name = "fatdark"
 
 " Normal Text
-hi	Normal							guifg=#ffffff		guibg=#252c31		gui=NONE
+hi	Normal							guifg=#ffffff		guibg=#252c36		gui=NONE
 
 " Selection
 hi	Visual							guifg=NONE			guibg=#5d5d60		gui=NONE
@@ -20,7 +20,7 @@ hi	CursorColumn					guifg=NONE			guibg=#2e373b		gui=NONE
 hi	ColorColumn						guifg=NONE			guibg=#2e373b		gui=NONE
 
 " Line Numbers
-hi	LineNr							guifg=#adadad		guibg=#252c31		gui=NONE
+hi	LineNr							guifg=#adadad		guibg=#252c36		gui=NONE
 hi	CursorLineNr					guifg=#f0f0f0		guibg=#353e42		gui=bold
 
 " Sign Column
@@ -85,7 +85,7 @@ hi	Keyword							guifg=#dda790		guibg=NONE			gui=NONE
 hi	Label							guifg=#8bb664		guibg=NONE			gui=NONE
 
 " Blank Area below Text
-hi	NonText							guifg=#252c31		guibg=#252c31		gui=NONE
+hi	NonText							guifg=#252c36		guibg=#252c36		gui=NONE
 
 " Numbers
 hi	Number							guifg=#5cb8a9		guibg=NONE			gui=NONE
