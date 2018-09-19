@@ -46,7 +46,7 @@ function my_git_prompt() {
   fi
 
   if [[ -n $STATUS ]]; then
-    STATUS="$STATUS"
+    STATUS=" $STATUS"
   fi
 
   echo "$ZSH_THEME_GIT_PROMPT_PREFIX$(git_current_branch || echo "(no branch)")$STATUS$ZSH_THEME_GIT_PROMPT_SUFFIX"
