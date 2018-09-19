@@ -149,21 +149,21 @@ client.urgent          	#900000	#900000	#ffffff	#900000	#900000
 client.placeholder      #0c0c0c	#0c0c0c	#ffffff	#000000	#0c0c0c
 
 # Opening particular folders in Nautilus
-mode "Nautilus" {
-	bindsym e exec "nautilus ~/"; mode "default"
+mode "Folders" {
+	bindsym e exec "{{file-manager}} ~/"; mode "default"
 
-	bindsym i exec "nautilus ~/{{iitk-path}}/sem7"; mode "default"
-	bindsym d exec "nautilus {{dropbox-path}}"; mode "default"
-	bindsym u exec "nautilus {{utilities-path}}"; mode "default"
-	bindsym p exec "nautilus {{projects-path}}"; mode "default"
-	bindsym m exec "nautilus {{projects-path}}/machine-learning"; mode "default"
-	bindsym b exec "nautilus {{books-path}}"; mode "default"
+	bindsym i exec "{{file-manager}} ~/{{iitk-path}}/sem7"; mode "default"
+	bindsym d exec "{{file-manager}} {{dropbox-path}}"; mode "default"
+	bindsym u exec "{{file-manager}} {{utilities-path}}"; mode "default"
+	bindsym p exec "{{file-manager}} {{projects-path}}"; mode "default"
+	bindsym m exec "{{file-manager}} {{projects-path}}/machine-learning"; mode "default"
+	bindsym b exec "{{file-manager}} {{books-path}}"; mode "default"
 
     bindsym Return mode "default"
 	bindsym Escape mode "default"
 }
 
-bindsym $mod+n mode "Nautilus"
+bindsym $mod+n mode "Folders"
 
 # Browser bindings
 bindsym $mod+g exec "{{browser-command}}"

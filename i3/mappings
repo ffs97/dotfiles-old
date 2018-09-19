@@ -1,7 +1,6 @@
 load						=	../paths.map
 load						=	../software.map
 
-terminal					=	terminology
 terminal-wmclass			=	terminology
 
 mod							=	Mod4
@@ -19,13 +18,13 @@ switch-monitor-command		=	switch-monitor
 
 i3-launch-script			=	~/.config/i3/launch
 
-font						=	IBMPlexMono Nerd Font Mono
+font						=	IBM Plex Mono Medium
 font-size					=	10
 
-message-font				=	IBMPlexMono Nerd Font Mono
+message-font				=	IBM Plex Mono Medium
 
 application-launcher		=	dmenu_extended_run
 
-screenshot-path				=	~/screenshot.png
+screenshot-path				=	~/downloads/screenshot.png
 screenshot-command-area		=	gnome-screenshot -a -f
 screenshot-command-window	=	gnome-screenshot -w -f

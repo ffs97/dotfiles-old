@@ -1,2 +1,4 @@
 latex-compiler			=	lualatex
 image-viewer			=	feh
+terminal				=	terminology
+file-manager			=	ranger
