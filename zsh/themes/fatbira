@@ -49,17 +49,15 @@ function my_git_prompt() {
     STATUS=" $STATUS"
   fi
 
-  echo "$ZSH_THEME_GIT_PROMPT_PREFIX$(my_current_branch)$STATUS$ZSH_THEME_GIT_PROMPT_SUFFIX"
+  echo "$ZSH_THEME_GIT_PROMPT_PREFIX$(echo $(git_current_branch || echo "(no branch)"))$STATUS$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
 
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
+ZSH_THEME_GIT_PROMPT_SUFFIX="› %{$reset_color%}"
+
 local current_dir='%{$fg[blue]%}%~%{$reset_color%}'
-local git_branch='$(git_prompt_info)%{$reset_color%}'
 local git_branch='$(my_git_prompt)%{$reset_color%}'
 
 PROMPT="${current_dir}  ${git_branch}
 %B${user_symbol}%b "
 RPS1="%B${return_code}%b"
-
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
-ZSH_THEME_GIT_PROMPT_SUFFIX="› %{$reset_color%}"
-
