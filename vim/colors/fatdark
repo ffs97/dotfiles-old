@@ -108,10 +108,10 @@ hi	Statement						guifg=#bcbfff		guibg=NONE			gui=NONE
 hi	StorageClass					guifg=#99cf50		guibg=NONE			gui=NONE
 
 " Strings
-hi	String							guifg=khaki		guibg=NONE			gui=NONE
+hi	String							guifg=khaki			guibg=NONE			gui=NONE
 
 hi	Tag								guifg=#bcdbff		guibg=NONE			gui=NONE
-hi	Title							guifg=#6e5f79		guibg=NONE			gui=bold
+hi	Title							guifg=#ae9fb9		guibg=NONE			gui=bold
 hi	Type							guifg=#f5f8d6		guibg=NONE			gui=NONE
 
 " Underlined Text

@@ -1,3 +1,4 @@
 load		=	../paths.map
+load		=	../software.map
 
 rofi-theme	=	fatmenu

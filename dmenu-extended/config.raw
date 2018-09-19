@@ -2,10 +2,10 @@
 	"alias_applications": false,
 	"alias_display_format": "{name} ({command})",
 	"exclude_items": [],
-	"filebrowser": "xdg-open",
+	"filebrowser": "{{file-manager}}",
 	"fileopener": "xdg-open",
 	"filter_binaries": false,
-	"follow_symlinks": false,
+	"follow_symlinks": true,
 	"frequently_used": 0,
 	"global_ignore_folders": [],
 	"ignore_folders": [],
@@ -72,7 +72,8 @@
 		"~/{{iitk-path}}",
 		"~/{{books-path}}",
 		"~/{{pictures-path}}",
-		"~/{{projects-path}}"
+		"~/{{projects-path}}",
+		"~/{{dropbox-path}}"
 	],
 	"webbrowser": "xdg-open"
 }
