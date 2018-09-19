@@ -1,7 +1,6 @@
 # ZSH Theme - Preview: http://gyazo.com/8becc8a7ed5ab54a0262a470555c3eed.png
 local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
-
 if [[ $UID -eq 0 ]]; then
     local user_host='%{$terminfo[bold]$fg[red]%}%n@%m%{$reset_color%}'
     local user_symbol='#'
@@ -10,8 +9,52 @@ else
     local user_symbol='>'
 fi
 
+function my_git_prompt() {
+  tester=$(git rev-parse --git-dir 2> /dev/null) || return
+  
+  INDEX=$(git status --porcelain 2> /dev/null)
+  STATUS=""
+
+  # is branch ahead?
+  if $(echo "$(git log origin/$(git_current_branch)..HEAD 2> /dev/null)" | grep '^commit' &> /dev/null); then
+    STATUS="$STATUS↑"
+  fi
+
+  # is branch behind?
+  if $(echo "$(git log HEAD..origin/$(git_current_branch) 2> /dev/null)" | grep '^commit' &> /dev/null); then
+    STATUS="$STATUS↓"
+  fi
+
+  # is anything staged?
+  if $(echo "$INDEX" | command grep -E -e '^(D[ M]|[MARC][ MD]) ' &> /dev/null); then
+    STATUS="$STATUS⎈"
+  fi
+
+  # is anything unstaged?
+  if $(echo "$INDEX" | command grep -E -e '^[ MARC][MD] ' &> /dev/null); then
+    STATUS="$STATUS⎈"
+  fi
+
+  # is anything untracked?
+  if $(echo "$INDEX" | grep '^?? ' &> /dev/null); then
+    STATUS="$STATUS⎈"
+  fi
+
+  # is anything unmerged?
+  if $(echo "$INDEX" | command grep -E -e '^(A[AU]|D[DU]|U[ADU]) ' &> /dev/null); then
+    STATUS="$STATUS✕"
+  fi
+
+  if [[ -n $STATUS ]]; then
+    STATUS=" $STATUS"
+  fi
+
+  echo "$ZSH_THEME_GIT_PROMPT_PREFIX$(my_current_branch)$STATUS$ZSH_THEME_GIT_PROMPT_SUFFIX"
+}
+
 local current_dir='%{$fg[blue]%}%~%{$reset_color%}'
 local git_branch='$(git_prompt_info)%{$reset_color%}'
+local git_branch='$(my_git_prompt)%{$reset_color%}'
 
 PROMPT="${current_dir}  ${git_branch}
 %B${user_symbol}%b "
