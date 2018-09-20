@@ -1228,9 +1228,9 @@ collections {
             target: "terminology.popmedia";
             target: "popmedia_clip";
             target: "popmedia_dismiss";
-            target: "popmedia_shadow";
             target: "popmedia_fill";
-            target: "popmedia_overlay";
+            // target: "popmedia_shadow";
+            // target: "popmedia_overlay";
             after: "popmedia_dismiss2";
          }
          program { name: "popmedia_dismiss2";
@@ -1244,9 +1244,9 @@ collections {
             target: "terminology.popmedia";
             target: "popmedia_clip";
             target: "popmedia_dismiss";
-            target: "popmedia_shadow";
             target: "popmedia_fill";
-            target: "popmedia_overlay";
+            // target: "popmedia_shadow";
+            // target: "popmedia_overlay";
             after: "popmedia_dismiss2";
          }
          program { name: "popmedia_img";
@@ -1284,9 +1284,9 @@ collections {
             transition: DECELERATE 0.2;
             target: "popmedia_clip";
             target: "popmedia_dismiss";
-            target: "popmedia_shadow";
             target: "popmedia_fill";
-            target: "popmedia_overlay";
+            // target: "popmedia_shadow";
+            // target: "popmedia_overlay";
          }
          program { name: "popmedia_scale2";
             signal: "popmedia,scale";
@@ -1295,9 +1295,9 @@ collections {
             transition: DECELERATE 0.2;
             target: "popmedia_clip";
             target: "popmedia_dismiss";
-            target: "popmedia_shadow";
             target: "popmedia_fill";
-            target: "popmedia_overlay";
+            // target: "popmedia_shadow";
+            // target: "popmedia_overlay";
          }
          program { name: "popmedia_edje2";
             signal: "popmedia,edje";
@@ -1306,9 +1306,9 @@ collections {
             transition: DECELERATE 0.2;
             target: "popmedia_clip";
             target: "popmedia_dismiss";
-            target: "popmedia_shadow";
             target: "popmedia_fill";
-            target: "popmedia_overlay";
+            // target: "popmedia_shadow";
+            // target: "popmedia_overlay";
          }
          program { name: "popmedia_mov2";
             signal: "popmedia,movie";
@@ -1317,9 +1317,9 @@ collections {
             transition: DECELERATE 0.2;
             target: "popmedia_clip";
             target: "popmedia_dismiss";
-            target: "popmedia_shadow";
             target: "popmedia_fill";
-            target: "popmedia_overlay";
+            // target: "popmedia_shadow";
+            // target: "popmedia_overlay";
          }
 
          ////////////////////////////////////////////////////////////////////

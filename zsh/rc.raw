@@ -122,8 +122,16 @@ function qcd () {
 	[ -z $dir ] || cd $dir
     zle reset-prompt
 }
-
 zle -N qcd_widget qcd
+
+## Clean the terminal
+function clean () {
+	tput reset
+	zle reset-prompt
+}
+zle -N clean_widget clean
+
+bindkey "^k" clean_widget
 
 bindkey "^[o" qcd_widget
 bindkey "^[t" fzf-file-widget

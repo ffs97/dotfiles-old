@@ -1,6 +1,6 @@
 [colors]
 sixty = #88000000
-thirty = #99333333
+thirty = #993a3a3a
 ten = #222222
 
 foreground = #ffffff
@@ -143,15 +143,13 @@ animation-charging-framerate = 750
 type = custom/script
 
 exec = volume get
+click-left = volume mute >/dev/null 2>&1 &
 
-label =  %output%
+label = %output%
 tail = true
 interval = 0
 
 format-padding = 1
-
-#label-volume =  %percentage%
-#label-muted =  0%
 
 ##############################
 ##############################
@@ -191,25 +189,4 @@ label-indicator-foreground = #ffffff
 label-indicator-background = #707a5a
 
 label-indicator-padding = 2
-label-indicator-margin = 1
-
-##############################
-##############################
-
-[module/menu0]
-type = custom/menu
-
-format = <label-toggle> <menu>
-format-underline = ${colors.ten}
-format-padding = 2
-expand-right = true
-
-menu-background = #ffffff
-menu-0-0 = Shutdown
-menu-0-0-exec = shutdown now
-menu-0-1 = Restart
-menu-0-1-exec = shutdown -r now
-
-label-open =  i3
-label-close = 
-label-separator = " | "
+label-indicator-margin-right = 1

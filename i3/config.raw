@@ -13,6 +13,7 @@ set $terminal {{terminal}}
 
 # start a terminal
 bindsym $mod+t exec $nsi $terminal
+bindsym $mod+Shift+t exec $terminal -T="DefaultShell"
 
 # kill focused window
 bindsym $mod+q kill
@@ -23,7 +24,9 @@ bindsym $mod+Tab scratchpad show
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+Shift+grave move scratchpad
 
+for_window [title="DefaultShell"] move scratchpad, scratchpad show, resize set 450 300, move position 1460 742;
 bindsym $mod+d [class="{{terminal-wmclass}}"] scratchpad show
+
 bindsym $mod+grave [class="{{browser-wmclass}}"] scratchpad show, resize set 1926 1053, move position -3 -3
 
 # Startin up application launcher
