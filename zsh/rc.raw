@@ -97,6 +97,7 @@ function pg {
 		cd ../
 		rm -rf $1
 	else
+		cd ../
     	echo "There was some error in downloading the package"
 	fi
 }

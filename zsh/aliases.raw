@@ -1,6 +1,8 @@
 # Pacman controls
 alias pi="sudo pacman -S --noconfirm"
 alias pd="sudo pacman -R --noconfirm"
+alias pu="sudo pacman -Syu --noconfirm"
+alias pc="sudo paccache -r"
 
 # Ranger
 alias r="ranger"

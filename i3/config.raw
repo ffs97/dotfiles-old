@@ -84,7 +84,7 @@ bindsym $mod+r mode "Resize"
 
 # Define Workspaces
 set $w1 "1:  Work"
-set $w2 "2:  LaTeX"
+set $w2 "2:  Vim"
 set $w3 "3: ✍ Reading"
 set $w4 "4:  Terminal"
 set $w5 "5:  Nautilus"

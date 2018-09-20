@@ -1,6 +1,6 @@
 [colors]
-sixty = #aa000000
-thirty = #aa333333
+sixty = #88000000
+thirty = #99333333
 ten = #222222
 
 foreground = #ffffff
@@ -30,7 +30,7 @@ module-margin-right = 0
 
 font-0 = {{font}}:size={{font-size}};1
 
-modules-left = menu0 i3
+modules-left = i3
 modules-right = xkeyboard volume wlan battery date
 
 tray-position = right
@@ -55,24 +55,26 @@ label-mode-padding = 2
 # Workspace Label
 strip-wsnumbers = true
 
-ws-icon-default = 
+enable-scroll = false
 
 label-focused-font = 1
 label-unfocused-font = 1
 label-urgent-font = 1
 label-visible-font = 1
 
-label-focused-padding = 3
+label-focused-padding-left = 2
+label-focused-padding-right = 3
 label-focused-foreground = ${colors.foreground}
 label-focused-background = ${colors.thirty}
 
-label-unfocused-padding = 3
+label-unfocused-padding-left = 2
+label-unfocused-padding-right = 3
 
-label-urgent = 
+label-urgent =   %name%
 label-urgent-padding = 3
 label-urgent-foreground = ${colors.alert}
 
-label-visible = 
+label-visible =   %name%
 label-visible-foreground = ${colors.thirty}
 label-visible-padding = 3
 
@@ -170,7 +172,7 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 =  
+ramp-signal-0 =
 ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
@@ -207,7 +209,7 @@ menu-0-0 = Shutdown
 menu-0-0-exec = shutdown now
 menu-0-1 = Restart
 menu-0-1-exec = shutdown -r now
- 
-label-open =  
+
+label-open =  i3
 label-close = 
 label-separator = " | "
