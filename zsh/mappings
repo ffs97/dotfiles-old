@@ -2,7 +2,7 @@ load						=	../paths.map
 load						=	../software.map
 
 omz-path					=	.oh-my-zsh/oh-my-zsh.sh
-fzf-path					=	.fzf
+fzf-path					=	.fzf.zsh
 autosuggestions-path		=	.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 syntax-highlighting-path	=	.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

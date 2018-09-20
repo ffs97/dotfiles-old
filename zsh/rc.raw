@@ -7,59 +7,61 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git python pip virtualenv screen)
 setopt correct
 
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=cyan"
 
 export TERM="xterm-256color"
 export LC_ALL="en_US.UTF-8"
+
+### export LD_LIBRARY_PATH="/usr/local/cuda-9.1/lib64:/usr/lib/nvidia-384:$LD_LIBRARY_PATH"
+
+
+# Setting PATH Variable
+export PATH=$(getconf PATH)
+export PATH="$HOME/.local/bin:$PATH"
+### export PATH="/usr/local/cuda-9.0/bin:$PATH"
+
 
 # Defining standard paths
 export UTILITIES="$HOME/{{utilities-path}}"
 export SOFTWARE="$HOME/{{software-path}}"
 export DOTFILES="$HOME/{{dotfiles-path}}"
 
+
 # Sourcing zsh plugins
-[ -f $HOME/{{fzf-path}} ] && source $HOME/{{fzf-path}}
 [ -f $HOME/{{omz-path}} ] && source $HOME/{{omz-path}}
 [ -f $HOME/{{aliases-path}} ] && source $HOME/{{aliases-path}}
 [ -f $HOME/{{autosuggestions-path}} ] && source $HOME/{{autosuggestions-path}}
 [ -f $HOME/{{syntax-highlighting-path}} ] && source $HOME/{{syntax-highlighting-path}}
-
 [ -f /etc/profile.d/conda.sh ] && source /etc/profile.d/conda.sh
 
-# Setting PATH Variable
-export PATH=$(getconf PATH)
-export PATH="$HOME/.local/bin:$PATH"
-## export PATH="/usr/local/cuda-9.0/bin:$PATH"
+## Fuzzy File Finder (fzf)
+[ -f $HOME/{{fzf-path}} ] && source $HOME/{{fzf-path}}
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border -m'
+export FZF_COMPLETION_TRIGGER='?'
 
-## export LD_LIBRARY_PATH="/usr/local/cuda-9.1/lib64:/usr/lib/nvidia-384:$LD_LIBRARY_PATH"
+# Functions
 
-if [[ $TERM == xterm-termite ]]; then
-    . /etc/profile.d/vte.sh
-    __vte_osc7
-fi
-
-# Clean file names
+## Clean file names
 function fr {
 	for file in *; do
 		mv $file `echo $file | sed 's/[ _]/-/g' | tr A-Z a-z`
 	done
 }
 
-# Open local file in chrome app version
+## Open local file in chrome app version
 function chromeappf {
 	if ! [[ $1 =~ ^\s*$ ]]; then
 		google-chrome-stable --app=file://` realpath $1 `
 	fi
 }
 
-# Open link in chrome app version
+## Open link in chrome app version
 function chromeapp {
 	if ! [[ $1 =~ ^\s*$ ]]; then
 		google-chrome-stable --app=$1
 	fi
 }
 
-# Compile a latex file
+## Compile a latex file
 function ctex {
 	if ! [[ $1 =~ ^\s*$ ]]; then
 		{{latex-compiler}} -interaction=errorstop $1.tex
@@ -69,7 +71,7 @@ function ctex {
 	fi
 }
 
-# Initialize a git repo and link with online repo
+## Initialize a git repo and link with online repo
 function ginit {
 	ln ~/.gitignore ./
 	git init
@@ -78,7 +80,7 @@ function ginit {
 	fi
 }
 
-# Count number of lines in a file
+## Count number of lines in a file
 function count {
 	if [[ -f $1 ]]; then
 		cat $1 | wc -l
@@ -87,7 +89,7 @@ function count {
 	fi
 }
 
-# Install an AUR repo using pacman
+## Install an AUR repo using pacman
 function pg {
 	git clone https://aur.archlinux.org/$1.git
 	cd $1
@@ -102,7 +104,7 @@ function pg {
 	fi
 }
 
-# Quick find a folder
+## Quick find a folder
 function qcd () {
 	folders=(
 		$HOME/
@@ -117,9 +119,12 @@ function qcd () {
 		$HOME/{{dotfiles-path}}
 	)
     dir=$(find $folders -type d -not -path '*/\.*' -maxdepth 1 | fzf)
-    cd $dir
+	[ -z $dir ] || cd $dir
     zle reset-prompt
 }
 
 zle -N qcd_widget qcd
-bindkey "^q" qcd_widget
+
+bindkey "^[o" qcd_widget
+bindkey "^[t" fzf-file-widget
+bindkey "^[r" fzf-history-widget

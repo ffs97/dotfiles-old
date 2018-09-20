@@ -5,6 +5,7 @@ filetype off
 " Vundle Plugins ###################################################
 
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.fzf
 
 let g:Tex_PackagesMenu = 0
 
@@ -187,6 +188,10 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 " Jumping
 imap <C-kend> <esc>G$A
 imap <C-khome> <esc>gg0A
+
+" FZF
+nmap <A-o> :FZF<CR>
+imap <A-o> <ESC>:FZF<CR>
 
 " vim-latex settings ###############################################
 
