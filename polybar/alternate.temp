@@ -1,7 +1,6 @@
 [colors]
-sixty = #88000000
-thirty = #993a3a3a
-ten = #222222
+highlight = #88000000
+transparent = #00000000
 
 foreground = #ffffff
 foreground-alt = #ffffff
@@ -11,15 +10,19 @@ alert = #d68787
 ##############################
 
 [bar/bot]
-bottom = true
+bottom = false
 width = 100%
-height = 25
+height = 40
 offset-x = 0
 offset-y = 0
 
-border-top-size = 3
-border-top-color = ${colors.thirty}
-background = ${colors.sixty}
+border-top-size = 5
+border-top-color = ${colors.transparent}
+
+border-bottom-size = 5
+border-bottom-color = ${colors.transparent}
+
+background = ${colors.transparent}
 foreground = ${colors.foreground}
 
 spacing = 0
@@ -34,8 +37,8 @@ font-1 = "DejaVuSansMono Nerd Font:size=11;2"
 modules-left = i3
 modules-right = xkeyboard volume wlan battery date
 
-tray-position = right
-tray-background = #60000000
+;tray-position = right
+;tray-background = #60000000
 
 line-size = 0
 
@@ -44,7 +47,7 @@ line-size = 0
 
 [module/i3]
 type = internal/i3
-format = <label-state> %{T2}<label-mode>%{T-}
+format = <label-state> <label-mode>
 index-sort = true
 
 # Mode Label
@@ -64,11 +67,11 @@ label-visible-font = 2
 label-urgent =   %name%
 label-visible =   %name%
 
-label-focused-background = ${colors.thirty}
+label-focused-background = ${colors.highlight}
 
 label-focused-foreground = ${colors.foreground}
 label-urgent-foreground = ${colors.alert}
-label-visible-foreground = ${colors.thirty}
+label-visible-foreground = ${colors.highlight}
 
 label-focused-padding-left = 2
 label-focused-padding-right = 3
@@ -95,7 +98,7 @@ label = %date%, %time%
 
 format-padding = 3
 
-format-background = ${colors.thirty}
+format-background = ${colors.highlight}
 format-foreground = ${colors.foreground-alt}
 
 ##############################
@@ -107,8 +110,8 @@ battery = BAT1
 adapter = AC
 full-at = 100
 
-format-charging = "<animation-charging> <label-charging> "
-format-discharging = "<ramp-capacity> <label-discharging> "
+format-charging = "<animation-charging> <label-charging>  "
+format-discharging = "<ramp-capacity> <label-discharging>  "
 
 format-charging-padding = 2
 format-discharging-padding = 2
@@ -160,7 +163,7 @@ format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
 label-connected = %essid%
 
-format-connected-padding = 1
+format-connected-padding = 2
 
 format-disconnected =
 
