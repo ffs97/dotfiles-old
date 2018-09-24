@@ -1,4 +1,15 @@
-latex-compiler			=	lualatex
-image-viewer			=	feh
-terminal				=	terminology
-file-manager			=	terminology -e ranger
+latex-compiler				=	lualatex
+
+image-viewer				=	feh
+
+terminal					=	terminology
+terminal-wmclass			=	terminology
+
+file-manager				=	terminology -e ranger
+
+network-manager				=	connman-gtk
+bluetooth-manager			=	blueman-manager
+
+browser-command				=	google-chrome-stable
+browser-wmclass				=	Google-chrome
+browser-command-incognito	=	google-chrome-stable --incognito

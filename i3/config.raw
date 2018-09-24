@@ -144,6 +144,10 @@ bindsym $mod+Control+Right workspace next
 for_window [class="^.*"] border pixel 2
 hide_edge_borders smart
 
+# Gaps (i3-gaps)
+gaps inner 10
+smart_gaps on
+
 # Windows' Colors
 client.focused 			#008b99 #008b99	#ffffff	#2e9ef4	#ffffff
 client.focused_inactive	#484848	#484848	#ffffff	#484e50	#212121
@@ -189,15 +193,13 @@ mode "System" {
 }
 bindsym $mod+shift+s mode System
 
-gaps inner 10
-smart_gaps on
-
 # Switching Windows
 bindsym $amod+Tab focus right
 bindsym $amod+shift+Tab focus left
 
-# Show pavucontrol
-bindsym $mod+x exec $nsi blueman-manager
+# Application Shortcuts
+bindsym $mod+x exec $nsi {{bluetooth-manager}}
+bindsym $mod+m exec $nsi {{network-manager}}
 
 # Audio Controls
 bindsym XF86AudioRaiseVolume exec "{{volume-increase-command}}"

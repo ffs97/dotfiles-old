@@ -1,14 +1,8 @@
 load						=	../paths.map
 load						=	../software.map
 
-terminal-wmclass			=	terminology
-
 mod							=	Mod4
 alt-mod						=	Mod1
-
-browser-command				=	google-chrome-stable
-browser-wmclass				=	Google-chrome
-browser-command-incognito	=	google-chrome-stable --incognito
 
 volume-read-command			=	volume get
 volume-increase-command		=	volume set +1
