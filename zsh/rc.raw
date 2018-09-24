@@ -126,6 +126,7 @@ zle -N qcd_widget qcd
 
 ## Clean the terminal
 function clean () {
+	stty clean
 	tput reset
 	zle reset-prompt
 }
