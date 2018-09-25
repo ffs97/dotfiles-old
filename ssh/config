@@ -1,0 +1,4 @@
+Host ppr
+    HostName ppr.cse.iitk.ac.in
+    Port 22
+    User guggu

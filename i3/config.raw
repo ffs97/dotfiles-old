@@ -90,11 +90,9 @@ set $w1 "1: "
 set $w2 "2: "
 set $w3 "3: "
 set $w4 "4: "
-set $w5 "5: "
+set $w5 "5: "
 set $w6 "6: "
-set $w7 "7: "
-set $w8 "8: "
-set $w9 "9: "
+set $wextra "7: "
 
 # Switching Workspaces
 bindsym $mod+1 workspace $w1
@@ -103,16 +101,12 @@ bindsym $mod+3 workspace $w3
 bindsym $mod+4 workspace $w4
 bindsym $mod+5 workspace $w5
 bindsym $mod+6 workspace $w6
-bindsym $mod+7 workspace $w7
-bindsym $mod+8 workspace $w8
 
-bindsym $mod+b workspace $w9
+bindsym $mod+b workspace $wextraa
 
 # Additional commands to help switching to further workspaces
 bindsym $mod+$amod+1 workspace $w5
 bindsym $mod+$amod+2 workspace $w6
-bindsym $mod+$amod+3 workspace $w7
-bindsym $mod+$amod+4 workspace $w8
 
 # Moving windows accross workspaces
 bindsym $mod+Shift+1 move container to workspace $w1
@@ -121,16 +115,12 @@ bindsym $mod+Shift+3 move container to workspace $w3
 bindsym $mod+Shift+4 move container to workspace $w4
 bindsym $mod+Shift+5 move container to workspace $w5
 bindsym $mod+Shift+6 move container to workspace $w6
-bindsym $mod+Shift+7 move container to workspace $w7
-bindsym $mod+Shift+8 move container to workspace $w8
 
-bindsym $mod+Shift+b move container to workspace $w9
+bindsym $mod+Shift+b move container to workspace $wextra
 
 # Additional commands to help moving windows to further workspaces
 bindsym $mod+$amod+Shift+1 move container to workspace $w5
 bindsym $mod+$amod+Shift+2 move container to workspace $w6
-bindsym $mod+$amod+Shift+3 move container to workspace $w7
-bindsym $mod+$amod+Shift+4 move container to workspace $w8
 
 # Moving windows accross open workspaces
 bindsym $mod+Shift+Control+Left exec $nsi "i3-msg "move container to workspace prev"
