@@ -1,8 +1,8 @@
 theme					=	Arc-Darker
 icon-theme				=	windows10
-cursor-theme			=	Adwaita
+cursor-theme			=	dmz
 
-font					=	IBM Plex Mono Medium
+font					=	Open Sans
 font-size				=	10
 
 vim-background-color	=	#252c36

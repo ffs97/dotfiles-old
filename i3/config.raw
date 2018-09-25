@@ -30,7 +30,7 @@ bindsym $mod+d [class="{{terminal-wmclass}}"] scratchpad show
 bindsym $mod+grave [class="{{browser-wmclass}}"] scratchpad show
 
 # Startin up application launcher
-bindsym $mod+Return exec --no-startup-id {{application-launcher}}
+bindsym $mod+Return exec $nsi {{application-launcher}}
 
 # Changing focus to parent/child container
 bindsym $mod+a focus child
@@ -71,7 +71,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Exit i3 (log out of the X session)
-bindsym $mod+Shift+e exec "i3-nagbar -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit' -f '{{message-font}}'"
+bindsym $mod+Shift+e exec $nsi "i3-nagbar -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit' -f '{{message-font}}'"
 
 # Resizing windows
 mode "Resize" {
@@ -133,8 +133,8 @@ bindsym $mod+$amod+Shift+3 move container to workspace $w7
 bindsym $mod+$amod+Shift+4 move container to workspace $w8
 
 # Moving windows accross open workspaces
-bindsym $mod+Shift+Control+Left exec "i3-msg "move container to workspace prev"
-bindsym $mod+Shift+Control+Right exec "i3-msg "move container to workspace next"
+bindsym $mod+Shift+Control+Left exec $nsi "i3-msg "move container to workspace prev"
+bindsym $mod+Shift+Control+Right exec $nsi "i3-msg "move container to workspace next"
 
 # Traversing across open Workspaces
 bindsym $mod+Control+Left workspace prev
@@ -157,14 +157,14 @@ client.placeholder      #0c0c0c	#0c0c0c	#ffffff	#000000	#0c0c0c
 
 # Opening particular folders in Nautilus
 mode "Explorer" {
-	bindsym e exec "{{file-manager}} ~/"; mode "default"
+	bindsym e exec $nsi "{{file-manager}} ~/"; mode "default"
 
-	bindsym i exec "{{file-manager}} ~/{{iitk-path}}/sem7"; mode "default"
-	bindsym d exec "{{file-manager}} {{dropbox-path}}"; mode "default"
-	bindsym u exec "{{file-manager}} {{utilities-path}}"; mode "default"
-	bindsym p exec "{{file-manager}} {{projects-path}}"; mode "default"
-	bindsym m exec "{{file-manager}} {{projects-path}}/machine-learning"; mode "default"
-	bindsym b exec "{{file-manager}} {{books-path}}"; mode "default"
+	bindsym i exec $nsi "{{file-manager}} ~/{{iitk-path}}/sem7"; mode "default"
+	bindsym d exec $nsi "{{file-manager}} {{dropbox-path}}"; mode "default"
+	bindsym u exec $nsi "{{file-manager}} {{utilities-path}}"; mode "default"
+	bindsym p exec $nsi "{{file-manager}} {{projects-path}}"; mode "default"
+	bindsym m exec $nsi "{{file-manager}} {{projects-path}}/machine-learning"; mode "default"
+	bindsym b exec $nsi "{{file-manager}} {{books-path}}"; mode "default"
 
     bindsym Return mode "default"
 	bindsym Escape mode "default"
@@ -173,19 +173,19 @@ mode "Explorer" {
 bindsym $mod+n mode "Explorer"
 
 # Browser bindings
-bindsym $mod+g exec "{{browser-command}}"
-bindsym $mod+shift+g exec "{{browser-command-incognito}}"
+bindsym $mod+g exec $nsi "{{browser-command}}"
+bindsym $mod+shift+g exec $nsi "{{browser-command-incognito}}"
 
 # Assigning Workspaces to Classes
 assign [class="Code"] $w8
 
 # Power Settings
 mode "System" {
-    bindsym l exec --no-startup-id i3lock, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
-    bindsym s exec --no-startup-id systemctl suspend, mode "default"
-	bindsym Shift+r exec shutdown -r now
-    bindsym Shift+s exec shutdown now
+    bindsym l exec $nsi i3lock, mode "default"
+    bindsym e exec $nsi i3exit logout, mode "default"
+    bindsym s exec $nsi systemctl suspend, mode "default"
+	bindsym Shift+r exec $nsi shutdown -r now
+    bindsym Shift+s exec $nsi shutdown now
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -202,22 +202,22 @@ bindsym $mod+x exec $nsi {{bluetooth-manager}}
 bindsym $mod+m exec $nsi {{network-manager}}
 
 # Audio Controls
-bindsym XF86AudioRaiseVolume exec "{{volume-increase-command}}"
-bindsym XF86AudioLowerVolume exec "{{volume-decrease-command}}"
+bindsym XF86AudioRaiseVolume exec $nsi "{{volume-increase-command}}"
+bindsym XF86AudioLowerVolume exec $nsi "{{volume-decrease-command}}"
 
 # Brightness controls
-bindsym XF86MonBrightnessUp exec light -A 5
-bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessUp exec $nsi light -A 5
+bindsym XF86MonBrightnessDown exec $nsi light -U 5
 
 # Screenshot controls
 set $ssp {{screenshot-path}}
-bindsym Print exec "{{screenshot-command-area}} $ssp; {{image-viewer}} $ssp"
-bindsym $mod+Print exec "{{screenshot-command-window}} $ssp; {{image-viewer}} $ssp"
+bindsym Print exec $nsi "{{screenshot-command-area}} $ssp; {{image-viewer}} $ssp"
+bindsym $mod+Print exec $nsi "{{screenshot-command-window}} $ssp; {{image-viewer}} $ssp"
 
 # Monitors
-bindsym $mod+Shift+n exec {{switch-monitor-command}}
-bindsym $mod+Shift+h exec i3-msg move workspace to output left
-bindsym $mod+Shift+j exec i3-msg move workspace to output right
+bindsym $mod+Shift+n exec $nsi {{switch-monitor-command}}
+bindsym $mod+Shift+h exec $nsi i3-msg move workspace to output left
+bindsym $mod+Shift+j exec $nsi i3-msg move workspace to output right
 
 # Launch components
 exec_always {{i3-launch-script}}
