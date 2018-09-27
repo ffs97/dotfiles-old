@@ -8,7 +8,7 @@ foreground = #ffffff
 alert = #f65757
 
 ##############################
-[bar/bot]
+[bar/default]
 
 bottom = true
 width = 100%
@@ -33,6 +33,19 @@ modules-left = i3
 modules-right = xkeyboard volume wlan battery date
 
 line-size = 0
+
+[bar/system]
+
+bottom = true
+widht = 100%
+heigh = 28
+offset-x = 0
+offset-y = 0
+
+modules-left = i3
+
+tray-position = right
+tray-detached = false
 
 ##############################
 [module/i3]
@@ -174,4 +187,5 @@ label-indicator-background = #707a5a
 
 label-indicator-padding = 1
 label-indicator-margin-right = 1
+
 
