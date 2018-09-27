@@ -1,3 +1,7 @@
+" ┏━━ ┏━┓ ━┳━   ╻ ╻ ╻ ┏┳┓
+" ┣╸  ┣━┫  ┃  ━ ┃┏┛ ┃ ┃┃┃
+" ╹   ╹ ╹  ╹    ┗┛  ╹ ╹ ╹
+
 set shell=/usr/bin/zsh
 set nocompatible
 filetype off
@@ -74,6 +78,11 @@ set cursorline
 
 autocmd BufReadPost tex,latex,plaintex,markdown,text  :set spell spelllang=en_us
 autocmd BufEnter * silent! :lchdir %:p:h
+
+" Split Settings ###################################################
+
+set splitbelow
+set splitright
 
 " Show relative line numbers #######################################
 

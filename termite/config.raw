@@ -22,7 +22,7 @@ cursor_blink = false
 
 [colors]
 
-background = #252c31
+background = #252c36
  
 cursor = #d8dee9
 cursor_foreground = #2e3440
