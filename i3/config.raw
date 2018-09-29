@@ -210,4 +210,4 @@ bindsym $mod+Shift+h exec $nsi i3-msg move workspace to output left
 bindsym $mod+Shift+j exec $nsi i3-msg move workspace to output right
 
 # Launch components
-exec_always {{i3-launch-script}}
+exec_always $nsi {{i3-launch-script}}

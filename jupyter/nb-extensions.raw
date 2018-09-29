@@ -1,0 +1,28 @@
+{
+	"keys": {
+		"command": {
+			"bind": {
+				"alt-t": "jupyter-notebook:toggle-rtl-layout",
+				"alt-c": "jupyter-notebook:restart-kernel-and-clear-output",
+				"alt-up": "jupyter-notebook:move-cell-up",
+				"alt-down": "jupyter-notebook:move-cell-down",
+				"alt-x": "jupyter-notebook:restart-kernel-and-run-all-cells"
+			}
+		}
+	},
+	"load_extensions": {
+		"execute_time/ExecuteTime": true,
+		"table_beautifier/main": true,
+		"equation-numbering/main": true,
+		"collapsible_headings/main": true,
+		"nbextensions_configurator/config_menu/main": true,
+		"splitcell/splitcell": true,
+		"notify/notify": true,
+		"varInspector/main": false,
+		"gist_it/main": true,
+		"code_prettify/autopep8": true,
+		"hide_header/main": false,
+		"hide_input_all/main": true,
+		"contrib_nbextensions_help_item/main": true
+	}
+}
