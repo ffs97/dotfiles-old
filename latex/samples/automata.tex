@@ -1,0 +1,38 @@
+\documentclass{standalone}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+
+\usetikzlibrary{arrows}
+
+\begin{document}
+
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}[->, >=stealth', shorten >=1pt, auto, node distance=2.8cm, semithick]
+
+		\node[initial,state]				(s)				 {$S$};
+		\node[state]						(a) [right of=s] {$q_1$};
+		\node[state]						(b) [right of=a] {$q_2$};
+		\node[state]						(c) [right of=b] {$q_3$};
+		\node[state]						(d) [right of=c] {$q_4$};
+		\node[double distance=1mm,state]	(f) [right of=d] {$F$};
+		
+		\path	(s)		edge				node		{$\eps: \eps \ra \#$}	(a)
+				(a)		edge [loop above]	node		{a: $\eps \ra$ X}		(a)
+						edge				node		{$\eps: \eps \ra \eps$} (b)
+				(b)		edge [loop above]	node		{b: $\eps \ra$ YYY}		(b)
+						edge				node		{$\eps: \eps \ra \eps$}	(c)
+				(c)		edge [loop above]	node		{c: YY $\ra \eps$ }		(c)
+						edge				node		{$\eps: \eps \ra \eps$} (d)
+				(d)		edge [loop above]	node		{d: X $\ra \eps$}		(d)
+						edge				node		{$\eps: \# \ra \eps$}	(f);
+		\caption{Sample Automata}
+	\end{tikzpicture}
+\end{figure}
+
+\end{document}
+
+
+

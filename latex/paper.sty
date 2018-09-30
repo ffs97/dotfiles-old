@@ -1,0 +1,103 @@
+\usepackage{common}
+
+\newcommand{\papertitle}{Some Petty Paper Title}
+\newcommand{\setpapertitle}[1]{\renewcommand{\papertitle}{#1}}
+
+\newcommand{\authors}{
+	\begin{tabular}[t]{c}
+		\makecell{\bt{\fontsize{10}{10}\selectfont Gurpreet Singh} \\ 150259}
+	\end{tabular}
+}
+\newcommand{\setauthor}[3][]{
+	\renewcommand{\authors}{
+		\begin{tabular}[t]{c}
+			\makecell{
+				\bt{\fontsize{10}{10}\selectfont #2} \\ #3
+				\ifthenelse{\equal{#1}{}}{}{\\ #1}
+			}
+		\end{tabular}
+	}
+}
+\newcommand{\addauthor}[3][]{
+	\gappto\authors{
+		\hspace{7mm}
+		\begin{tabular}[t]{c}
+			\makecell{
+				\bt{\fontsize{11}{11}\selectfont #2} \\ #3
+				\ifthenelse{\equal{#1}{}}{}{\\ #1}
+			}
+		\end{tabular}
+	}
+}
+
+\newcommand{\makeheader}{
+	\begin{center}
+		\parbox{0.9\textwidth}{%
+			\hrule height4pt
+			\vspace{5mm}
+
+			\begin{center}
+				\parbox{0.7\textwidth}{
+					\begin{center}
+						\setstretch{1.5}
+						{\fontsize{16pt}{20pt} \bt{\papertitle}}
+					\end{center}
+				}
+			\end{center}
+
+			\vspace{3mm}
+			\hrule height2pt
+		}
+
+		\vspace{5mm}
+
+		\parbox{0.75\textwidth}{
+			\begin{center}
+				\authors
+			\end{center}
+		}
+	\end{center}
+}
+
+\renewcommand{\abstract}[1]{
+	\begin{center}
+		\parbox[c]{0.65\textwidth}{
+			\begin{center}
+				\bt{Abstract}
+			\end{center}
+
+			\vspace{1mm}
+
+			{\fontsize{9}{9}\selectfont #1}
+		}
+	\end{center}
+	\vspace{3mm}
+}
+
+\newcommand{\startnewpage}{FALSE}
+\newcommand{\setstartnewpage}[1]{\renewcommand{\startnewpage}{#1}}
+
+
+\newenvironment{psection}[2][]{
+	\ifthenelse{\equal{#1}{}}
+	{\begin{heading}{True}{}{#2}}
+	{\begin{heading}{True}{sec:#1}{#2}}
+}{
+	\end{heading}
+}
+
+\newenvironment{psubsection}[2][]{
+	\ifthenelse{\equal{#1}{}}
+	{\begin{subheading}{True}{}{#2}}
+	{\begin{subheading}{True}{sec:#1}{#2}}
+}{
+	\end{subheading}
+}
+
+\newenvironment{pssubsection}[2][]{
+	\ifthenelse{\equal{#1}{}}
+	{\begin{subsubheading}{True}{}{#2}}
+	{\begin{subsubheading}{True}{sec:#1}{#2}}
+}{
+	\end{subsubheading}
+}

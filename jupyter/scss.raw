@@ -239,6 +239,9 @@ div.output_html {
 	border-left: 1px solid #585858;
 }
 
+.timing_area {
+	padding: 2px 5px !important;
+}
 
 /* --------------------------------
  * RENDERED HTML

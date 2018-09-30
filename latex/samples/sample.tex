@@ -1,0 +1,70 @@
+\documentclass{article}
+
+\usepackage{assign-style}
+\setcoursetitle{Some petty course tilte}
+\setassigncode{1}
+\setauthname{Gurpreet Singh}
+\setauthroll{150259}
+
+\forestset{.style={%
+        for tree={%
+            base=bottom,
+            child anchor=north,
+            align=center,
+            s sep+=1cm,
+    straight edge/.style={%
+        edge path={\noexpand\path[\forestoption{edge},thick,-{Latex}] 
+        (!u.parent anchor) -- (.child anchor);}
+    },
+    if n children={0}
+        {tier=word, draw, thick, rectangle}
+        {draw, diamond, thick, aspect=2},
+    if n=1{%
+        edge path={\noexpand\path[\forestoption{edge},thick,-{Latex}] 
+        (!u.parent anchor) -| (.child anchor) node[pos=.2, above] {Y};}
+        }{%
+        edge path={\noexpand\path[\forestoption{edge},thick,-{Latex}] 
+        (!u.parent anchor) -| (.child anchor) node[pos=.2, above] {N};}
+        }
+        }
+    }
+}
+
+\begin{document}
+\makeheader
+
+\begin{question}
+    
+    \begin{qsection}{Test Section}
+
+        Test
+
+        \begin{qproof}{This is a test claim}
+            This is a test proof
+        \end{qproof}
+
+    \end{qsection}
+    
+\end{question}
+
+\begin{question}
+
+
+    \begin{forest} 
+    [$x_2$, tikz={\draw[{Latex}-, thick] (.north) --++ (0,1);}
+        [$x_1$
+            [1] 
+            [0] 
+        ]   
+        [$x_3$
+            [$x_1$
+                [1] 
+                [0] 
+            ]   
+            [0] 
+        ]   
+    ] 
+    \end{forest}
+\end{question}
+
+\end{document}

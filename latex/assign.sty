@@ -1,0 +1,116 @@
+\usepackage{common}
+
+\titlespacing{\section}{0em}{1em}{1em}
+
+\newcommand{\institute}{Indian Institute of Technology Kanpur}
+\newcommand{\setinstitute}[1]{\renewcommand{\institute}{#1}}
+
+\newcommand{\coursetitle}{Some petty course title}
+\newcommand{\setcoursetitle}[1]{\renewcommand{\coursetitle}{#1}}
+
+\newcommand{\assigncode}{1}
+\newcommand{\setassigncode}[1]{
+	\renewcommand{\assigncode}{#1}
+	\setcounter{seriescode}{\assigncode}
+}
+
+\newcommand{\authname}{Gurpreet Singh}
+\newcommand{\setauthname}[1]{\renewcommand{\authname}{#1}}
+
+\newcommand{\authroll}{150259}
+\newcommand{\setauthroll}[1]{\renewcommand{\authroll}{#1}}
+
+\newcommand{\headate}{\today}
+\newcommand{\setheaddate}[1]{\renewcommand{\headate}{#1}}
+
+\newcounter{thisyear}
+\newcounter{nextyear}
+
+\addtocounter{thisyear}{\year}
+\addtocounter{thisyear}{-2000}
+
+\addtocounter{nextyear}{\thethisyear}
+\addtocounter{nextyear}{1}
+
+\newcommand{\startnewpage}{FALSE}
+\newcommand{\setstartnewpage}[1]{\renewcommand{\startnewpage}{#1}}
+
+\newcommand{\makeheader}{%
+	\parbox{0.75\textwidth}{%
+		{\sffamily\bfseries \institute}
+
+		{\sffamily\bfseries \coursetitle, \thethisyear--\thenextyear}
+
+		\rule{0mm}{2pt}%
+
+		{\em Student Name:\/} \authname%
+
+		{\em Roll Number:\/} \authroll%
+
+		{\em Date:\/} \headate%
+
+	}
+	\hfill
+	\begin{tabular}{c@{}}
+		{\sffamily\bfseries\Large ASSIGNMENT}\\
+		\rule{0mm}{15mm}\scalebox{5}{\sffamily \assigncode}
+	\end{tabular}
+
+	\vspace{1mm}
+
+	\hrule height1pt
+
+	\vspace{3mm}
+}
+
+
+\newcounter{question}
+\newenvironment{question}[0]{
+	\refstepcounter{question}
+	\refstepcounter{section}
+	\begin{heading}{False}{}{Question \thequestion}
+	}{
+	\end{heading}
+	\ifthenelse{\equal{\startnewpage}{TRUE}}{\clearpage}{}
+}
+
+\newenvironment{qsection}[2][]{
+	\ifthenelse{\equal{#1}{}}
+	{\begin{subheading}{True}{}{#2}}
+		{\begin{subheading}{True}{sec:\thequestion.#1}{#2}}
+}{
+	\end{subheading}
+}
+
+
+\newenvironment{qpart}[2][]
+{
+	\ifthenelse{\equal{#1}{}}
+	{\begin{subheading}{False}{}{Part #2}}
+	{\begin{subheading}{False}{part:\thequestion.#1}{Part #2}}
+}{
+	\end{subheading}
+}
+
+
+\newenvironment{qsubsection}[2][]{
+	\ifthenelse{\equal{#1}{}}{
+		\begin{subsubheading}{True}{}{#2}
+	}
+	{
+		\begin{subsubheading}{False}{subsec:\thequestion.#1}{#2}
+	}
+}{
+	\end{subsubheading}
+}
+
+\newenvironment{qcase}[2]{
+	\bt{\st{Case #1 }} \textit{#2}
+	\sbr
+	\begin{addmargin}{1em}
+		\begin{siderule}
+}{
+		\end{siderule}
+	\end{addmargin}
+	\sbr
+}
