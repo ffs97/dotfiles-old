@@ -141,7 +141,7 @@ smart_gaps on
 # Windows' Colors
 client.focused 			#008b99 #008b99	#ffffff	#2e9ef4	#ffffff
 client.focused_inactive	#484848	#484848	#ffffff	#484e50	#212121
-client.unfocused       	#2f343f	#2f343f #ffffff	#292d2e	#212121
+client.unfocused       	#2f343f	#2f343f #ffffff	#292d2e	#3a4246
 client.urgent          	#900000	#900000	#ffffff	#900000	#900000
 client.placeholder      #0c0c0c	#0c0c0c	#ffffff	#000000	#0c0c0c
 

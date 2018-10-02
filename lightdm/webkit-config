@@ -30,6 +30,6 @@ webkit_theme        = litarvan
 #
 
 [branding]
-background_images = /usr/share/backgrounds
+background_images = /home/fat-fighter/dropbox/pictures/wallpaper.jpg
 logo              = /usr/share/pixmaps/archlinux-logo.svg
-user_image        = /usr/share/pixmaps/archlinux-user.svg
+user_image        = /home/fat-fighter/dropbox/pictures/profile.jpg

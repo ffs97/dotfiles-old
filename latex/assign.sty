@@ -35,25 +35,32 @@
 \newcommand{\startnewpage}{FALSE}
 \newcommand{\setstartnewpage}[1]{\renewcommand{\startnewpage}{#1}}
 
-\newcommand{\makeheader}{%
-	\parbox{0.75\textwidth}{%
-		{\sffamily\bfseries \institute}
+\newcommand{\questionheader}{FALSE}
+\newcommand{\setquestionheader}[1]{
+	\renewcommand{\questionheader}{TRUE}
+	\renewcommand{\startnewpage}{TRUE}
+}
 
+\DeclareDocumentCommand{\makeheader}{ O{ASSIGNMENT} O{} }{
+	\parbox{0.75\textwidth}{
+		{\sffamily\bfseries \institute} \\
 		{\sffamily\bfseries \coursetitle, \thethisyear--\thenextyear}
 
-		\rule{0mm}{2pt}%
+		\rule{0mm}{2pt}
 
-		{\em Student Name:\/} \authname%
-
-		{\em Roll Number:\/} \authroll%
-
-		{\em Date:\/} \headate%
+		{\em Student Name:\/} \authname \\
+		{\em Roll Number:\/} \authroll \\
+		{\em Date:\/} \headate
 
 	}
 	\hfill
 	\begin{tabular}{c@{}}
-		{\sffamily\bfseries\Large ASSIGNMENT}\\
-		\rule{0mm}{15mm}\scalebox{5}{\sffamily \assigncode}
+		{
+			\sffamily\bfseries\Large #1
+		}\\
+		\rule{0mm}{15mm}\scalebox{5}{
+			\sffamily \ifthenelse{\equal{#2}{}}{\assigncode}{#2}
+		}
 	\end{tabular}
 
 	\vspace{1mm}
@@ -68,9 +75,14 @@
 \newenvironment{question}[0]{
 	\refstepcounter{question}
 	\refstepcounter{section}
-	\begin{heading}{False}{}{Question \thequestion}
-	}{
-	\end{heading}
+	\ifthenelse{\equal{\questionheader}{TRUE}}{\makeheader[QUESTION][\thequestion]}{}
+	\ifthenelse{\equal{\questionheader}{TRUE}}{}{
+		\begin{heading}{False}{}{Question \thequestion}
+	}
+}{
+	\ifthenelse{\equal{\questionheader}{TRUE}}{}{
+		\end{heading}
+	}
 	\ifthenelse{\equal{\startnewpage}{TRUE}}{\clearpage}{}
 }
 
