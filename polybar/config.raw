@@ -30,7 +30,7 @@ font-1 = "DejaVuSansMono Nerd Font:size=11;3"
 font-2 = "Wuncon Siji;3"
 
 modules-left = i3
-modules-right = xkeyboard volume wlan battery date
+modules-right = xkeyboard dropbox gmail volume wlan battery date
 
 line-size = 0
 
@@ -187,3 +187,23 @@ label-indicator-background = #707a5a
 
 label-indicator-padding = 1
 label-indicator-margin-right = 1
+
+##############################
+[module/gmail]
+
+type = custom/script
+exec = ~/.config/polybar/gmail/launch.py
+
+click-left = xdg-open https://mail.google.com
+
+tail = true
+
+format-padding = 2
+
+##############################
+[module/dropbox]
+
+type = custom/script
+exec = ~/.config/polybar/dropbox-status.sh
+
+interval=1
