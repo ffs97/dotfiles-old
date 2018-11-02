@@ -2,3 +2,14 @@ Host ppr
     HostName ppr.cse.iitk.ac.in
     Port 22
     User guggu
+
+Host webhome
+    HostName webhome.cc.iitk.ac.in
+    Port 22
+    User guggu
+
+Host fat-git
+  HostName github.com
+  User git
+  IdentityFile /home/fat-fighter/.ssh/id_rsa
+  IdentitiesOnly yes

@@ -11,7 +11,6 @@
 		}
 	},
 	"load_extensions": {
-		"execute_time/ExecuteTime": true,
 		"table_beautifier/main": true,
 		"equation-numbering/main": true,
 		"collapsible_headings/main": true,

@@ -168,7 +168,9 @@ format-connected-padding = 1
 format-disconnected =
 
 ramp-signal-0 = 
+ramp-signal-0-foreground = ${colors.alert}
 ramp-signal-1 = 
+ramp-signal-1-foreground = ${colors.alert}
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
@@ -207,3 +209,5 @@ type = custom/script
 exec = ~/.config/polybar/dropbox-status.sh
 
 interval=1
+
+format-padding = 2

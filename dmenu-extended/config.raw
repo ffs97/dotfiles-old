@@ -17,6 +17,10 @@
 		[
 			"View Running Processes",
 			"htop;"
+		],
+		[
+			"Calculator",
+			"=;"
 		]
 	],
 	"indicator_alias": "#",
