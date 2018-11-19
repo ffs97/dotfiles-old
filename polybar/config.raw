@@ -8,7 +8,38 @@ foreground = #ffffff
 alert = #f65757
 
 ##############################
-[bar/default]
+[bar/edp]
+
+monitor = eDP-1-1
+
+bottom = true
+width = 100%
+height = 28
+offset-x = 0
+offset-y = 0
+
+background = ${colors.background-dark}
+foreground = ${colors.foreground}
+
+spacing = 0
+padding-left = 0
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = "DejaVuSansMono Nerd Font:size=9;3"
+font-1 = "DejaVuSansMono Nerd Font:size=11;3"
+font-2 = "Wuncon Siji;3"
+
+modules-left = i3
+modules-right = xkeyboard dropbox gmail volume wlan battery date
+
+line-size = 0
+
+##############################
+[bar/hdmi]
+
+monitor = HDMI-1-1
 
 bottom = true
 width = 100%
@@ -156,7 +187,7 @@ format-padding = 2
 [module/wlan]
 
 type = internal/network
-interface = wlp8s0
+interface = wlp0s20u1
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -187,7 +218,7 @@ label-layout =
 label-indicator-foreground = #ffffff
 label-indicator-background = #707a5a
 
-label-indicator-padding = 1
+label-indicator-padding = 2
 label-indicator-margin-right = 1
 
 ##############################

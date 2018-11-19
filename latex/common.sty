@@ -31,6 +31,7 @@
 \usepackage{titlesec}
 \usepackage{bbm}
 \usepackage{xparse}
+\usepackage[colorinlistoftodos]{todonotes}
 
 \usetikzlibrary{arrows,automata,bayesnet}
 
@@ -299,7 +300,7 @@
 \renewcommand{\exp}[1]{e^{#1}}
 \newcommand{\texp}[1]{\tfunc{exp}{#1}}
 \newcommand{\fact}[1]{\para{#1}!}
-\newcommand{\kld}[2]{\tfunc{KL}{#1\,||\,#2}}
+\newcommand{\kld}[2]{\tfunc{KL}{#1\,\big|\big|\,#2}}
 \newcommand{\dirac}[2]{\func[\,#1]{\delta}{#2}}
 
 \newcommand{\compl}{\overline}
@@ -314,7 +315,7 @@
 	\ifthenelse{\equal{#1}{}}{\text{log}\;{#2}}{\text{log}_{#1}\;{#2}}
 }
 
-\newcommand{\is}[1]{\bI \brac{#1}}
+\newcommand{\is}[1]{\cI\,\para{#1}}
 \newcommand{\trace}[1]{\tfunc{Tr}{#1}}
 \newcommand{\tr}[1]{{#1}^{\text{\fontsize{6}{6}\selectfont T}}}
 \newcommand{\comp}[1]{{#1}^{\text{C}}}
@@ -352,7 +353,7 @@
 \newcommand{\deq}{\overset{\Delta}{=}}
 
 
-%Spacing
+% Spacing
 \newcommand{\eq}[1][]{\ifthenelse{\equal{#1}{}}{\quad = \quad}{\quad \overset{#1}{=} \quad}}
 \newcommand{\qimpl}[1][]{\ifthenelse{\equal{#1}{}}{\quad \implies \quad}{\quad \overset{#1}{\implies} \quad}}
 \newcommand{\qsim}[1][]{\ifthenelse{\equal{#1}{}}{\quad \sim \quad}{\quad \overset{#1}{\sim} \quad}}
@@ -405,9 +406,13 @@
 }
 
 \newcommand{\id}{\;\text{d}}
-\newcommand{\tth}[1][]{\ifthenelse{\equal{#1}{}}{$^{\tiny{\text{th}}}$}{$^{\tiny{\text{#1}}}$}\,}
+
 \newcommand{\sups}[1]{$^\mt{#1}$}
 \newcommand{\supst}[1]{$^\tiny{\mt{#1}}$}
+\newcommand{\subs}[1]{$_\mt{#1}$}
+\newcommand{\subst}[1]{$_\tiny{\mt{#1}}$}
+
+\newcommand{\tth}[0]{\supst{th}}
 
 \newcommand{\ie}{\et{i.e.}\;}
 
@@ -424,6 +429,21 @@
 
 \newcommand{\mle}[1]{#1_{\text{MLE}}}
 \newcommand{\map}[1]{#1_{\text{MAP}}}
+
+\newcommand{\comment}[2][]{
+    \ifstrequal{#1}{}{
+        \todo[inline, backgroundcolor=blue!25!white]{#2}
+    }{
+        \todo[author=#1, inline, backgroundcolor=blue!25!white]{#2}
+    }
+}
+\newcommand{\issue}[2][]{
+    \ifstrequal{#1}{}{
+        \todo[inline]{#2}
+    }{
+        \todo[author=#1, inline]{#2}
+    }
+}
 
 %% Environments
 \floatstyle{plain}
@@ -460,6 +480,7 @@
 	\end{center}
 }
 
+% Headings
 
 \newenvironment{heading}[3]
 {
@@ -528,48 +549,6 @@
 	\bt{{\sffamily\fontsize{12}{12}\selectfont #1}}
 
 }
-
-
-\newenvironment{induction}[0]
-{
-	\newcommand{\base}{
-		\bt{\st{Base Case}}
-		\sbr\
-		\begin{addmargin}{1em}
-			\begin{siderule}
-			}
-
-			\newcommand{\hypoth}{
-			\end{siderule}
-		\end{addmargin}
-		\sbr
-
-		\bt{\st{Hypothesis}}
-		\sbr
-		\begin{addmargin}{1em}
-			\begin{siderule}
-			}
-
-			\newcommand{\indctn}{
-			\end{siderule}
-		\end{addmargin}
-		\sbr
-		\bt{\st{Induction}}
-		\sbr
-		\begin{addmargin}{1em}
-			\begin{siderule}
-			}
-		}
-		{
-		\end{siderule}
-	\end{addmargin}
-	\br
-
-	\let\base\undefine
-	\let\hypoth\undefine
-	\let\indctn\undefine
-}
-
 
 \definecolor{anti-flashwhite}{rgb}{0.95, 0.95, 0.96}
 \newcommand{\answer}[2][]{

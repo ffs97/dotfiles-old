@@ -8,6 +8,16 @@ Host webhome
     Port 22
     User guggu
 
+Host gpu
+    HostName gpu.cse.iitk.ac.in
+    Port 22
+    User guggu
+
+Host gpu1
+    HostName gpu1.cse.iitk.ac.in
+    Port 22
+    User guggu
+
 Host fat-git
   HostName github.com
   User git

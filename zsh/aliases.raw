@@ -12,6 +12,7 @@ alias lg="lazygit"
 
 # Listing
 alias l="$UTILITIES/dls"
+alias ltl="exa -lhT --git --level 1"
 
 alias lt="exa -aT --git --level 3"
 alias ltl="exa -lhT --git --level 3"
