@@ -10,6 +10,6 @@ file-manager				=	terminology -e ranger
 network-manager				=	connman-gtk
 bluetooth-manager			=	blueman-manager
 
-browser-command				=	google-chrome-stable
-browser-wmclass				=	Google-chrome
-browser-command-incognito	=	google-chrome-stable --incognito
+browser-command				=	vivaldi-stable
+browser-wmclass				=	Vivaldi-stable
+browser-command-incognito	=	vivaldi-stable --incognito

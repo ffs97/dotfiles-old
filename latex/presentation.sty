@@ -1,8 +1,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[margin = 1in]{geometry}
-\usepackage{amsmath, amssymb, mathtools, bm, amsthm}
-\usepackage{scrextend}
 \usepackage{tikz,forest}
 \usepackage{xspace}
 \usepackage[linesnumbered]{algorithm2e}
@@ -13,7 +11,6 @@
 \usepackage{graphics}
 \usepackage{xifthen}
 \usepackage[normalem]{ulem}
-\usepackage{enumitem}
 \usepackage{array}
 \usepackage{etoolbox}
 \usepackage{color}
@@ -21,7 +18,6 @@
 \usepackage{makecell}
 \usepackage{anyfontsize}
 \usepackage[none]{hyphenat}
-\usepackage{sectsty}
 \usepackage{textcomp}
 \usepackage{longtable}
 \usepackage[round]{natbib}
@@ -29,7 +25,6 @@
 \usepackage{subcaption}
 \usepackage{multirow}
 \usepackage{setspace}
-\usepackage{titlesec}
 \usepackage{bbm}
 \usepackage{xparse}
 \usepackage[colorinlistoftodos]{todonotes}
@@ -53,20 +48,6 @@
 % Fonts
 \renewcommand{\ttdefault}{lmtt}
 \renewcommand{\sfdefault}{cmss}
-
-% Title Numbering and Label Font Styles
-\sectionfont{\normalfont\fontsize{11}{12}\fontfamily{qag}\selectfont\bfseries}
-\subsectionfont{\normalfont\fontsize{10}{12}\fontfamily{qag}\selectfont}
-\subsubsectionfont{\normalfont\fontsize{10}{12}\sffamily\selectfont\bfseries}
-
-\renewcommand{\thesection}{{\fontfamily{lmss}\selectfont \arabic{section}.}}
-\renewcommand{\thesubsection}{{\fontfamily{lmss}\selectfont \arabic{section}.\arabic{subsection}.}}
-\renewcommand{\thesubsubsection}{{\fontfamily{lmss}\selectfont \arabic{section}.\arabic{subsection}.\arabic{subsubsection}.}}
-
-% Title Spacing
-\titlespacing{\section}{0em}{1em}{0.8em}
-\titlespacing{\subsection}{0em}{0.8em}{0em}
-\titlespacing{\subsubsection}{0em}{0.8em}{0em}
 
 % Change line number format in algorithms
 %\algrenewcommand\alglinenumber[1]{\footnotesize{#1} \quad}
@@ -300,7 +281,6 @@
 \newcommand{\dotp}[2]{\angl{#1,\;#2}}
 \renewcommand{\exp}[1]{e^{#1}}
 \newcommand{\texp}[1]{\tfunc{exp}{#1}}
-\newcommand{\fact}[1]{\para{#1}!}
 \newcommand{\kld}[2]{\tfunc{KL}{#1\,\big|\big|\,#2}}
 \newcommand{\dirac}[2]{\func[\,#1]{\delta}{#2}}
 
@@ -589,25 +569,6 @@
 }
 
 \newtheoremstyle{fatt}{\parskip}{}{}{}{\bfseries\sffamily}{.}{.5em}{}
-
-\newcounter{seriescode}
-\setcounter{seriescode}{1}
-
-% Theorem environments
-\theoremstyle{fatt}
-\let\theorem\relax
-\newtheorem{theorem}{Theorem}[seriescode]
-\newtheorem{lemma}{Lemma}[theorem]
-\newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{claim}{Claim}[seriescode]
-\newtheorem{property}{Property}[seriescode]
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem*{remark}{Remark}
-\newtheorem*{note}{Note}
-\newtheorem{definition}{Definition}[seriescode]
-\newtheorem{example}{Example}[seriescode]
-\newtheorem{exercise}{Exercise}[seriescode]
-\newtheorem{result}{Result}[definition]
 
 \newcommand{\hint}[1]{\begin{flushright} \et{Hint: #1} \end{flushright}}
 

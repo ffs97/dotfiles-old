@@ -8,6 +8,11 @@ Host webhome
     Port 22
     User guggu
 
+Host turing
+    HostName turing.cse.iitk.ac.in
+    Port 22
+    User guggu
+
 Host gpu
     HostName gpu.cse.iitk.ac.in
     Port 22
