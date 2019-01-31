@@ -69,7 +69,7 @@
 
 
 \newenvironment{psection}[2][]{
-	\ifthenelse{\equal{#1}{}}
+	\ifempty{#1}
 	{\begin{heading}{True}{}{#2}}
 	{\begin{heading}{True}{sec:#1}{#2}}
 }{
@@ -77,7 +77,7 @@
 }
 
 \newenvironment{psubsection}[2][]{
-	\ifthenelse{\equal{#1}{}}
+	\ifempty{#1}
 	{\begin{subheading}{True}{}{#2}}
 	{\begin{subheading}{True}{sec:#1}{#2}}
 }{
@@ -85,7 +85,7 @@
 }
 
 \newenvironment{pssubsection}[2][]{
-	\ifthenelse{\equal{#1}{}}
+	\ifempty{#1}
 	{\begin{subsubheading}{True}{}{#2}}
 	{\begin{subsubheading}{True}{sec:#1}{#2}}
 }{

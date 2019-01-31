@@ -67,7 +67,7 @@
 
 \newenvironment{ssubsection}[2][]{
 	\vspace{1mm}
-	\ifthenelse{\equal{#1}{}}{\subsection{#2}}{\hypertarget{sec:#1}{\subsection{#2}}}
+	\ifempty{#1}{\subsection{#2}}{\hypertarget{sec:#1}{\subsection{#2}}}
 	\begin{addmargin}{1.5em}
 }{
 	\end{addmargin}
