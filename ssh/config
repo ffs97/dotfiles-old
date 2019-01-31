@@ -14,14 +14,10 @@ Host turing
     User guggu
 
 Host gpu
-    HostName gpu.cse.iitk.ac.in
+    HostName cseproj83.cse.iitk.ac.in
     Port 22
-    User guggu
+    User gurpreet
 
-Host gpu1
-    HostName gpu1.cse.iitk.ac.in
-    Port 22
-    User guggu
 
 Host fat-git
   HostName github.com

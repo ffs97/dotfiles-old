@@ -33,3 +33,6 @@ alias tq="tyq"
 # Proxy
 alias proxy=". $UTILITIES/general/proxy/global-proxy"
 alias pipp="$UTILITIES/general/proxy/pip-proxy"
+
+# Tor Browser
+alias tor="$SOFTWARE/tor/start-tor-browser --detach"

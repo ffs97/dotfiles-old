@@ -135,5 +135,5 @@ zle -N clean_widget clean
 bindkey "^k" clean_widget
 
 bindkey "^[o" qcd_widget
-bindkey "^[t" fzf-file-widget
-bindkey "^[r" fzf-history-widget
+bindkey "^[f" fzf-file-widget
+bindkey "^[h" fzf-history-widget

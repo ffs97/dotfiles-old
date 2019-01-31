@@ -17,7 +17,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'dhruvasagar/vim-table-mode'
+" Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-latex/vim-latex'
@@ -25,11 +25,16 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'Yggdroot/indentLine'
-Plugin 'godlygeek/tabular'
+" Plugin 'Yggdroot/indentLine'
+" Plugin 'godlygeek/tabular'
 Plugin 'junegunn/goyo.vim'
-"Plugin 'plasticboy/vim-markdown'
-Plugin 'gabrielelana/vim-markdown'
+" Plugin 'gabrielelana/vim-markdown'
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'vim-syntastic/syntastic'
+" Plugin 'nvie/vim-flake8'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-eunuch'
 
 call vundle#end()
 
@@ -57,6 +62,7 @@ set viminfo+=:500
 " Word Wrap Settings ###############################################
 
 set wrap linebreak nolist breakindent
+ru macros/justify.vim
 
 " Change colorscheme ###############################################
 
@@ -98,12 +104,17 @@ imap <A-Left> <ESC>:tabprev<CR>a<right>
 imap <A-Right> <ESC>:tabnext<CR>a<right>
 
 " Closing Buffers
-nmap <C-w> :bd<CR>
-nmap <A-w> :bd!<CR>
+nmap <A-w> :bd<CR>
 
 " Saving Buffers
 nmap <C-s> :w!<CR>
 imap <C-s> <C-o>:w!<CR>
+
+" Split Navigations
+nnoremap <C-j> <C-w><down>
+nnoremap <C-k> <C-w><up>
+nnoremap <C-l> <C-w><right>
+nnoremap <C-h> <C-w><left>
 
 " Word deletion
 imap <C-BS> <C-w>
@@ -158,22 +169,14 @@ imap <A-z> <C-o><C-r>
 " Moving Lines
 imap <A-Up> <ESC>dd<Up><Up>pi
 imap <A-Down> <ESC>ddpi
-nmap <A-Up> dd<Up><Up>pi
-nmap <A-Down> ddpi
+nmap <A-Up> dd<Up><Up>p
+nmap <A-Down> ddp
 
 " Scrolling
 imap <C-Up> <C-o><C-y>
 imap <C-Down> <C-o><C-e>
 nmap <C-Up> <C-y>
 nmap <C-Down> <C-e>
-
-" Justify
-ru macros/justify.vim
-vmap <C-j> _j
-
-" Source files
-nmap <A-s> :w<CR>:source %<CR>
-imap <A-s> <C-o>:w<CR><C-o>:source %<CR>
 
 " Center
 "With Dashes
@@ -213,7 +216,7 @@ set timeout ttimeoutlen=50
 let g:tex_flavor='latex:'
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_FoldedEnvironments="verbatim,comment,eq,gather,align,figure,table,thebibliography,keywords,abstract,titlepage,question},qsection},qsubsection},qpart},qproof},qcase},algo},ssection},ssubsection},sssubsection},spart},sproof},scase},algorithm},rsection},rsubsection},longtable},heading},subheading},subsubheading},psection},psubsection},pssubsection}"
-let g:Tex_CompileRule_pdf='pdflatex -interaction=batchmode -file-line-error-style $*'
+let g:Tex_CompileRule_pdf='{{latex-compiler}} -interaction=batchmode -file-line-error-style $*'
 
 let g:Tex_Env_question="\\begin{question}\<CR>\<CR><++>\<CR>\<CR>\\end{question}<++>"
 let g:Tex_Env_qsection="\\begin{qsection}{<++>}\<CR>\<CR><++>\<CR>\<CR>\\end{qsection}<++>"
@@ -221,8 +224,11 @@ let g:Tex_Env_qpart="\\begin{qpart}{<++>}\<CR>\<CR><++>\<CR>\<CR>\\end{qpart}<++
 let g:Tex_Env_qsubsection="\\begin{qsubsection}{<++>}\<CR>\<CR><++>\<CR>\<CR>\\end{qsubsection}<++>"
 let g:Tex_Env_qcase="\\begin{qcase}{<++>}{<++>}\<CR><++>\<CR>\\end{qcase}<++>"
 let g:Tex_Env_qproof="\\begin{qproof}{<++>}\<CR><++>\<CR>\\end{qproof}<++>"
+
 let g:Tex_Env_addmargin="\\begin{addmargin}{1.5em}\<CR><++>\<CR>\\end{addmargin}<++>"
+
 let g:Tex_Env_algo="\\begin{algo}[0.9\\textwidth]{<++>}\<CR>\<CR><++>\<CR>\<CR>\\end{algo}<++>"
+
 let g:Tex_Env_heading="\\begin{heading}{<++>}{<++>}{<++>}\<CR>\<CR><++>\<CR>\<CR>\\end{heading}<++>"
 let g:Tex_Env_subheading="\\begin{subheading}{<++>}{<++>}{<++>}\<CR>\<CR><++>\<CR>\<CR>\\end{subheading}<++>"
 let g:Tex_Env_subsubheading="\\begin{subsubheading}{<++>}{<++>}{<++>}\<CR><++>\<CR>\\end{subsubheading}<++>"
@@ -238,6 +244,7 @@ let g:Tex_Env_pssubsection="\\begin{pssubsection}{<++>}\<CR>\<CR><++>\<CR>\<CR>\
 set grepprg=grep\ -nH\ $*
 
 let g:tex_conceal = ""
+let g:Tex_CustomTemplateDirectory = "$HOME/texmf/tex/latex/templates/"
 
 imap <A-r> <C-o>:w<CR><C-o>:!{{latex-compiler}} -interaction=batchmode -file-line-error-style %<CR><CR>
 nmap <A-r> :w<CR>:!{{latex-compiler}} -interaction=batchmode -file-line-error-style %<CR><CR>
@@ -291,3 +298,9 @@ set numberwidth=5
 " Markdown #########################################################
 
 let g:markdown_enable_conceal = 1
+
+" YouCompleteMe settings ###########################################
+
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_seed_identifiers_with_syntax = 1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>

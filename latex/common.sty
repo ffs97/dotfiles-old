@@ -278,13 +278,6 @@
 
 \newcommand{\sigmoid}[1]{\func{\sigma}{#1}}
 
-\newcommand{\prob}[2][]{
-	\ifthenelse{\equal{#1}{}}{\bP}{\underset{#1}{\bP}}\brac{#2}
-}
-\newcommand{\aprob}[2][]{
-	\ifthenelse{\equal{#1}{}}{\widetilde{\bP}}{\underset{#1}{\widetilde{\bP}}}\brac{#2}
-}
-
 \newcommand{\lagr}[2][]{
 	\ifthenelse{\equal{#1}{}}{\cL}{\underset{#1}{\cL}}\brac{#2}
 }
@@ -321,6 +314,12 @@
 \newcommand{\tr}[1]{{#1}^{\text{\fontsize{6}{6}\selectfont T}}}
 \newcommand{\comp}[1]{{#1}^{\text{C}}}
 
+\newcommand{\prob}[2][]{
+	\ifthenelse{\equal{#1}{}}{\bP}{\underset{#1}{\bP}}\brac{#2}
+}
+\newcommand{\aprob}[2][]{
+	\ifthenelse{\equal{#1}{}}{\widetilde{\bP}}{\underset{#1}{\widetilde{\bP}}}\brac{#2}
+}
 \newcommand{\E}[2][]{
 	\ifthenelse{\equal{#1}{}}{\bE}{\underset{#1}{\bE}}\brac{#2}
 }
