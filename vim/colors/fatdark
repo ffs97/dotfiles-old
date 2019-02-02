@@ -1,3 +1,13 @@
+"   ███████              ███                                          ████        
+"  ░███░░███            ░███             ░░███                       ░░███   ███  
+"  ░███ ░░░   ██████    ██████            ░███  ██████    ████████    ░███  ███   
+"  ██████    ░░░░░███  ░░███░          ███████ ░░░░░███   ░░███░░███  ░███ ███    
+" ░░███░      ███████   ░███          ███░░███  ███████    ░███ ░░░   ░██████     
+"  ░███      ███░░███   ░███  █      ░███░░███ ███░░███    ░███       ░███░░███   
+"  █████     ░████████  ░░████   ███ ░░██████  ░████████   █████      █████░░████ 
+" ░░░░░      ░░░░░░░░    ░░░░   ░░░   ░░░░░░   ░░░░░░░░   ░░░░░      ░░░░░  ░░░░  
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 set background=dark
 highlight clear
 
@@ -61,7 +71,7 @@ hi	Boolean							guifg=#3c98d9		guibg=NONE			gui=NONE
 hi	Character						guifg=#3c98d9		guibg=NONE			gui=NONE
 
 " Comments
-hi	Comment							guifg=#aabaaa		guibg=NONE			gui=italic
+hi	Comment							guifg=#aabaaa		guibg=NONE			gui=NONE
 
 hi	Conditional						guifg=#dda790		guibg=NONE			gui=NONE
 hi	Constant						guifg=#3c98d9		guibg=NONE			gui=NONE

@@ -1,18 +1,81 @@
-/**
- * A floating box version of the paper theme.
- *
- * User: Qball
- * Copyright: Dave Davenport
- */
+/*
+**   ███████              ███                                                           
+**  ░███░░███            ░███                                                           
+**  ░███ ░░░   ██████   ░██████        ██████████████    ██████   █████████  █████ ████ 
+**  ██████    ░░░░░███   ░███░        ░░███░░███░░███   ███░░███ ░░███░░███  ░███ ░███  
+** ░░███░      ███████   ░███          ░███ ░███ ░███  ░███████   ░███ ░███  ░███ ░███  
+**  ░███      ███░░███   ░███  █       ░███ ░███ ░███  ░███░░░    ░███ ░███  ░███ ░███  
+**  █████     ░████████  ░░████   ███  █████░███ █████ ░░███████  █████░████ ░████████  
+** ░░░░░      ░░░░░░░░   ░░░░░   ░░░  ░░░░░ ░░░ ░░░░░   ░░░░░░░  ░░░░░ ░░░░  ░░░░░░░░   
+***************************************************************************************************/
+
+configuration {
+    modi: "combi,windowcd,run";
+    lines: 10;
+    columns: 1;
+    bw: 0;
+    fixed-num-lines: true;
+    show-icons: false;
+    sidebar-mode: true;
+    combi-modi: "window,run";
+    separator-style: "none";
+    hide-scrollbar: false;
+    fullscreen: false;
+    fake-transparency: false;
+    scroll-method: 1;
+    click-to-exit: true;
+    show-match: false;
+
+    color-normal: "@xbg, @xfg, @xbg, @xfg, @xbg";
+    color-urgent: "@xbg, @x1, @xbg, @x1, @xfg";
+    color-active: "@xbg, @xfg, @xbg, @xfg, @xbg";
+    color-window: "@xbg, @x1, @xfg";
+
+    combi-hide-mode-prefix: true;
+
+    window-format: "{c} · [{w}] ··   {t}";
+    display-window: "Switch All";
+    display-windowcd: "Switch";
+
+    display-run: "Run";
+    display-ssh: "SSH";
+    display-drun: "Drun";
+    display-combi: "Do";
+
+    kb-remove-word-back: "Control+BackSpace,Alt+d,Alt+BackSpace";
+    kb-accept-entry: "Control+m,Return,KP_Enter,Alt+m";
+    kb-mode-next: "Shift+Right,Control+Tab,Alt+l,Alt+Tab";
+    kb-mode-previous: "Shift+Left,Control+ISO_Left_Tab,Alt+h";
+    kb-row-left: "Control+Page_Up,Control+Alt+h";
+    kb-row-right: "Control+Page_Down,Control+Alt+l";
+    kb-row-up: "Up,Control+p,ISO_Left_Tab,Alt+k";
+    kb-row-down: "Down,Control+n,Alt+j";
+
+    kb-select-1: "";
+    kb-select-2: "";
+    kb-select-3: "";
+    kb-select-4: "";
+    kb-select-5: "";
+    kb-select-6: "";
+    kb-select-7: "";
+    kb-select-8: "";
+    kb-select-9: "";
+    kb-select-10: "";
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+    me-accept-custom: "MouseMiddle";
+}
 * {
     spacing: 2;
     background-color: #00000000;
+	border: 0;
     border-color: #444444FF;
     anchor: north;
     location: center;
 	background-color: transparent;
 	font: "IBM Plex Mono 10";
 }
+
 #window {
     background-color: #00000033;
     border: 0;
@@ -57,11 +120,11 @@
 }
 #element normal.urgent, element alternate.urgent {
     text-color: #D75F00FF;
-    background-color: #F5F5F5FF;
+    background-color: #F5A5A5FF;
 }
 #element normal.active, element alternate.active {
-    text-color: #005F87FF;
-    background-color: #F5F5F5FF;
+    text-color: #FF8C67FF;
+    background-color: #F5F5F500;
 }
 #element selected.normal {
     text-color: #F5F5F5FF;
@@ -72,8 +135,8 @@
     background-color: #D75F00FF;
 }
 #element selected.active {
-    text-color: #F5F5F5FF;
-    background-color: #005F87FF;
+    text-color: #FF8C67FF;
+    background-color: #4271AEFF;
 }
 
 #scrollbar {
@@ -92,14 +155,29 @@
 }
 
 #sidebar {
-    border: 2px;
-    padding: 0.5em 1em;
+    border: 0;
+    padding: 0em 1em;
     background-color: @grey;
     index: 10;
 }
-#button selected {
-    text-color: #4271AEFF;
+
+#button {
+    margin: 10px;
+    padding: 5px;
+    background-color: #00000011;
+    text-color: #FFFFFFFF;
+    border: 3px;
+    border-radius: 20px;
+    border-color: #FFFFFF11;
 }
+#button selected {
+	background-color: #66666611;
+    border-color: #FFFFFF33;
+    text-color:       @x7;
+    border:       3px;
+    border-radius: 20px;
+}
+
 #inputbar {
     children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
 	foreground-color: white;
@@ -108,7 +186,7 @@
 #textbox-prompt-colon {
     expand:     false;
     str:        ":";
-    margin:     0px 0.3em 0em 0em ;
+    margin:     0 0.3em 0em 0em ;
 }
 #prompt, textbox-prompt-colon, entry, case-indicator {
 	font: "IBM Plex Mono 10";
