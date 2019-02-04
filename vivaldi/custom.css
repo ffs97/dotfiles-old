@@ -1,0 +1,93 @@
+/** Place this file at the path
+ ** /opt/vivaldi/resources/vivaldi/style/custom.css
+ **/
+
+
+.color-behind-tabs-on #tabs-container {
+	background-image: none !important;
+	background-color: #e7e7e7 !important;
+}
+#tabs-container.top  {
+    padding: 0px !important;
+}
+
+.tab-position {
+	border: none;
+	border-radius: 15px;
+}
+.tab-position .tab .tab-header {
+	padding-left: 11px;
+	color: #fdfdfd;
+}
+.tab-position .tab .tab-header .button-badge {
+	display: none;
+}
+.tab-position .tab .tab-header .title {
+	margin-right: 15px;
+}
+.tab-position .tab:not(.active):before {
+	width: 1px;
+	height: calc(100% - 12px);
+	position: absolute;
+	right: -1px;
+	top: 6px;
+	content: "";
+	background-color: #aaaaaa;
+}
+/*.tab-position .tab.active:before, .tab-position .tab.active:after {*/
+	/*width: 8px;*/
+	/*height: 10px;*/
+	/*position: absolute;*/
+	/*right: -7px;*/
+	/*bottom: 0px;*/
+	/*content: "";*/
+/*}*/
+/*.tab-position .tab.active:before {*/
+	/*background-color: #ffffff;*/
+/*}*/
+/*.tab-position .tab.active:after {*/
+	/*border-bottom-left-radius: 10px 8px;*/
+	/*background-color: #e7e7e7;*/
+/*}*/
+
+#titlebar button.vivaldi {
+	width: 0 !important;
+	overflow: hidden !important;
+}
+
+#titlebar > .window-buttongroup {
+	display: none;
+}
+
+
+.toolbar-addressbar .button-toolbar svg, .toolbar-mailbar .button-toolbar svg {
+	width: 20px;
+}
+.toolbar-addressbar .button-toolbar.home {
+	display: none;
+}
+
+.color-behind-tabs-on .addressfield {
+	border-color: transparent;
+	border-radius: 15px;
+	background-color: #f0f0f0;
+	color: #666666;
+}
+.color-behind-tabs-on .addressfield:focus-within {
+	background-color: #ffffff;
+	color: #333333;
+}
+.toolbar-addressbar {
+	padding-top: 1px;
+	padding-bottom: 2px;
+}
+
+#browser.linux,
+#browser.linux + div,
+#browser.linux + div + div,
+#browser.linux button,
+#browser.linux input,
+#browser.linux select,
+#browser.linux textarea {
+	font-family: sans-serif;
+}
