@@ -129,10 +129,11 @@ alpha-step = 0.06;
 opacity-rule = [
 	"{{opacity}}:class_g = 'Gvim'",
 	"{{opacity}}:class_g = 'terminology'",
+	"{{opacity}}:class_g = 'URxvt'",
 	"{{opacity}}:class_g = 'Termite'"
 ];
 # Dim inactive windows. (0.0 - 1.0)
-inactive-dim = 0.0;
+inactive-dim = 0.1;
 # Do not let dimness adjust based on window opacity.
 # inactive-dim-fixed = true;
 # Blur background of transparent windows. Bad performance with X Render backend. GLX backend is preferred.
