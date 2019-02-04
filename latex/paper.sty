@@ -13,7 +13,7 @@
 		\begin{tabular}[t]{c}
 			\makecell{
 				\bt{\fontsize{10}{10}\selectfont #2} \\ #3
-				\ifempty{#1}{}{\\ #1}
+				\ifthenelse{\equal{#1}{}}{}{\\ #1}
 			}
 		\end{tabular}
 	}
@@ -24,7 +24,7 @@
 		\begin{tabular}[t]{c}
 			\makecell{
 				\bt{\fontsize{10}{10}\selectfont #2} \\ #3
-				\ifempty{#1}{}{\\ #1}
+				\ifthenelse{\equal{#1}{}}{}{\\ #1}
 			}
 		\end{tabular}
 	}
@@ -79,7 +79,7 @@
 
 
 \newenvironment{psection}[2][]{
-	\ifempty{#1}
+	\ifthenelse{\equal{#1}{}}
 	{\begin{heading}{True}{}{#2}}
 	{\begin{heading}{True}{sec:#1}{#2}}
 }{
@@ -87,7 +87,7 @@
 }
 
 \newenvironment{psubsection}[2][]{
-	\ifempty{#1}
+	\ifthenelse{\equal{#1}{}}
 	{\begin{subheading}{True}{}{#2}}
 	{\begin{subheading}{True}{sec:#1}{#2}}
 }{
@@ -95,7 +95,7 @@
 }
 
 \newenvironment{pssubsection}[2][]{
-	\ifempty{#1}
+	\ifthenelse{\equal{#1}{}}
 	{\begin{subsubheading}{True}{}{#2}}
 	{\begin{subsubheading}{True}{sec:#1}{#2}}
 }{

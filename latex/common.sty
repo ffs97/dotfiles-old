@@ -264,22 +264,29 @@
 
 %% Math Functions
 \newcommand{\func}[3][]{
-	{#2}\ifempty{#1}{}{_{#1}} \para{#3}
+	{#2}\ifthenelse{\equal{#1}{}}{}{_{#1}} \para{#3}
 }
 \newcommand{\tfunc}[3][]{
-	\text{#2}\ifempty{#1}{}{_{#1}} \para{#3}
+	\text{#2}\ifthenelse{\equal{#1}{}}{}{_{#1}} \para{#3}
 }
 \newcommand{\ffunc}[3][]{
-	\text{\ft{#2}}\ifempty{#1}{}{_{#1}} \para{#3}
+	\text{\ft{#2}}\ifthenelse{\equal{#1}{}}{}{_{#1}} \para{#3}
 }
 \newcommand{\funcinv}[3][]{
-	\func{\ifempty{#1}{{#2}^{-1}}{\para{{#2}^{#1}}^{-1}}}{#3}
+	\func{\ifthenelse{\equal{#1}{}}{{#2}^{-1}}{\para{{#2}^{#1}}^{-1}}}{#3}
 }
 
 \newcommand{\sigmoid}[1]{\func{\sigma}{#1}}
 
+\newcommand{\prob}[2][]{
+	\ifthenelse{\equal{#1}{}}{\bP}{\underset{#1}{\bP}}\brac{#2}
+}
+\newcommand{\aprob}[2][]{
+	\ifthenelse{\equal{#1}{}}{\widetilde{\bP}}{\underset{#1}{\widetilde{\bP}}}\brac{#2}
+}
+
 \newcommand{\lagr}[2][]{
-	\ifempty{#1}{\cL}{\underset{#1}{\cL}}\brac{#2}
+	\ifthenelse{\equal{#1}{}}{\cL}{\underset{#1}{\cL}}\brac{#2}
 }
 
 \newcommand{\der}[2]{\frac{d \para{#1}}{d \para{#2}}}
@@ -300,13 +307,13 @@
 \newcommand{\compl}{\overline}
 
 \renewcommand{\log}[2][]{
-	\ifempty{#1}{\tfunc{log}{#2}}{\tfunc[#1]{log}{#2}}
+	\ifthenelse{\equal{#1}{}}{\tfunc{log}{#2}}{\tfunc[#1]{log}{#2}}
 }
 \renewcommand{\ln}[2][]{
-	\ifempty{#1}{\tfunc{ln}{#2}}{\tfunc[#1]{ln}{#2}}
+	\ifthenelse{\equal{#1}{}}{\tfunc{ln}{#2}}{\tfunc[#1]{ln}{#2}}
 }
 \newcommand{\logp}[2][]{
-	\ifempty{#1}{\text{log}\;{#2}}{\text{log}_{#1}\;{#2}}
+	\ifthenelse{\equal{#1}{}}{\text{log}\;{#2}}{\text{log}_{#1}\;{#2}}
 }
 
 \newcommand{\is}[1]{\cI\,\para{#1}}
@@ -314,14 +321,8 @@
 \newcommand{\tr}[1]{{#1}^{\text{\fontsize{6}{6}\selectfont T}}}
 \newcommand{\comp}[1]{{#1}^{\text{C}}}
 
-\newcommand{\prob}[2][]{
-	\ifempty{#1}{\bP}{\underset{#1}{\bP}}\brac{#2}
-}
-\newcommand{\aprob}[2][]{
-	\ifempty{#1}{\widetilde{\bP}}{\underset{#1}{\widetilde{\bP}}}\brac{#2}
-}
 \newcommand{\E}[2][]{
-	\ifempty{#1}{\bE}{\underset{#1}{\bE}}\brac{#2}
+	\ifthenelse{\equal{#1}{}}{\bE}{\underset{#1}{\bE}}\brac{#2}
 }
 \newcommand{\var}[2][]{
 	\tfunc[#1]{Var}{#2}
@@ -356,16 +357,16 @@
 
 
 % Spacing
-\newcommand{\eq}[1][]{\ifempty{#1}{\quad = \quad}{\quad \overset{#1}{=} \quad}}
-\newcommand{\qimpl}[1][]{\ifempty{#1}{\quad \implies \quad}{\quad \overset{#1}{\implies} \quad}}
-\newcommand{\qsim}[1][]{\ifempty{#1}{\quad \sim \quad}{\quad \overset{#1}{\sim} \quad}}
-\newcommand{\qprop}[1][]{\ifempty{#1}{\quad \propto \quad}{\quad \overset{#1}{\propto} \quad}}
-\newcommand{\qlt}[1][]{\ifempty{#1}{\quad < \quad}{\quad \overset{#1}{<} \quad}}
-\newcommand{\qgt}[1][]{\ifempty{#1}{\quad > \quad}{\quad \overset{#1}{>} \quad}}
-\newcommand{\qle}[1][]{\ifempty{#1}{\quad \le \quad}{\quad \overset{#1}{\le} \quad}}
-\newcommand{\qge}[1][]{\ifempty{#1}{\quad \ge \quad}{\quad \overset{#1}{\ge} \quad}}
-\newcommand{\qla}[1][]{\ifempty{#1}{\quad \la \quad}{\quad \overset{#1}{\la} \quad}}
-\newcommand{\qlla}[1][]{\ifempty{#1}{\quad \lla \quad}{\quad \overset{#1}{\lla} \quad}}
+\newcommand{\eq}[1][]{\ifthenelse{\equal{#1}{}}{\quad = \quad}{\quad \overset{#1}{=} \quad}}
+\newcommand{\qimpl}[1][]{\ifthenelse{\equal{#1}{}}{\quad \implies \quad}{\quad \overset{#1}{\implies} \quad}}
+\newcommand{\qsim}[1][]{\ifthenelse{\equal{#1}{}}{\quad \sim \quad}{\quad \overset{#1}{\sim} \quad}}
+\newcommand{\qprop}[1][]{\ifthenelse{\equal{#1}{}}{\quad \propto \quad}{\quad \overset{#1}{\propto} \quad}}
+\newcommand{\qlt}[1][]{\ifthenelse{\equal{#1}{}}{\quad < \quad}{\quad \overset{#1}{<} \quad}}
+\newcommand{\qgt}[1][]{\ifthenelse{\equal{#1}{}}{\quad > \quad}{\quad \overset{#1}{>} \quad}}
+\newcommand{\qle}[1][]{\ifthenelse{\equal{#1}{}}{\quad \le \quad}{\quad \overset{#1}{\le} \quad}}
+\newcommand{\qge}[1][]{\ifthenelse{\equal{#1}{}}{\quad \ge \quad}{\quad \overset{#1}{\ge} \quad}}
+\newcommand{\qla}[1][]{\ifthenelse{\equal{#1}{}}{\quad \la \quad}{\quad \overset{#1}{\la} \quad}}
+\newcommand{\qlla}[1][]{\ifthenelse{\equal{#1}{}}{\quad \lla \quad}{\quad \overset{#1}{\lla} \quad}}
 \newcommand{\qdeq}{\quad\deq\quad}
 \newcommand{\qapprox}{\quad\approx\quad}
 \newcommand{\qimplies}{\quad\implies\quad}
@@ -488,7 +489,7 @@
 {
 	\ifthenelse{\equal{#1}{False}}
 	{
-		\ifempty{#2}
+		\ifthenelse{\equal{#2}{}}
 		{
 			\section*{#3}
 		}{
@@ -497,7 +498,7 @@
 	}{}
 	\ifthenelse{\equal{#1}{True}}
 	{
-		\ifempty{#2}{
+		\ifthenelse{\equal{#2}{}}{
 			\section{#3}
 		}{
 			\hypertarget{#2}{\section{#3}}
@@ -507,14 +508,14 @@
 
 \newenvironment{subheading}[3]{
 	\ifthenelse{\equal{#1}{False}}{
-		\ifempty{#2}{
+		\ifthenelse{\equal{#2}{}}{
 			\subsection*{#3}
 		}{
 			\hypertarget{#2}{\subsection*{#3}}
 		}
 	}{}
 	\ifthenelse{\equal{#1}{True}}{
-		\ifempty{#2}{
+		\ifthenelse{\equal{#2}{}}{
 			\subsection{#3}
 		}{
 			\hypertarget{#2}{\subsection{#3}}
@@ -527,14 +528,14 @@
 
 \newenvironment{subsubheading}[3]{
 	\ifthenelse{\equal{#1}{False}}{
-		\ifempty{#2}{
+		\ifthenelse{\equal{#2}{}}{
 			\subsubsection*{#3}
 		}{
 			\hypertarget{#2}{\subsubsection*{#3}}
 		}
 	}{}
 	\ifthenelse{\equal{#1}{True}}{
-		\ifempty{#2}{
+		\ifthenelse{\equal{#2}{}}{
 			\subsubsection{#3}
 		}{
 			\hypertarget{#2}{\subsubsection{#3}}
@@ -556,7 +557,7 @@
 \newcommand{\answer}[2][]{
 	\begin{center}
 		\colorbox{anti-flashwhite}{
-			\ifempty{#1}{\parbox{0.5\textwidth}}{\parbox{#1}}
+			\ifthenelse{\equal{#1}{}}{\parbox{0.5\textwidth}}{\parbox{#1}}
 			{
 				#2
 			}
@@ -568,7 +569,7 @@
 	\begin{addmargin}{1.5em}
 		\sbr
 		\colorbox{anti-flashwhite}{
-			\ifempty{#1}{\parbox{0.5\textwidth}}{\parbox{#1}}
+			\ifthenelse{\equal{#1}{}}{\parbox{0.5\textwidth}}{\parbox{#1}}
 			{
 				\br
 				\ct{

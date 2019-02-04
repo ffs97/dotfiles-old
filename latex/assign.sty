@@ -59,7 +59,7 @@
 			\sffamily\bfseries\Large #1
 		}\\
 		\rule{0mm}{15mm}\scalebox{5}{
-			\sffamily \ifempty{#2}{\assigncode}{#2}
+			\sffamily \ifthenelse{\equal{#2}{}}{\assigncode}{#2}
 		}
 	\end{tabular}
 
@@ -87,7 +87,7 @@
 }
 
 \newenvironment{qsection}[2][]{
-	\ifempty{#1}
+	\ifthenelse{\equal{#1}{}}
 	{\begin{subheading}{True}{}{#2}}
 		{\begin{subheading}{True}{sec:\thequestion.#1}{#2}}
 }{
@@ -97,7 +97,7 @@
 
 \newenvironment{qpart}[2][]
 {
-	\ifempty{#1}
+	\ifthenelse{\equal{#1}{}}
 	{\begin{subheading}{False}{}{Part #2}}
 	{\begin{subheading}{False}{part:\thequestion.#1}{Part #2}}
 }{
@@ -106,7 +106,7 @@
 
 
 \newenvironment{qsubsection}[2][]{
-	\ifempty{#1}{
+	\ifthenelse{\equal{#1}{}}{
 		\begin{subsubheading}{True}{}{#2}
 	}
 	{
