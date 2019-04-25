@@ -41,6 +41,10 @@
 \setlength\parskip{1em}
 % Set long table indent to zero
 \setlength{\LTleft}{0em}
+% No indent for lists
+\renewcommand\noindent[1]{%
+  \par\vbox{\parbox[t]{\linewidth}{#1}}%
+}
 
 % Self Defined Colors
 \definecolor{silver}{RGB}{220, 220, 220}

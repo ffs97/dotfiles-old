@@ -4,29 +4,29 @@
 \newcommand{\setpapertitle}[1]{\renewcommand{\papertitle}{#1}}
 
 \newcommand{\authors}{
-	\begin{tabular}[t]{c}
-		\makecell{\bt{\fontsize{10}{10}\selectfont Gurpreet Singh} \\ 150259}
-	\end{tabular}
+	\parbox{3cm}{
+		\centering
+		\bt{\fontsize{10}{10}\selectfont Gurpreet Singh} \\
+		150259
+	}
 }
 \newcommand{\setauthor}[3][]{
-	\renewcommand{\authors}{
-		\begin{tabular}[t]{c}
-			\makecell{
-				\bt{\fontsize{10}{10}\selectfont #2} \\ #3
-				\ifthenelse{\equal{#1}{}}{}{\\ #1}
-			}
-		\end{tabular}
+	\renewcommand\authors{
+		\parbox{3cm}{
+			\centering
+			\bt{\fontsize{10}{10}\selectfont #2} \\ #3
+			\ifthenelse{\equal{#1}{}}{}{\\ #1}
+		}
 	}
 }
 \newcommand{\addauthor}[3][]{
 	\gappto\authors{
 		\hspace{7mm}
-		\begin{tabular}[t]{c}
-			\makecell{
-				\bt{\fontsize{10}{10}\selectfont #2} \\ #3
-				\ifthenelse{\equal{#1}{}}{}{\\ #1}
-			}
-		\end{tabular}
+		\parbox{3cm}{
+			\centering
+			\bt{\fontsize{10}{10}\selectfont #2} \\ #3
+			\ifthenelse{\equal{#1}{}}{}{\\ #1}
+		}
 	}
 }
 

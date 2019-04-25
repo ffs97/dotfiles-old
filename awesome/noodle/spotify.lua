@@ -4,9 +4,9 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 
 -- Set colors
-local title_color =  beautiful.spotify_title_color or beautiful.wibar_fg
-local artist_color = beautiful.spotify_artist_color or beautiful.wibar_fg
-local paused_color = beautiful.spotify_paused_color or beautiful.normal_fg
+local title_color =  beautiful.spotify_song_title_color or beautiful.wibar_fg
+local artist_color = beautiful.spotify_song_artist_color or beautiful.wibar_fg
+local paused_color = beautiful.spotify_song_paused_color or beautiful.normal_fg
 
 local spotify_title = wibox.widget{
 	text = "---------",
@@ -27,7 +27,7 @@ local spotify_artist = wibox.widget{
 }
 
 -- Main widget
-local spotify = wibox.widget{
+local spotify_song = wibox.widget{
 	spotify_title,
 	spotify_artist,
 	layout = wibox.layout.fixed.vertical
@@ -80,7 +80,7 @@ awful.spawn.with_line_callback(spotify_script, {
 	end
 })
 
-spotify:buttons(gears.table.join(
+spotify_song:buttons(gears.table.join(
 	awful.button({ }, 1, function ()
 		awful.spawn.with_shell("mpc toggle")
 	end),
@@ -95,4 +95,4 @@ spotify:buttons(gears.table.join(
 	end)
 ))
 
-return spotify
+return spotify_song

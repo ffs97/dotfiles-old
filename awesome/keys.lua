@@ -3,6 +3,7 @@ local naughty = require("naughty")
 local gears = require("gears")
 local beautiful = require("beautiful")
 local wibox = require("wibox")
+local xrandr = require("xrandr")
 
 local helpers = require("helpers")
 
@@ -271,9 +272,9 @@ keys.globalkeys = gears.table.join(
 			awful.tag.incncol(-1, nil, true)
 		end
 	end),
-	awful.key({ superkey }, "space", function () awful.layout.inc( 1)                end,
+	awful.key({ superkey, altkey }, "space", function () awful.layout.inc( 1)                end,
 	{description = "select next", group = "layout"}),
-	awful.key({ superkey, shiftkey   }, "space", function () awful.layout.inc(-1)                end,
+	awful.key({ superkey, altkey, shiftkey }, "space", function () awful.layout.inc(-1)                end,
 	{description = "select previous", group = "layout"}),
 	--}}
 
@@ -336,20 +337,12 @@ keys.globalkeys = gears.table.join(
 
 	-- TODO: Fix This
 	-- Media keys {
-	--awful.key({ superkey }, "period", function() awful.spawn.with_shell("mpc next") end,
-	--{description = "next song", group = "media"}),
-	--awful.key({ superkey }, "comma", function() awful.spawn.with_shell("mpc prev") end,
-	--{description = "previous song", group = "media"}),
-	--awful.key({ superkey }, "space", function() awful.spawn.with_shell("mpc toggle") end,
-	--{description = "toggle pause/play", group = "media"}),
-	--awful.key({ superkey, shiftkey }, "period", function() awful.spawn.with_shell("mpvc next") end,
-	--{description = "mpv next song", group = "media"}),
-	--awful.key({ superkey, shiftkey }, "comma", function() awful.spawn.with_shell("mpvc prev") end,
-	--{description = "mpv previous song", group = "media"}),
-	--awful.key({ superkey, shiftkey}, "space", function() awful.spawn.with_shell("mpvc toggle") end,
-	--{description = "mpv toggle pause/play", group = "media"}),
-	--awful.key({ superkey }, "F8", function() awful.spawn.with_shell("mpvc quit") end,
-	--{description = "mpv quit", group = "media"}),
+	awful.key({ superkey }, "period", function() awful.spawn.with_shell("sp next") end,
+	{description = "next song", group = "media"}),
+	awful.key({ superkey }, "comma", function() awful.spawn.with_shell("sp prev") end,
+	{description = "previous song", group = "media"}),
+	awful.key({ superkey }, "space", function() awful.spawn.with_shell("sp play") end,
+	{description = "toggle pause/play", group = "media"}),
 	-- }
 
 	-- TODO: Fix This
@@ -387,6 +380,11 @@ keys.globalkeys = gears.table.join(
 	{description = "set floating layout", group = "tag"}),
 	-- }}
 
+	 --Handling Multiple Monitors {{
+	awful.key({ superkey, ctrlkey }, "p", function() xrandr.xrandr() end,
+	{description = "change monitors", group = "monitor"}),
+	 --}}
+
 	-- Program shortcuts {{
 	awful.key({ superkey }, "t", function () awful.spawn(terminal) end,
 	{description = "open a terminal", group = "launcher"}),
@@ -408,7 +406,7 @@ keys.globalkeys = gears.table.join(
 	awful.key({ superkey }, "F2", function() awful.spawn(terminal .. " -e ranger") end,
 	{description = "ranger", group = "launcher"}),
 	-- Spawn cava in a terminal
-	awful.key({ superkey, shiftkey }, "F3", function() awful.spawn(terminal .. " -e cava") end,
+	awful.key({ superkey }, "F3", function() awful.spawn("urxvt -e cava") end,
 	{description = "cava", group = "launcher"}),
 	-- Open new gvim client frame
 	awful.key({ superkey }, "g", function() awful.spawn("gvim") end,

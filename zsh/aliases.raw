@@ -1,3 +1,7 @@
+# General
+alias open="xdg-open"
+alias j="jump"
+
 # Pacman controls
 alias pi="sudo pacman -S --noconfirm"
 alias pd="sudo pacman -R --noconfirm"
@@ -16,11 +20,6 @@ alias ltl="exa -lhT --git --level 1"
 
 alias lt="exa -aT --git --level 3"
 alias ltl="exa -lhT --git --level 3"
-
-# Moving accross Directories
-alias iitk="cd $HOME/{{iitk-path}}"
-alias projects="cd $HOME/{{projects-path}}"
-alias ml="cd $HOME/{{projects-path}}/machine-learning"
 
 alias dots="cd $DOTFILES"
 alias utils="cd $UTILITIES"

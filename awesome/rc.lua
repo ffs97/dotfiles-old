@@ -47,14 +47,14 @@ require("awful.hotkeys_popup.keys")
 -- They sleep until mpd/volume state changes, in an infinite loop.
 -- As a result when awesome restarts, they keep running in background, along with the new ones that are created after the restart.
 -- This script cleans up the old processes.
-awful.spawn.with_shell("~/.config/awesome/awesome-cleanup.sh")
+awful.spawn.with_shell("~/.config/awesome/cleanup.sh")
 
 -- {{{ Initialize stuff
 local helpers = require("helpers")
 local bars = require("bars")
 local keys = require("keys")
-local titlebars = require("titlebars")
 local sidebar = require("sidebar")
+local titlebars = require("titlebars")
 local exit_screen = require("exit_screen")
 -- }}}
 
@@ -90,7 +90,7 @@ end
 terminal = "terminology"
 editor = os.getenv("EDITOR") or "gvim"
 editor_cmd = editor
-filemanager = "ranger"
+filemanager = terminal .. " -e ranger"
 
 -- Get screen geometry
 screen_width = awful.screen.focused().geometry.width
@@ -317,7 +317,7 @@ awful.screen.connect_for_each_screen(function(s)
                     layout = l.max,
                     screen = s,
     })
-	-- Leisure::Franz
+	-- Leisure::Station
     awful.tag.add(tagnames[8], {
                     layout = l.max,
                     screen = s,
@@ -402,7 +402,7 @@ awful.rules.rules = {
     -- Titlebars of these clients will be hidden regardless of the theme setting
     { rule_any = {
         class = {
-          "qutebrowser",
+          -- "qutebrowser",
           -- "code-git",
           },
       }, properties = {},
@@ -473,7 +473,7 @@ awful.rules.rules = {
 	-- Fixed tags for certain windows {{
 	{ rule_any = { class = { "code-git" } },
       properties = { tag = "5" } },
-	{ rule_any = { class = { "Franz" } },
+	{ rule_any = { class = { "Station", "Franz" } },
       properties = { tag = "8" } },
 	-- }}
 

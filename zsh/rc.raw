@@ -14,7 +14,7 @@ ZSH_THEME="fatbira"
 
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git python pip virtualenv screen)
+plugins=(git python pip virtualenv screen colored-man-pages colorize command-not-found jump)
 setopt correct
 
 

@@ -126,3 +126,35 @@
 	\end{addmargin}
 	\sbr
 }
+
+
+\newenvironment{ssection}[2][]{
+	\begin{heading}{True}{sec:#1}{#2}
+	}{
+	\end{heading}
+}
+
+
+\newenvironment{ssubsection}[2][]{
+	\vspace{1mm}
+	\ifthenelse{\equal{#1}{}}{\subsection{#2}}{\hypertarget{sec:#1}{\subsection{#2}}}
+	\begin{addmargin}{1.5em}
+}{
+	\end{addmargin}
+}
+
+
+\newenvironment{sssubsection}[1]{
+	\subsubsection{#1}
+	\begin{addmargin}{1.5em}
+}{
+	\end{addmargin}
+}
+
+
+\newenvironment{spart}[1]{
+	\subsection{Part #1}
+	\begin{addmargin}{1.5em}
+}{
+	\end{addmargin}
+}

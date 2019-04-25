@@ -40,27 +40,28 @@ theme.wallpaper = os.getenv("HOME") .. "/.config/awesome/themes/" .. theme_name 
 
 -- Set the theme font. This is the font that will be used by default in menus, bars, titlebars etc.
 -- theme.font          = "sans 11"
-theme.font          = "IBM Plex Mono Medium"
+theme.font      = "IBM Plex Mono Medium"
+theme.font_size = "13"
 
--- Get colors from .Xresources and set fallback colors
-local background = "#1B1D26"
+-- Set colors
+local color0      = "#282A36"
+local color1      = "#F37F97"
+local color2      = "#5ADECD"
+local color3      = "#F2A272"
+local color4      = "#8897F4"
+local color5      = "#C574DD"
+local color6      = "#79E6F3"
+local color7      = "#FDFDFD"
+local color8      = "#414458"
+local color9      = "#FF4971"
+local color10     = "#18E3C8"
+local color11     = "#FF8037"
+local color12     = "#556FFF"
+local color13     = "#B043D1"
+local color14     = "#3FDCEE"
+local color15     = "#BEBEC1"
+local background  = "#1B1D26"
 local xforeground = "#FDFDFD"
-local color0 = "#282A36"
-local color1 = "#F37F97"
-local color2 = "#5ADECD"
-local color3 = "#F2A272"
-local color4 = "#8897F4"
-local color5 = "#C574DD"
-local color6 = "#79E6F3"
-local color7 = "#FDFDFD"
-local color8 = "#414458"
-local color9 = "#FF4971"
-local color10 = "#18E3C8"
-local color11 = "#FF8037"
-local color12 = "#556FFF"
-local color13 = "#B043D1"
-local color14 = "#3FDCEE"
-local color15 = "#BEBEC1"
 
 -- Set some colors that are used frequently as local variables
 local accent_color = color14
@@ -241,7 +242,6 @@ theme.stats_icon = icon_path .. "stats.png"
 theme.search_icon = icon_path .. "search.png"
 theme.volume_icon = icon_path .. "volume.png"
 theme.muted_icon = icon_path .. "muted.png"
-theme.mpd_icon = icon_path .. "mpd.png"
 theme.firefox_icon = icon_path .. "firefox.png"
 theme.youtube_icon = icon_path .. "youtube.png"
 theme.reddit_icon = icon_path .. "reddit.png"
@@ -425,10 +425,10 @@ theme.minimal_tasklist_visible_clients_text = "+ "
 theme.minimal_tasklist_hidden_clients_color = color8
 theme.minimal_tasklist_hidden_clients_text = " - "
 
--- Mpd song
-theme.mpd_song_title_color = color7
-theme.mpd_song_artist_color = color7
-theme.mpd_song_paused_color = color8
+-- Spotify song
+theme.spotify_song_title_color = color7
+theme.spotify_song_artist_color = color7
+theme.spotify_song_paused_color = color7 .. "33"
 
 -- Volume bar
 theme.volume_bar_active_color = color6
