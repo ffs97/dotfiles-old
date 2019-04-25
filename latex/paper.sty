@@ -12,21 +12,26 @@
 }
 \newcommand{\setauthor}[3][]{
 	\renewcommand\authors{
-		\parbox{3cm}{
+		%\parbox{3cm}{
+			%\centering
+		\begin{tabular}{p{3cm}}
 			\centering
-			\bt{\fontsize{10}{10}\selectfont #2} \\ #3
-			\ifthenelse{\equal{#1}{}}{}{\\ #1}
-		}
+			\bt{\fontsize{10}{10}\selectfont #2} \newline #3
+			\ifthenelse{\equal{#1}{}}{}{\newline #1}
+		\end{tabular}
+		%}
 	}
 }
 \newcommand{\addauthor}[3][]{
 	\gappto\authors{
 		\hspace{7mm}
-		\parbox{3cm}{
+		%\parbox{3cm}{
+		\begin{tabular}{p{3cm}}
 			\centering
-			\bt{\fontsize{10}{10}\selectfont #2} \\ #3
-			\ifthenelse{\equal{#1}{}}{}{\\ #1}
-		}
+			\bt{\fontsize{10}{10}\selectfont #2} \newline #3
+			\ifthenelse{\equal{#1}{}}{}{\newline #1}
+		\end{tabular}
+		%}
 	}
 }
 
