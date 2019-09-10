@@ -25,19 +25,17 @@ function my_git_prompt() {
     STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_BEHIND"
   fi
 
-  # is anything staged?
-  if $(echo "$INDEX" | command grep -E -e '^(D[ M]|[MARC][ MD]) ' &> /dev/null); then
-    STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_STAGED"
-  fi
-
-  # is anything unstaged?
-  if $(echo "$INDEX" | command grep -E -e '^[ MARC][MD] ' &> /dev/null); then
-    STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_UNSTAGED"
-  fi
-
   # is anything untracked?
   if $(echo "$INDEX" | grep '^?? ' &> /dev/null); then
     STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_UNTRACKED"
+  else
+	  # is anything unstaged?
+	  if $(echo "$INDEX" | command grep -E -e '^[ MARC][MD] ' &> /dev/null); then
+		STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_UNSTAGED"
+	  # is anything staged?
+	  elif $(echo "$INDEX" | command grep -E -e '^(D[ M]|[MARC][ MD]) ' &> /dev/null); then
+		STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_STAGED"
+	  fi
   fi
 
   # is anything unmerged?
@@ -54,12 +52,12 @@ function my_git_prompt() {
 
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
-ZSH_THEME_GIT_PROMPT_AHEAD="↺"
-ZSH_THEME_GIT_PROMPT_BEHIND="↓"
+ZSH_THEME_GIT_PROMPT_AHEAD="↷"
+ZSH_THEME_GIT_PROMPT_BEHIND="↶"
 ZSH_THEME_GIT_PROMPT_STAGED="⚫"
 ZSH_THEME_GIT_PROMPT_UNSTAGED="⚪"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="⛒"
-ZSH_THEME_GIT_PROMPT_UNMERGED="✕"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="✖"
+ZSH_THEME_GIT_PROMPT_UNMERGED="↯"
 ZSH_THEME_GIT_PROMPT_SUFFIX="› %{$reset_color%}"
 
 local current_dir='%{$fg[blue]%}%~%{$reset_color%}'

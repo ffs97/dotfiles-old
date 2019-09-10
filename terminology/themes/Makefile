@@ -23,7 +23,7 @@ all: $(OBJS)
 	$(EDJE_CC) $(EDJE_CC_FLAGS) $< $@
 
 clean:
-	rm $(SOURCE_DIR)/*.$(OBJ_EXT)
+	rm -f $(SOURCE_DIR)/*.$(OBJ_EXT)
 
 install: $(OBJS)
 	mkdir -p "$(DESTNN_DIR)"

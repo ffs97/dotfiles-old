@@ -1,6 +1,5 @@
 [options]
-font = Ubuntu Mono Powerline 12
-font = IBM Plex Mono Medium 10
+font = Iosevka Medium 10
 allow_bold = true
 allow_bold = false
 
