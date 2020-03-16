@@ -4,6 +4,7 @@
 \usepackage{amsmath, amssymb, mathtools, bm, amsthm}
 \usepackage{scrextend}
 \usepackage{tikz,forest}
+\usepackage{pgfplots}
 \usepackage{xspace}
 \usepackage[linesnumbered]{algorithm2e}
 \usepackage{mdframed}
@@ -11,7 +12,6 @@
 \usepackage{framed}
 \usepackage{float}
 \usepackage{graphics}
-\usepackage{xifthen}
 \usepackage[normalem]{ulem}
 \usepackage{enumitem}
 \usepackage{array}
@@ -21,7 +21,7 @@
 \usepackage{tabularx}
 \usepackage{makecell}
 \usepackage{anyfontsize}
-\usepackage[none]{hyphenat}
+%\usepackage[none]{hyphenat}
 \usepackage{sectsty}
 \usepackage{textcomp}
 \usepackage{longtable}
@@ -31,6 +31,7 @@
 \usepackage{multirow}
 \usepackage{setspace}
 \usepackage{titlesec}
+\usepackage{listings}
 \usepackage{bbm}
 \usepackage{xparse}
 \usepackage[colorinlistoftodos]{todonotes}
@@ -47,16 +48,22 @@
 
 % Set paragraph indent to zero and skip to 1em
 \setlength\parindent{0em}
-\setlength\parskip{1em}
+\setlength\parskip{0.6em}
 % Set long table indent to zero
 \setlength{\LTleft}{0em}
-% No indent for lists
-\renewcommand\noindent[1]{%
-  \par\vbox{\parbox[t]{\linewidth}{#1}}%
-}
+
+\newcommand{\zerodisplayskips}{%
+  \setlength{\abovedisplayskip}{3pt}%
+  \setlength{\belowdisplayskip}{2pt}%
+  \setlength{\abovedisplayshortskip}{0pt}%
+  \setlength{\belowdisplayshortskip}{0pt}}
+\appto{\normalsize}{\zerodisplayskips}
+\appto{\small}{\zerodisplayskips}
+\appto{\footnotesize}{\zerodisplayskips}
 
 % Self Defined Colors
 \definecolor{silver}{RGB}{220, 220, 220}
+\definecolor{anti-flashwhite}{rgb}{0.95, 0.95, 0.96}
 
 % Fonts
 \renewcommand{\ttdefault}{lmtt}
@@ -68,7 +75,7 @@
 \subsubsectionfont{\normalfont\fontsize{10}{12}\sffamily\selectfont\bfseries}
 
 \renewcommand{\thesection}{{\fontfamily{lmss}\selectfont \arabic{section}.}}
-\renewcommand{\thesubsection}{{\fontfamily{lmss}\selectfont \arabic{section}.\arabic{subsection}.}}
+\renewcommand{\thesubsection}{{\fontfamily{lmss}\selectfont \arabic{section}.\arabic{subsection}}}
 \renewcommand{\thesubsubsection}{{\fontfamily{lmss}\selectfont \arabic{section}.\arabic{subsection}.\arabic{subsubsection}.}}
 
 % Title Spacing
@@ -111,6 +118,9 @@
 
 % Avoid overfull in Bibliography
 \apptocmd{\thebibliography}{\raggedright}{}{}
+
+% Set compat for PgfPlots
+\pgfplotsset{compat=1.5}
 
 
 %% Text Formatting
@@ -365,16 +375,16 @@
 
 
 % Spacing
-\newcommand{\eq}[1][]{\ifthenelse{\equal{#1}{}}{\quad = \quad}{\quad \overset{#1}{=} \quad}}
-\newcommand{\qimpl}[1][]{\ifthenelse{\equal{#1}{}}{\quad \implies \quad}{\quad \overset{#1}{\implies} \quad}}
-\newcommand{\qsim}[1][]{\ifthenelse{\equal{#1}{}}{\quad \sim \quad}{\quad \overset{#1}{\sim} \quad}}
-\newcommand{\qprop}[1][]{\ifthenelse{\equal{#1}{}}{\quad \propto \quad}{\quad \overset{#1}{\propto} \quad}}
-\newcommand{\qlt}[1][]{\ifthenelse{\equal{#1}{}}{\quad < \quad}{\quad \overset{#1}{<} \quad}}
-\newcommand{\qgt}[1][]{\ifthenelse{\equal{#1}{}}{\quad > \quad}{\quad \overset{#1}{>} \quad}}
-\newcommand{\qle}[1][]{\ifthenelse{\equal{#1}{}}{\quad \le \quad}{\quad \overset{#1}{\le} \quad}}
-\newcommand{\qge}[1][]{\ifthenelse{\equal{#1}{}}{\quad \ge \quad}{\quad \overset{#1}{\ge} \quad}}
-\newcommand{\qla}[1][]{\ifthenelse{\equal{#1}{}}{\quad \la \quad}{\quad \overset{#1}{\la} \quad}}
-\newcommand{\qlla}[1][]{\ifthenelse{\equal{#1}{}}{\quad \lla \quad}{\quad \overset{#1}{\lla} \quad}}
+\newcommand{\eq}[1][]{\ifthenelse{\equal{#1}{}}{\  = \ }{\  \overset{#1}{=} \ }}
+\newcommand{\qimpl}[1][]{\ifthenelse{\equal{#1}{}}{\  \implies \ }{\  \overset{#1}{\implies} \ }}
+\newcommand{\qsim}[1][]{\ifthenelse{\equal{#1}{}}{\  \sim \ }{\  \overset{#1}{\sim} \ }}
+\newcommand{\qprop}[1][]{\ifthenelse{\equal{#1}{}}{\  \propto \ }{\  \overset{#1}{\propto} \ }}
+\newcommand{\qlt}[1][]{\ifthenelse{\equal{#1}{}}{\  < \ }{\  \overset{#1}{<} \ }}
+\newcommand{\qgt}[1][]{\ifthenelse{\equal{#1}{}}{\  > \ }{\  \overset{#1}{>} \ }}
+\newcommand{\qle}[1][]{\ifthenelse{\equal{#1}{}}{\  \le \ }{\  \overset{#1}{\le} \ }}
+\newcommand{\qge}[1][]{\ifthenelse{\equal{#1}{}}{\  \ge \ }{\  \overset{#1}{\ge} \ }}
+\newcommand{\qla}[1][]{\ifthenelse{\equal{#1}{}}{\  \la \ }{\  \overset{#1}{\la} \ }}
+\newcommand{\qlla}[1][]{\ifthenelse{\equal{#1}{}}{\  \lla \ }{\  \overset{#1}{\lla} \ }}
 \newcommand{\qdeq}{\quad\deq\quad}
 \newcommand{\qapprox}{\quad\approx\quad}
 \newcommand{\qimplies}{\quad\implies\quad}
@@ -483,14 +493,6 @@
 	\vspace{2mm}
 }
 
-\newenvironment{tightcenter}{
-	\setlength\topsep{0pt}
-	\setlength\parskip{0pt}
-	\begin{center}
-}{
-	\end{center}
-}
-
 % Headings
 
 \newenvironment{heading}[3]
@@ -554,49 +556,24 @@
 	\end{addmargin}
 }
 
-\newcommand{\unheading}[1]{
-
-	\vspace{2mm}
-	\bt{{\sffamily\fontsize{12}{12}\selectfont #1}}
-
-}
-
-\definecolor{anti-flashwhite}{rgb}{0.95, 0.95, 0.96}
-\newcommand{\answer}[2][]{
-	\begin{center}
-		\colorbox{anti-flashwhite}{
-			\ifthenelse{\equal{#1}{}}{\parbox{0.5\textwidth}}{\parbox{#1}}
-			{
-				#2
-			}
-		}
-	\end{center}
-}
-
 \newcommand{\code}[2][]{
-	\begin{addmargin}{1.5em}
-		\sbr
-		\colorbox{anti-flashwhite}{
-			\ifthenelse{\equal{#1}{}}{\parbox{0.5\textwidth}}{\parbox{#1}}
-			{
-				\br
-				\ct{
-					#2
-				}
-				\br
-			}
+	\colorbox{anti-flashwhite}{
+		\ifthenelse{\equal{#1}{}}{\parbox{0.7\textwidth}}{\parbox{#1}}
+		{
+			%\br
+			\ct{#2}
+			\br
 		}
-		\sbr
-	\end{addmargin}
+	}
 }
 
-\newcommand{\twocols}[4]{
-	\begin{tabular}[h!]{@{}b{#2} L{#1}}
-		\bt{\st{#3 } }	&	#4
-	\end{tabular}
-}
+%\newcommand{\twocols}[4]{
+%	\begin{tabular}[h!]{@{}b{#2} L{#1}}
+%		\bt{\st{#3 } }	&	#4
+%	\end{tabular}
+%}
 
-\newtheoremstyle{fatt}{\parskip}{}{}{}{\bfseries\sffamily}{.}{.5em}{}
+\newtheoremstyle{fatt}{\parskip}{}{}{}{\bfseries\sffamily}{}{.5em}{}
 
 \newcounter{seriescode}
 \setcounter{seriescode}{1}
@@ -605,7 +582,7 @@
 \theoremstyle{fatt}
 \let\theorem\relax
 \newtheorem{theorem}{Theorem}[seriescode]
-\newtheorem{lemma}{Lemma}[theorem]
+\newtheorem{lemma}{Lemma}[seriescode]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{claim}{Claim}[seriescode]
 \newtheorem{property}{Property}[seriescode]

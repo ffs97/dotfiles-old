@@ -8,29 +8,8 @@
 # ░░░░░      ░░░░░░░░    ░░░░   ░░░  ░░░░░   ░░░░░   ░░░░  ░░░  
 ####################################################################################################
 
-Host ppr
-    HostName ppr.cse.iitk.ac.in
-    Port 22
-    User guggu
-
-Host webhome
-    HostName webhome.cc.iitk.ac.in
-    Port 22
-    User guggu
-
-Host turing
-    HostName turing.cse.iitk.ac.in
-    Port 22
-    User guggu
-
-Host gpu
-    HostName cseproj83.cse.iitk.ac.in
-    Port 22
-    User gurpreet
-
-
 Host fat-git
   HostName github.com
   User git
-  IdentityFile /home/fat-fighter/.ssh/id_rsa
+  IdentityFile /home/fat-fighter/.ssh/github
   IdentitiesOnly yes
