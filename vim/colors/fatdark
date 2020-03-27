@@ -1,149 +1,244 @@
-"   ███████              ███                                          ████        
-"  ░███░░███            ░███             ░░███                       ░░███   ███  
-"  ░███ ░░░   ██████    ██████            ░███  ██████    ████████    ░███  ███   
-"  ██████    ░░░░░███  ░░███░          ███████ ░░░░░███   ░░███░░███  ░███ ███    
-" ░░███░      ███████   ░███          ███░░███  ███████    ░███ ░░░   ░██████     
-"  ░███      ███░░███   ░███  █      ░███░░███ ███░░███    ░███       ░███░░███   
-"  █████     ░████████  ░░████   ███ ░░██████  ░████████   █████      █████░░████ 
-" ░░░░░      ░░░░░░░░    ░░░░   ░░░   ░░░░░░   ░░░░░░░░   ░░░░░      ░░░░░  ░░░░  
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+"	███████				 ███										  ████
+"  ░███░░███			░███			 ░░███						 ░░███	 ███
+"  ░███ ░░░   ██████	██████			  ░███	██████	  ████████	  ░███	███
+"  ██████	 ░░░░░███  ░░███░		   ███████ ░░░░░███   ░░███░░███  ░███ ███
+" ░░███░	  ███████	░███		  ███░░███	███████    ░███ ░░░   ░██████
+"  ░███		 ███░░███	░███  █		 ░███░░███ ███░░███    ░███		  ░███░░███
+"  █████	 ░████████	░░████	 ███ ░░██████  ░████████   █████	  █████░░████
+" ░░░░░		 ░░░░░░░░	 ░░░░	░░░   ░░░░░░   ░░░░░░░░   ░░░░░		 ░░░░░	░░░░
+"
+" ======================================================================================
+"   Name:       fat.dark
+"   Author:     Gurpreet Singh
+"   Url:        https://github.com/ffs97/dotfiles/vim/colors
+"   License:    The MIT License (MIT)
+"
+"   A dark vim color theme based on Draculy and One-Half
+" ======================================================================================
 
 set background=dark
 highlight clear
 
 if exists("syntax_on")
-  syntax reset
+	syntax reset
 endif
 
 let g:colors_name = "fatdark"
 
-" Normal Text
-hi	Normal							guifg=#ffffff		guibg=#252c36		gui=NONE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Defining Function for Setting Colors
 
-" Selection
-hi	Visual							guifg=NONE			guibg=#5d5d60		gui=NONE
+function! s:set_color(group, fg, bg, attr)
+	if type(a:fg) == type({})
+		exec "hi " . a:group . " guifg=" . a:fg.gui
+	else
+		exec "hi " . a:group . " guifg=NONE cterm=NONE"
+	endif
+	if type(a:bg) == type({})
+		exec "hi " . a:group . " guibg=" . a:bg.gui
+	else
+		exec "hi " . a:group . " guibg=NONE ctermbg=NONE"
+	endif
+	if a:attr != ""
+		exec "hi " . a:group . " gui=" . a:attr . " cterm=" . a:attr
+	else
+		exec "hi " . a:group . " gui=NONE cterm=NONE"
+	endif
+endfun
 
-" Cursor
-hi	Cursor							guifg=#283237		guibg=#aec7c6		gui=NONE
-hi	CursorLine						guifg=NONE			guibg=#353e42		gui=NONE
-hi	CursorColumn					guifg=NONE			guibg=#2e373b		gui=NONE
-hi	ColorColumn						guifg=NONE			guibg=#2e373b		gui=NONE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Defining Colors for fat.dark
 
-" Line Numbers
-hi	LineNr							guifg=#adadad		guibg=#252c36		gui=NONE
-hi	CursorLineNr					guifg=#f0f0f0		guibg=#353e42		gui=bold
+let s:bg = { "gui": "#252c36" }
+let s:fg = { "gui": "#fafafa" }
 
-" Sign Column
-hi	SignColumn						guifg=#9f4f4f		guibg=NONE			gui=bold
+let s:red = { "gui": "#ff5555" }
+let s:blue = { "gui": "#afbfff" }
+let s:pink = { "gui": "#ff79c6" }
+let s:cyan = { "gui": "#3bf2ea" }
+let s:khaki = { "gui": "#f5f8d6" }
+let s:green = { "gui": "#88b369" }
+let s:yellow = { "gui": "#f1fa8c" }
+let s:purple = { "gui": "#800080" }
+let s:orange = { "gui": "#ffb86c" }
+let s:seagreen = { "gui": "#56b6b2" }
+let s:darkgray = { "gui": "#434356" }
+let s:darkkhaki = { "gui": "#b5c79b" }
+let s:darkseagreen = { "gui": "#555579" }
+let s:line_num = { "gui": "#4590a0" }
 
-" Todo Text
-hi	Todo							guifg=#9f4f4f		guibg=NONE			gui=bold
+let s:highlight_line = { "gui": "#3a3545" }
 
-" Vertical Split Separator
-hi	VertSplit						guifg=#3e474a		guibg=#353e42		gui=NONE
+let s:color_col = s:highlight_line
+let s:cursor_col = { "gui": "#aec7c6" }
 
-hi	MatchParen						guifg=#dda790		guibg=NONE			gui=underline
-hi	StatusLine						guifg=#f0f0f0		guibg=#575e61		gui=bold
-hi	StatusLineNC					guifg=#f0f0f0		guibg=#575e61		gui=NONE
-hi	Pmenu							guifg=#bcdbff		guibg=NONE			gui=NONE
-hi	PmenuSel						guifg=NONE			guibg=#3f4b52		gui=NONE
-hi	IncSearch						guifg=#182227		guibg=#8bb664		gui=NONE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Setting the Colors
 
-" Search Highlighting
-hi	Search							guifg=#f0f0f0		guibg=#857055		gui=NONE
+" User Interface {{
 
-hi	Directory						guifg=#3c98d9		guibg=NONE			gui=NONE
+" Normal {
+call s:set_color("Normal", s:fg, s:bg, "")
+call s:set_color("NonText", s:bg, s:bg, "")
+call s:set_color("EndOfBuffer", s:bg, "", "")
+" }
 
-" Folded Text
-hi	Folded							guifg=#adadad		guibg=NONE			gui=NONE
+" Cursor {
+call s:set_color("Cursor", s:bg, s:cursor_col, "")
+call s:set_color("CursorLine", "", s:highlight_line, "")
+" }
 
-" Trailing Whitespace
-hi	ExtraWhitespace					guifg=NONE			guibg=#757575		gui=NONE
+" Column colors {
+call s:set_color("ColorColumn", "", s:color_col, "")
+call s:set_color("CursorColumn", "", s:color_col, "")
+" }
+
+" Line Numbers {
+call s:set_color("LineNrAbove", "", "", "")
+call s:set_color("LineNrBelow", "", "", "")
+call s:set_color("LineNr", s:line_num, s:bg, "")
+call s:set_color("CursorLineNr", s:fg, s:highlight_line, "bold")
+" }
+
+" Diff {
+call s:set_color("DiffAdd", s:green, "", "")
+call s:set_color("DiffChange", s:seagreen, "", "")
+call s:set_color("DiffDelete", s:red, "", "")
+call s:set_color("DiffText", s:blue, "", "")
+" }
+
+" Search {
+call s:set_color("Search", s:bg, s:yellow, "")
+call s:set_color("IncSearch", s:bg, s:yellow, "")
+" }
+
+" Messages and texts {
+call s:set_color("ModeMsg", s:fg, "", "")
+call s:set_color("ErrorMsg", s:red, "", "")
+call s:set_color("Title", s:pink, "", "bold")
+call s:set_color("MoreMsg", s:yellow, "", "")
+call s:set_color("Question", s:yellow, "", "")
+call s:set_color("WarningMsg", s:pink, "", "")
+call s:set_color("QuickFixLine", s:yellow, "", "")
+" }
+
+" Spelling erros {
+call s:set_color("SpellRare", "", "", "")
+call s:set_color("SpellBad", "", "", "undercurl")
+call s:set_color("SpellCap", "", "", "undercurl")
+call s:set_color("SpellLocal", "", "", "undercurl")
+" }
+
+" Selection (Visual) Mode {
+call s:set_color("Visual", "", s:darkgray, "")
+call s:set_color("VisualNOS", "", s:darkgray, "")
+" }
+
+" Status line (overruled by airline/lightline) {
+call s:set_color("StatusLine", s:cyan, s:highlight_line, "italic")
+call s:set_color("StatusLineNC", s:bg, s:bg, "italic")
+call s:set_color("StatusLineTerm", s:cyan, s:highlight_line, "italic")
+call s:set_color("StatusLineTermNC", s:bg, s:bg, "italic")
+" }
+
+" Tab line (overruled by airline/lightline) {
+call s:set_color("TabLine", s:seagreen, s:highlight_line, "")
+call s:set_color("TabLineFill", s:cursor_col, s:highlight_line, "")
+call s:set_color("TabLineSel", s:cyan, s:bg, "")
+" }
+
+" Folding
+call s:set_color("Folded", s:seagreen, "", "")
+call s:set_color("FoldColumn", s:fg, "", "")
+
+" Signs
+call s:set_color("SignColumn", s:orange, "", "")
+
+" Concealed Text
+call s:set_color("Conceal", s:fg, "", "")
+
+" Matching brackets
+call s:set_color("MatchParen", s:cyan, "", "bold,underline")
+
+" Vertical split
+call s:set_color("VertSplit", s:highlight_line, s:bg, "")
+
+" Special keys
+call s:set_color("Special", s:pink, "", "")
+call s:set_color("SpecialChar", s:fg, "", "")
+call s:set_color("SpecialComment", s:red, "", "")
+
+" Directory text
+call s:set_color("Directory", s:blue, "", "")
+
+" Popup Menu
+call s:set_color("Pmenu", s:fg, s:highlight_line, "")
+call s:set_color("PmenuSel", s:blue, s:bg, "bold")
+call s:set_color("PmenuSbar", "", s:seagreen, "")
+call s:set_color("PmenuThumb", "", s:fg, "")
+
+" Miscellaneous
+call s:set_color("ExtraWhitespace", "", s:highlight_line, "")
 match ExtraWhitespace /\s\+$/
 
-" Line Hightlight
-hi	LineHighlight					guifg=NONE			guibg=NONE			gui=underline
+" TODO: Fix {
+" call s:set_color("Menu", "", "", "")
+" call s:set_color("Toolbar", "", "", "")
+" call s:set_color("Tooltip", "", "", "")
+" call s:set_color("Terminal", "", "", "")
+" call s:set_color("WildMenu", s:fg, "", "")
+" call s:set_color("ToolbarLine", "", "", "")
+" call s:set_color("ToolbarButton", "", "", "")
+" call s:set_color("Scrollbar", s:bg, s:bg, "")
+" }
 
-" Errors
-hi	Error							guifg=NONE			guibg=#ff9595		gui=underline,bold
+" }}
 
-hi	Boolean							guifg=#3c98d9		guibg=NONE			gui=NONE
-hi	Character						guifg=#3c98d9		guibg=NONE			gui=NONE
 
-" Comments
-hi	Comment							guifg=#aabaaa		guibg=NONE			gui=NONE
+" Syntax {{
 
-hi	Conditional						guifg=#dda790		guibg=NONE			gui=NONE
-hi	Constant						guifg=#3c98d9		guibg=NONE			gui=NONE
-hi	Define							guifg=#dda790		guibg=NONE			gui=NONE
-hi	DiffAdd							guifg=#f0f0f0		guibg=#43820d		gui=bold
-hi	DiffDelete						guifg=#880708		guibg=NONE			gui=NONE
-hi	DiffChange						guifg=#f0f0f0		guibg=#1c3657		gui=NONE
-hi	DiffText						guifg=#f0f0f0		guibg=#204a87		gui=bold
-hi	ErrorMsg						guifg=NONE			guibg=NONE			gui=NONE
-hi	WarningMsg						guifg=NONE			guibg=NONE			gui=NONE
-hi	Float							guifg=#3c98d9		guibg=NONE			gui=NONE
-hi	Function						guifg=#e38040		guibg=NONE			gui=bold
+call s:set_color("Boolean", s:fg, "", "")
+call s:set_color("Character", s:green, "", "")
+call s:set_color("Comment", s:seagreen, "", "")
+call s:set_color("Conditional", s:blue, "", "")
+call s:set_color("Conditional", s:yellow, "", "")
+call s:set_color("Constant", s:orange, "", "")
+call s:set_color("Debug", s:fg, "", "")
+call s:set_color("Define", s:red, "", "")
+call s:set_color("Delimiter", s:fg, "", "")
+call s:set_color("Error", s:red, "", "undercurl")
+call s:set_color("Exception", s:purple, "", "")
+call s:set_color("Float", s:orange, "", "")
+call s:set_color("Function", s:red, "", "bold")
+call s:set_color("Identifier", s:darkkhaki, "", "")
+call s:set_color("Ignore", s:fg, "", "")
+call s:set_color("Include", s:blue, "", "")
+call s:set_color("Include", s:yellow, "", "")
+call s:set_color("Keyword", s:red, "", "")
+call s:set_color("Label", s:cyan, "", "")
+call s:set_color("Macro", s:blue, "", "")
+call s:set_color("Number", s:orange, "", "")
+call s:set_color("Operator", s:fg, "", "")
+call s:set_color("PreCondit", s:darkkhaki, "", "")
+call s:set_color("PreProc", s:darkkhaki, "", "")
+call s:set_color("Repeat", s:blue, "", "")
+call s:set_color("Repeat", s:yellow, "", "")
+call s:set_color("Statement", s:blue, "", "")
+call s:set_color("StorageClass", s:yellow, "", "")
+call s:set_color("String", s:khaki, "", "")
+call s:set_color("Structure", s:yellow, "", "")
+call s:set_color("Tag", s:fg, "", "")
+call s:set_color("Todo", s:red, "", "bold,underline")
+call s:set_color("Type", s:cyan, "", "")
+call s:set_color("Typedef", s:orange, "", "")
+call s:set_color("Underlined", "", "", "underline")
 
-" Tokens
-hi	Identifier						guifg=#89a0bf		guibg=NONE			gui=NONE
+" }}
 
-" Keywords
-hi	Keyword							guifg=#dda790		guibg=NONE			gui=NONE
+" Vim highlight links {{
 
-" Labels
-hi	Label							guifg=#8bb664		guibg=NONE			gui=NONE
+hi link vimFunction Function
+hi link vimIsCommand PreProc
 
-" Blank Area below Text
-hi	NonText							guifg=#252c36		guibg=#252c36		gui=NONE
-
-" Numbers
-hi	Number							guifg=#5cb8a9		guibg=NONE			gui=NONE
-
-" Maths Operators
-hi	Operator						guifg=#cd9780		guibg=NONE			gui=NONE
-
-" Defined Labels (LaTeX - Environments + Commands)
-hi	PreProc							guifg=#b5c79b		guibg=NONE			gui=NONE
-
-" Special Characters (LaTeX - Math)
-hi	Special							guifg=#b5c79b		guibg=NONE			gui=NONE
-
-hi	SpecialKey						guifg=#414e58		guibg=NONE			gui=NONE
-
-" Statements
-"hi	Statement						guifg=#bcbfef		guibg=NONE			gui=NONE
-hi	Statement						guifg=#bcbfff		guibg=NONE			gui=NONE
-
-hi	StorageClass					guifg=#99cf50		guibg=NONE			gui=NONE
-
-" Strings
-hi	String							guifg=khaki			guibg=NONE			gui=NONE
-
-hi	Tag								guifg=#bcdbff		guibg=NONE			gui=NONE
-hi	Title							guifg=#ae9fb9		guibg=NONE			gui=bold
-hi	Type							guifg=#f5f8d6		guibg=NONE			gui=NONE
-
-" Underlined Text
-hi	Underlined						guifg=NONE			guibg=NONE			gui=underline
-
-hi	htmlTag							guifg=#89bdff		guibg=NONE			gui=NONE
-hi	htmlEndTag						guifg=#89bdff		guibg=NONE			gui=NONE
-hi	htmlTagName						guifg=#89bdff		guibg=NONE			gui=NONE
-hi	htmlArg							guifg=#89bdff		guibg=NONE			gui=NONE
-hi	htmlSpecialChar					guifg=#3c98d9		guibg=NONE			gui=NONE
-hi	javaScriptFunction				guifg=#99cf50		guibg=NONE			gui=NONE
-hi	javaScriptRailsFunction			guifg=#dad085		guibg=NONE			gui=NONE
-hi	javaScriptBraces				guifg=NONE			guibg=NONE			gui=NONE
-hi	yamlKey							guifg=#bcdbff		guibg=NONE			gui=NONE
-hi	yamlAnchor						guifg=#68a9eb		guibg=NONE			gui=NONE
-hi	yamlAlias						guifg=#68a9eb		guibg=NONE			gui=NONE
-hi	yamlDocumentHeader				guifg=#8bb664		guibg=NONE			gui=NONE
-hi	cssURL							guifg=#68a9eb		guibg=NONE			gui=NONE
-hi	cssFunctionName					guifg=#dad085		guibg=NONE			gui=NONE
-hi	cssColor						guifg=#3c98d9		guibg=NONE			gui=NONE
-hi	cssPseudoClassId				guifg=#bcdbff		guibg=NONE			gui=NONE
-hi	cssClassName					guifg=#bcdbff		guibg=NONE			gui=NONE
-hi	cssValueLength					guifg=#3c98d9		guibg=NONE			gui=NONE
-hi	cssCommonAttr					guifg=#a7cfa3		guibg=NONE			gui=NONE
-hi	cssBraces						guifg=NONE			guibg=NONE			gui=NONE
+" }}
