@@ -1,0 +1,417 @@
+auto_save:
+    interval: 15000
+    session: false
+
+backend: "webengine"
+
+colors:
+    completion:
+        category:
+            bg: "$bg"
+            border:
+                bottom: "$bg"
+                top: "$bg"
+            fg: "$cyan"
+        even:
+            bg: "$bg"
+        odd:
+            bg: "$bg"
+        fg: "$fg"
+        item:
+            selected:
+                bg: "$darkgray"
+                border:
+                    bottom: "$darkgray"
+                    top: "$darkgray"
+                fg: "$fg"
+                match:
+                    fg: "$orange"
+        match:
+            fg: "$orange"
+        scrollbar:
+            bg: "$bg"
+            fg: "$blue"
+    contextmenu:
+        menu:
+            bg: "$bg"
+            fg: "$fg"
+        selected:
+            bg: "$darkgray"
+            fg: "$fg"
+    downloads:
+        bar:
+            bg: "$bg"
+        error:
+            bg: "$bg"
+            fg: "$red"
+        start:
+            bg: "$bg"
+            fg: "$blue"
+        stop:
+            bg: "$bg"
+            fg: "$yellow"
+        system:
+            bg: "rgb"
+            fg: "rgb"
+    hints:
+        bg: "$bg"
+        fg: "$fg"
+        match:
+            fg: "$darkkhaki"
+    keyhint:
+        bg: "$bg"
+        fg: "$fg"
+        suffix:
+            fg: "$khaki"
+    messages:
+        error:
+            bg: "$bg"
+            border: "$bg"
+            fg: "$red"
+        info:
+            bg: "$bg"
+            border: "$bg"
+            fg: "$fg"
+        warning:
+            bg: "$bg"
+            border: "$bg"
+            fg: "$orange"
+    prompts:
+        bg: "$bg"
+        border: "$bg"
+        fg: "$fg"
+        selected:
+            bg: "$darkgray"
+    statusbar:
+        insert:
+            bg: "$darkseagreen"
+            fg: "$fg"
+        normal:
+            bg: "$bg"
+            fg: "$fg"
+        passthrough:
+            bg: "$purple"
+            fg: "$fg"
+        private:
+            bg: "$seagreen"
+            fg: "$fg"
+        progress:
+            bg: "$fg"
+        caret:
+            bg: "$darkgray"
+            fg: "$fg"
+            selection:
+                bg: "$seagreen"
+                fg: "$fg"
+        command:
+            bg: "$bg"
+            fg: "$fg"
+            private:
+                bg: "$bg"
+                fg: "$fg"
+        url:
+            error:
+                fg: "$red"
+            fg: "$khaki"
+            hover:
+                fg: "$cyan"
+            success:
+                http:
+                    fg: "$fg"
+                https:
+                    fg: "$fg"
+            warn:
+                fg: "$orange"
+    tabs:
+        bar:
+            bg: "$bg"
+        odd:
+            bg: "$bg"
+            fg: "$fg"
+        even:
+            bg: "$bg"
+            fg: "$fg"
+        indicator:
+            error: "$red"
+            start: "$cyan"
+            stop: "$bg"
+            system: "rgb"
+        pinned:
+            even:
+                bg: "$purple"
+                fg: "$fg"
+            odd:
+                bg: "$purple"
+                fg: "$fg"
+            selected:
+                even:
+                    bg: "$darkseagreen"
+                    fg: "$fg"
+                odd:
+                    bg: "$darkseagreen"
+                    fg: "$fg"
+        selected:
+            even:
+                bg: "$darkseagreen"
+                fg: "$fg"
+            odd:
+                bg: "$darkseagreen"
+                fg: "$fg"
+    webpage:
+        bg: "$bg"
+        prefers_color_scheme_dark: true
+
+completion:
+    cmd_history_max_items: 100
+    delay: 0
+    height: 260
+    min_chars: 1
+    open_categories: ["quickmarks", "searchengines", "history"]
+    quick: true
+    scrollbar:
+        padding: 2
+        width: 12
+    show:
+    shrink: true
+    timestamp_format: "%d-%m-%Y"
+    use_best_match: true
+    web_history:
+        exclude: []
+        max_items: 100
+    entry:
+        padding: {"top": 3, "right": 0, "bottom": 1, "left": 0}
+
+confirm_quit: ["multiple-tabs", "downloads"]
+
+content:
+    autoplay: false
+    cache:
+        size: null
+    canvas_reading: true
+    cookies:
+        accept: "all"
+        store: true
+    default_encoding: "iso-8859-1"
+    desktop_capture: "ask"
+    dns_prefetch: false
+    geolocation: "ask"
+    headers:
+        accept_language: "en-US,en;q=0.9"
+        custom: {}
+        do_not_track: true
+        referer: "same-domain"
+        user_agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99999.0.3578.98 Safari/537.36"
+    host_blocking:
+        enabled: true
+        lists: ["https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"]
+        whitelist: []
+    hyperlink_auditing: false
+    images: true
+    javascript:
+        alert: true
+        can_access_clipboard: true
+        can_open_tabs_automatically: false
+        enabled: true
+        log: {"error": "debug", "info": "debug", "unknown": "debug", "warning": "debug"}
+        modal_dialog: true
+        prompt: true
+    local_content_can_access_file_urls: true
+    local_content_can_access_remote_urls: false
+    local_storage: true
+    media_capture: "ask"
+    mouse_lock: "ask"
+    mute: false
+    netrc_file: ""
+    notifications: false
+    pdfjs: true
+    persistent_storage: "ask"
+    plugins: false
+    print_element_backgrounds: true
+    private_browsing: false
+    proxy: "system"
+    register_protocol_handler: "ask"
+    site_specific_quirks: true
+    ssl_strict: "ask"
+    user_stylesheets: []
+    webgl: true
+    webrtc_ip_handling_policy: "all-interfaces"
+    windowed_fullscreen: false
+    xss_auditing: false
+
+downloads:
+    location:
+        directory: ""
+        prompt: true
+        remember: true
+        suggestion: "both"
+    open_dispatcher: ""
+    position: "bottom"
+    remove_finished: 0
+
+editor:
+    command: ["gvim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
+    encoding: "utf-8"
+
+fonts:
+    completion:
+        category: "bold 16pt BebasNeue"
+        entry: "500 12pt Roboto"
+    contextmenu: "12pt IBM Plex Mono Medium"
+    debug_console: "12pt IBM Plex Mono Medium"
+    default_family: "IBM Plex Mono Medium"
+    default_size: "12pt"
+    hints: "13pt IBM Plex Sans Medium"
+    keyhint: "12pt IBM Plex Mono Medium"
+    messages:
+        error: "13pt IosevkaMedium"
+        info: "13pt IosevkaMedium"
+        warning: "13pt IosevkaMedium"
+    prompts: "500 12pt Roboto"
+    downloads: "500 12pt Roboto"
+    statusbar: "500 12pt Roboto"
+    tabs: "11pt IBM Plex Mono Medium"
+    web:
+        family:
+            cursive:
+            fantasy:
+            fixed:
+            sans_serif:
+            serif:
+            standard:
+        size:
+            default:
+            default_fixed:
+            minimum:
+            minimum_logical:
+
+hints:
+    auto_follow: "full-match"
+    auto_follow_timeout: 0
+    border: "2px solid $bg"
+    chars: "asdqwezxc"
+    dictionary: "/usr/share/dict/words"
+    hide_unmatched_rapid_hints: true
+    leave_on_load: true
+    min_chars: 3
+    mode: "letter"
+    scatter: false
+    selectors:
+    uppercase: false
+
+history_gap_interval: -1
+
+input:
+    escape_quits_reporter: true
+    forward_unbound_keys: "auto"
+    insert_mode:
+        auto_enter: true
+        auto_leave: true
+        auto_load: true
+        leave_on_load: false
+        plugins: false
+    links_included_in_focus_chain: false
+    partial_timeout: 3000
+    rocker_gestures: false
+    spatial_navigation: false
+
+keyhint:
+    blacklist: []
+    delay: 500
+    radius: 0
+
+messages:
+    timeout: 3000
+
+new_instance_open_target: "window"
+
+new_instance_open_target_window: "last-focused"
+
+prompt:
+    filebrowser: true
+    radius: 0
+
+qt:
+    args: []
+    force_platform: ""
+    force_platformtheme: ""
+    force_software_rendering: "none"
+    highdpi: true
+    low_end_device_mode: "auto"
+    process_model: "process-per-site"
+
+scrolling:
+    bar: "always"
+    smooth: false
+
+search:
+    ignore_case: "smart"
+    incremental: true
+
+session:
+    default_name: ""
+    lazy_restore: true
+
+spellcheck:
+    languages: []
+
+statusbar:
+    hide: false
+    padding: {"top": 7, "right": 5, "bottom": 7, "left": 5}
+    position: "bottom"
+    widgets: ["keypress", "url", "progress"]
+
+tabs:
+    background: true
+    close_mouse_button: "middle"
+    close_mouse_button_on_bar: "new-tab"
+    favicons:
+        scale: 1.0
+        show: "always"
+    focus_stack_size: 10
+    indicator:
+        padding: {"top": 2, "right": 4, "bottom": 2, "left": 0}
+        width: 0
+    last_close: "close"
+    max_width: 950
+    min_width: 150
+    mode_on_change: "normal"
+    mousewheel_switching: false
+    new_position:
+        related: "next"
+        stacking: true
+        unrelated: "last"
+    padding: {"top": 10, "right": 10, "bottom": 10, "left": 10}
+    pinned:
+        frozen: true
+        shrink: false
+    position: "top"
+    select_on_remove: "last-used"
+    show: "always"
+    show_switching_delay: 800
+    tabs_are_windows: false
+    title:
+        alignment: "center"
+        format: "{audio}{index}: {current_title}"
+        format_pinned: "{audio}{index}: {current_title}"
+    tooltips: false
+    undo_stack_size: -1
+    width: "20%"
+    wrap: true
+
+url:
+    auto_search: "naive"
+    default_page: "about:blank"
+    incdec_segments: ["path", "query", "anchor"]
+    open_base_url: true
+    searchengines: {"DEFAULT": "https://www.google.com/search?q={}", "y": "https://www.youtube.com/results?search_query={}"}
+    start_pages: "about:blank"
+    yank_ignored_parameters: ["ref", "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"]
+
+window:
+    hide_decoration: false
+    title_format: "{current_title} {title_sep} qutebrowser"
+
+zoom:
+    default: "100%"
+    levels: ["75%", "90%", "100%", "110%", "125%", "150%", "175%", "200%"]
+    mouse_divider: 512
